@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="your_package_name.dangnhap">
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_back"
+        android:layout_marginRight="150dp"
+        />
+
+
+    <TextView
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" New Password"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/edtmatkhaumoi"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:hint="*******"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/ic_eyes"
+
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comfirm Password"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/edtnhaplaimatkhaumoi"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:hint="*******"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/ic_eyes"
+
+        />
+
+    <Button
+        android:id="@+id/btnreset"
+        android:layout_marginTop="120sp"
+        android:layout_width="360dp"
+        android:layout_height="59dp"
+        android:text="Reset Password"
+        android:background="@drawable/customdangnhap"
+        android:layout_marginHorizontal="150dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>
