@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/font"
+    tools:context=".Frament.Fragment_sale">
+
+    <TextView
+        android:id="@+id/back_sale"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="B̲a̲c̲k̲"
+        android:textSize="15dp"
+        android:fontFamily="sans-serif-black"
+        android:textColor="#FF0000"
+
+        />
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:background="@drawable/shape_timkiem"
+        android:src="@drawable/banner_sale_fragmenthome" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:layout_width="380dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/rvc_dialog_sale"/>
+
+</LinearLayout>
