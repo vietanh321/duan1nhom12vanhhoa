@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_back"
+        android:layout_marginRight="150dp"/>
+
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/edttaikhoan"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:hint="xyz@gmail.com"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/user"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/edtmatkhau"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:hint="*******"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/ic_eyes"
+
+        />
+    <TextView
+        android:id="@+id/txtquen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fogot Password"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="120dp"
+        android:textSize="15sp"
+        android:textColor="#186ED6"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/btndangnhap"
+        android:layout_marginTop="20sp"
+        android:layout_width="360dp"
+        android:layout_height="59dp"
+        android:text="Sign in"
+        android:background="@drawable/customdangnhap"/>
+    <Button
+
+        android:id="@+id/btngg"
+        android:layout_width="360dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="20sp"
+        android:text="Sign In With Google"
+        android:textColor="@color/black"
+        android:backgroundTint="#86FFEB"
+
+        />
+    <TextView
+
+        android:id="@+id/txttaoacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New User? Create Account"
+        android:layout_marginTop="46dp"
+        android:textSize="15sp"
+        android:textColor="#0C0C0C"
+        />
+
+</LinearLayout>
