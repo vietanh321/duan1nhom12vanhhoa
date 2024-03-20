@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/font"
+    android:layout_height="match_parent"
+    tools:context=".Frament.Fragment_home">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_gravity="center"
+            android:background="@drawable/shape_timkiem"
+            android:layout_width="380dp"
+            android:iconifiedByDefault="false"
+            android:queryHint="Looking for shoes"
+            android:hint="Looking for shoes"
+            android:layout_height="45dp"
+            android:id="@+id/searchSach"></androidx.appcompat.widget.SearchView>
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="380dp"
+            android:layout_height="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Arrivals"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-black"
+                />
+        </LinearLayout>
+<ImageView
+    android:id="@+id/fragment_home_img_sale"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_timkiem"
+    android:layout_width="380dp"
+    android:layout_height="100dp"
+    android:src="@drawable/banner_sale_fragmenthome"
+    />
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="380dp"
+            android:layout_height="20dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best Seller"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-black"
+                />
+        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_gravity="center"
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/fragment_home_rcv"/>
+    </LinearLayout>
+
+</RelativeLayout>

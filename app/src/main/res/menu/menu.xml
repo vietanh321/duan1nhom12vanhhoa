@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+<item android:id="@+id/profile" android:icon="@drawable/img_3" android:title="Profile" />
+<!--    <item android:id="@+id/QL_loaisach" android:title="@string/nav_quanly_Loaisach" android:icon="@drawable/nav_loai_sach"/>-->
+<!--    <item android:id="@+id/QL_sach" android:title="@string/nav_quanly_sach" android:icon="@drawable/nav_sach"/>-->
+<!--    <item android:id="@+id/QL_thanhvien" android:title="@string/nav_quanly_TV" android:icon="@drawable/nav_thanh_vien"/>-->
+
+
+    <item  android:title="Thống Kê" >
+        <menu>
+<!--            <item android:id="@+id/TOP10" android:title="@string/nav_TOP10" android:icon="@drawable/nav_top_10"/>-->
+<!--            <item android:id="@+id/Doanhthu" android:title="@string/nav_doanhthu" android:icon="@drawable/nav_doanh_thu"/>-->
+        </menu>
+    </item>
+
+
+    <item  android:title="Thống Kê" >
+        <menu>
+<!--            <item android:id="@+id/taotaikhoan" android:title="Tạo tài khoản"/>-->
+<!--            <item android:id="@+id/Doimatkhau" android:title="@string/nav_Doi_matkhau" android:icon="@drawable/nav_doi_matkhau"/>-->
+<!--            <item android:id="@+id/Dangxuat" android:title="@string/nav_Dang_xuat" android:icon="@drawable/nav_dangxuat"/>-->
+        </menu>
+    </item>
+</group>
+</menu>
