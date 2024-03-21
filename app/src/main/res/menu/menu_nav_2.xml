@@ -12,10 +12,4 @@
         <item   android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
 </menu>
 
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-    <!--<menu xmlns:android="http://schemas.android.com/apk/res/android">-->
-    <!--    <item android:id="@+id/nav_home" android:title="" android:icon="@drawable/img"/>-->
-    <!--    <item android:id="@+id/nav_yeuthich" android:title="" android:icon="@drawable/img_1"/>-->
-    <!--    <item android:id="@+id/nav_thongbao" android:title="" android:icon="@drawable/img_2"/>-->
-    <!--    <item android:id="@+id/nav_canhan" android:title="" android:icon="@drawable/img_3"/>-->
-    <!--</menu>-->
+
