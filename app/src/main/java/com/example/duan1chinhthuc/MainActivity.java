@@ -279,20 +279,15 @@
 package com.example.duan1chinhthuc;
 
 import android.annotation.SuppressLint;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -307,7 +302,7 @@ import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
 import com.example.duan1chinhthuc.Frament.Fragment_canhan;
 
 
-import com.example.duan1chinhthuc.fragmnet_1.Fragment_profile;
+import com.example.duan1chinhthuc.Frament.Fragment_profile;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -402,12 +397,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         try {
-            if (id == R.id.profile) {
+            if (id == R.id.m_profile) {
 
-                Fragment fragment = new Fragment_canhan();
+                Fragment fragment = new Fragment_profile();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else   if (id == R.id.m_mycart) {
+                        Intent intent = new Intent(MainActivity.this, giohang.class);
+                        startActivity(intent);
+                        finish();
+            }else  if (id == R.id.m_Favorite) {
+                Fragment fragment = new Frament_yeuthich();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else  if (id == R.id.m_Orders) {
+
+                Intent intent = new Intent(MainActivity.this, order.class);
+                startActivity(intent);
+                finish();
+           }else  if (id == R.id.m_Notification) {
+
+                Fragment fragment = new Fragment_thongbao();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else if (id == R.id.m_Dangxuat) {
+                Intent intent = new Intent(MainActivity.this, DangnhapActivity.class);
+                startActivity(intent);
+                finish();
             }
-            drawerLayout.closeDrawer(GravityCompat.END);
+                drawerLayout.closeDrawer(GravityCompat.END);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

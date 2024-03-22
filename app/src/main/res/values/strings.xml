@@ -1,16 +1,17 @@
 <resources>
 
 
-    <string name="nav_quanly_PM">quản lý phiếu mượn</string>
-    <string name="nav_quanly_Loaisach">quản lý loại sách</string>
-    <string name="nav_quanly_sach">quản lý sách</string>
-    <string name="nav_quanly_TV">quản lý thành viên</string>
+    <string name="Profile">Profile</string>
+    <string name="MyCart">My Cart</string>
+    <string name="Favorite">Favorite</string>
+    <string name="Orders">Orders</string>
 
-    <string name="thongke">thống kê</string>
-    <string name="nav_TOP10">10 sách mượn nhiều nhất</string>
-    <string name="nav_doanhthu">Doanh thu</string>
+    <string name="Notification">Notification</string>
+    <string name="Settings">Settings</string>
 
-    <string name="nav_nguoidung">người dùng</string>
-    <string name="nav_Doi_matkhau">Đổi mật khẩu</string>
+
+    <string name="themsanpham">Thêm Sản Phẩm</string>
     <string name="nav_Dang_xuat">Đăng Xuất</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

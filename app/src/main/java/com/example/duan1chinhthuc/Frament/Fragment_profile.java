@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.fragmnet_1;
+package com.example.duan1chinhthuc.Frament;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
