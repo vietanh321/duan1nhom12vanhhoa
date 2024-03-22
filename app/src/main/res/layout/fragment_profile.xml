@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmnet_1.Fragment_profile">
+    android:orientation="vertical"
+    tools:context=".Frament.Fragment_profile">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="profile" />
 
-</FrameLayout>
+<ImageView
+    android:layout_marginTop="19dp"
+    android:layout_gravity="center"
+    android:id="@+id/image_profile"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:src="@drawable/ic_launcher_foreground"
+    />
+    
+    <EditText
+        android:layout_marginTop="19dp"
+
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Tên"
+        />
+    <EditText
+        android:layout_marginTop="19dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Email"
+        />
+
+    <EditText
+        android:layout_marginTop="19dp"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Pass"
+        />
+
+<Button
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:hint="SAVE"
+    android:backgroundTint="@color/Blue"
+    android:layout_gravity="center"
+    android:textColorHint="@color/white"
+    android:layout_marginTop="25dp"
+    />
+</LinearLayout>

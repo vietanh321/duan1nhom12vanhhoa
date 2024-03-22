@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <group android:checkableBehavior="single">
-<item android:id="@+id/profile" android:title="@string/nav_quanly_PM" />
-    <item android:id="@+id/QL_loaisach" android:title="@string/nav_quanly_Loaisach" />
-    <item android:id="@+id/QL_sach" android:title="@string/nav_quanly_sach" />
-    <item android:id="@+id/QL_thanhvien" android:title="@string/nav_quanly_TV" />
+<item android:id="@+id/m_profile" android:title="@string/Profile" />
+    <item android:id="@+id/m_mycart" android:title="@string/MyCart" />
+    <item android:id="@+id/m_Favorite" android:title="@string/Favorite" />
+    <item android:id="@+id/m_Orders" android:title="@string/Orders" />
 
 
-    <item  android:title="Thống Kê" >
+
+
+            <item android:id="@+id/m_Notification" android:title="@string/Notification" />
+
+
+
+
+
+    <item  android:title="" >
         <menu>
-            <item android:id="@+id/TOP10" android:title="@string/nav_TOP10" />
-            <item android:id="@+id/Doanhthu" android:title="@string/nav_doanhthu" />
-        </menu>
-    </item>
-
-
-    <item  android:title="Thống Kê" >
-        <menu>
-            <item android:id="@+id/taotaikhoan" android:title="Tạo tài khoản"/>
-            <item android:id="@+id/Doimatkhau" android:title="@string/nav_Doi_matkhau" />
-            <item android:id="@+id/Dangxuat" android:title="@string/nav_Dang_xuat"/>
+            <item android:id="@+id/m_themsanpham" android:title="@string/themsanpham"/>
+            <item android:id="@+id/m_Dangxuat" android:title="@string/nav_Dang_xuat"/>
         </menu>
     </item>
 </group>
