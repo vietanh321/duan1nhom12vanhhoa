@@ -418,7 +418,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Fragment fragment = new Fragment_thongbao();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else if (id == R.id.m_Dangxuat) {
-                Intent intent = new Intent(MainActivity.this, DangnhapActivity.class);
+                Intent intent = new Intent(MainActivity.this, dangnhap.class);
                 startActivity(intent);
                 finish();
             }
