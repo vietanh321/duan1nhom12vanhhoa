@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:hint="c"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_id_sp_home"
+            android:layout_gravity="center"
+            />
+        <EditText
+            android:hint="c"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_ten_sp_home"
+            android:layout_gravity="center"
+            />
+        <EditText
+            android:hint="c"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_ngay_sp_home"
+            android:layout_gravity="center"
+            />
+        <EditText
+            android:hint="c"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_trangthai_sp_home"
+            android:layout_gravity="center"
+            />
+        <EditText
+            android:hint="c"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_tieude_sp_home"
+            android:layout_gravity="center"
+            />
+
+        <EditText
+            android:hint="c"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_tenCL_sp_home"
+            android:layout_gravity="center"
+            />
+        <EditText
+            android:hint="giatien"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_giatien_sp_home"
+            android:layout_gravity="center"
+            />
+        <EditText
+            android:hint="size"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_Size_sp_home"
+            android:layout_gravity="center"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="add"
+            android:id="@+id/item_add"
+            />
+    </LinearLayout>
+
+</LinearLayout>

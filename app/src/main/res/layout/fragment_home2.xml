@@ -62,6 +62,13 @@
                 android:fontFamily="sans-serif-black"
                 />
         </LinearLayout>
+        <Button
+            android:id="@+id/them_sp_home"
+            android:hint="thêm SP"
+            android:textColorHint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:layout_gravity="center"
             android:layout_width="380dp"
@@ -70,5 +77,7 @@
             android:id="@+id/fragment_home_rcv"/>
 
     </LinearLayout>
+
+
 
 </RelativeLayout>
