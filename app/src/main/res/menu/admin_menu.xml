@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+<item android:id="@+id/admin_themsanpham" android:title="Them san pham" />
+    <item android:id="@+id/admin_quanlydonhang" android:title="quan ly don hang" />
+
+
+
+
+
+            <item android:id="@+id/m_Notification" android:title="@string/Notification" />
+
+
+
+    <item  android:title="" >
+        <menu>
+            <item android:id="@+id/admin_Dangxuat" android:title="@string/nav_Dang_xuat"/>
+        </menu>
+    </item>
+</group>
+</menu>

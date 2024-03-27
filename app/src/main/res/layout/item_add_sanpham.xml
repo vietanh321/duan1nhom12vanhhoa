@@ -18,63 +18,69 @@
             android:id="@+id/item_id_sp_home"
             android:layout_gravity="center"
             />
-        <EditText
-            android:hint="c"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <EditText
             android:id="@+id/item_ten_sp_home"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:hint="c"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="c"
+            android:minHeight="48dp" />
+
+        <EditText
             android:id="@+id/item_ngay_sp_home"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:hint="c"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="c"
+            android:minHeight="48dp" />
+
+        <EditText
             android:id="@+id/item_trangthai_sp_home"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:hint="c"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="c"
+            android:minHeight="48dp" />
+
+        <EditText
             android:id="@+id/item_tieude_sp_home"
-            android:layout_gravity="center"
-            />
 
-        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:hint="c"
+            android:minHeight="48dp" />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <EditText
             android:id="@+id/item_tenCL_sp_home"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:hint="giatien"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="c"
+            android:minHeight="48dp" />
+
+        <EditText
             android:id="@+id/item_giatien_sp_home"
-            android:layout_gravity="center"
-            />
-        <EditText
-            android:hint="size"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/item_Size_sp_home"
             android:layout_gravity="center"
-            />
+            android:hint="giatien"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/item_Size_sp_home"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="size"
+            android:minHeight="48dp" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -9,15 +9,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.duan1chinhthuc.Database.DbHelper;
+import com.example.duan1chinhthuc.Database.DbHelper;
 
 
-public class ThuThuDao {
+public class  ThuThuDao {
     private final DbHelper dbHelper;
     SharedPreferences sharedPreferences;
 
     public ThuThuDao(Context context) {
         dbHelper = new DbHelper(context);
-        sharedPreferences = context.getSharedPreferences("ddd", MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("Thongtin", MODE_PRIVATE);
     }
 
     public  boolean login(String matt, String matkhau) {
@@ -50,7 +51,6 @@ public class ThuThuDao {
         if (result == -1) {
             return false;
         } else {
-
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("matt", matt);
             editor.putString("loaitaikhoan", "thuthu");
@@ -74,5 +74,6 @@ public class ThuThuDao {
         }
         return 0;
     }
-}
 
+
+}

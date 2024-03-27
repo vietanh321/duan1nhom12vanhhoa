@@ -281,6 +281,7 @@ package com.example.duan1chinhthuc;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -296,6 +297,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.duan1chinhthuc.Fragment_admin.add_delete_update;
+import com.example.duan1chinhthuc.Fragment_admin.delete_sp;
 import com.example.duan1chinhthuc.Frament.Fragment_home;
 import com.example.duan1chinhthuc.Frament.Frament_yeuthich;
 import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
@@ -329,7 +332,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //start app
         repleFrament(new Fragment_home());
-
+        SharedPreferences sharedPreferences = getSharedPreferences("Thongtin", MODE_PRIVATE);
+        String loaiTK = sharedPreferences.getString("loaitaikhoan", "");
+        if (!loaiTK.equals("admin")){
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.m_themsanpham).setVisible(false);
+        }
 
         ImageView giohang = findViewById(R.id.giohang_main);
         giohang.setOnClickListener(new View.OnClickListener() {
@@ -421,6 +429,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(MainActivity.this, dangnhap.class);
                 startActivity(intent);
                 finish();
+            } if (id == R.id.m_themsanpham) {
+                Fragment fragment = new add_delete_update();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else if (id == R.id.m_xóaanpham) {
+                Fragment fragment = new delete_sp();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }
                 drawerLayout.closeDrawer(GravityCompat.END);
             return true;

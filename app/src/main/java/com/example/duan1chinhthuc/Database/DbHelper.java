@@ -16,6 +16,10 @@ import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
+    public DbHelper(@Nullable Context context) {
+        super(context, DB_name, null, 38);
+    }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -23,10 +27,14 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(db_thuthu);
         String db_giohang="create table giohang(Id_giohang text primary key," + " Id_taikhoan text references Id_giohang(Id_taikhoan))";
         db.execSQL(db_giohang);
-        String db_sanpham="create table sanpham(Id_sanpham integer primary key," + " Tensp text," + "tieude text,"+ "trangthai text," + "ngaydangban text)";
-        db.execSQL(db_sanpham);
-        String db_spchitiet="create table spchitiet(Id_spchitiet integer primary key," + "Id_sanpham integer references Id_spchitiet(Id_sanpham) ," + "Id_chatlieu integer references Id_spchitiet(Id_chatlieu), " + "Id_hinhanh integer references Id_spchitiet(Id_hinhanh), " + "gia integer," + "size integer)";
+        String db_spchitiet="create table spchitiet(Id_spchitiet integer primary key ,"
+                + "Id_chatlieu integer references Id_spchitiet(Id_chatlieu)," +
+                " " + "Id_hinhanh integer references Id_spchitiet(Id_hinhanh)," +
+                " " + "gia integer," + "size integer,"+"tensp text,"+"tieude text,"+"trangthai text,"+"ngaydangban text)";
         db.execSQL(db_spchitiet);
+
+
+
         String db_chatlieu="create table chatlieu(Id_chatlieu integer primary key," + "tenchatlieu text)";
         db.execSQL(db_chatlieu);
         String db_hinhanh="create table hinhanh(hinhanh integer primary key," + "urlhinhanh integer)";
@@ -39,8 +47,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.execSQL("insert into hinhanh values(1,1)");
         db.execSQL("insert into chatlieu values(1,'cotton')");
-        db.execSQL("insert into sanpham values(1,'MLB','NEW','conhang','10/12/2024')");
-        db.execSQL("insert into spchitiet values(1,1,1,1,400,29)");
+        db.execSQL("insert into spchitiet values(1,1,1,400,29,'Nike','Top bán chạy','con hang','14/12/2024')");
 
 
     }
@@ -50,7 +57,6 @@ public class DbHelper extends SQLiteOpenHelper {
        if (newVersion != oldVersion){
            db.execSQL("drop table if exists thuthu");
            db.execSQL("drop table if exists giohang");
-           db.execSQL("drop table if exists sanpham");
            db.execSQL("drop table if exists spchitiet");
            db.execSQL("drop table if exists chatlieu");
            db.execSQL("drop table if exists hinhanh");
