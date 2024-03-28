@@ -1,7 +1,9 @@
 package com.example.duan1chinhthuc;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +28,7 @@ public class dangnhap extends AppCompatActivity {
         btndk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(dangnhap.this, dangky.class));
+                startActivity(new Intent(dangnhap.this, fragment_themthuthu.class));
 
             }
 
@@ -39,7 +41,7 @@ public class dangnhap extends AppCompatActivity {
                 String pass = txtpass.getText().toString();
                 if(dao.login(user, pass)){
                     Toast.makeText(dangnhap.this, "Longin thành công", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(dangnhap.this, MainActivity.class));
+                        startActivity(new Intent(dangnhap.this, MainActivity.class));
                 }else{
                     Toast.makeText(dangnhap.this, "Nhap sai", Toast.LENGTH_SHORT).show();
                 }

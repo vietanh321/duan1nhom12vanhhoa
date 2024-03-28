@@ -48,14 +48,14 @@ Context context;
         list = dao.getDS_sanpham();
         adapter = new Home_adapter(list, getContext());
         rcv.setAdapter(adapter);
-
-        Button btnadd = view.findViewById(R.id.them_sp_home);
-        btnadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showdialog();
-            }
-        });
+//
+//        Button btnadd = view.findViewById(R.id.them_sp_home);
+//        btnadd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showdialog();
+//            }
+//        });
 
 
         sale_img.setOnClickListener(new View.OnClickListener() {
@@ -77,53 +77,53 @@ Context context;
 
        return view;
     }
-    private void showdialog(){
-
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
-        LayoutInflater inflater1 = getLayoutInflater();
-        View view1 = inflater1.inflate(R.layout.item_add_sanpham, null);
-        builder1.setView(view1);
-        AlertDialog alertDialog = builder1.create();
-        Button btnadd = view1.findViewById(R.id.item_add);
-        EditText idsp = view1.findViewById(R.id.item_id_sp_home);
-        EditText tensp = view1.findViewById(R.id.item_ten_sp_home);
-        EditText ngay =view1.findViewById(R.id.item_ngay_sp_home);
-        EditText trangthai =view1.findViewById(R.id.item_trangthai_sp_home);
-        EditText tieude =view1.findViewById(R.id.item_tieude_sp_home);
-        EditText item_tenCL_sp_home =view1.findViewById(R.id.item_tenCL_sp_home);
-        EditText item_giatien_sp_home =view1.findViewById(R.id.item_giatien_sp_home);
-        EditText item_Size_sp_home =view1.findViewById(R.id.item_Size_sp_home);
-
-
-        btnadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                try{
-                    int id = Integer.parseInt(idsp.getText().toString());
-                    String ten = tensp.getText().toString();
-                    String ngayd = ngay.getText().toString();
-                    String TT = trangthai.getText().toString();
-                    String TD = tieude.getText().toString();
-                    String TCL = item_tenCL_sp_home.getText().toString();
-                    int giatien = Integer.parseInt(item_giatien_sp_home.getText().toString());
-                    int Size = Integer.parseInt(item_Size_sp_home.getText().toString());
-
-
-                    boolean kt = dao.themSP(id,ten,ngayd,TT,TD,TCL,giatien,Size);
-                    if(kt){
-                        list.clear();
-                        list.addAll(dao.getDS_sanpham());
-                        adapter.notifyDataSetChanged();
-                        alertDialog.dismiss();
-                        Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
-                    }
-                }catch (NumberFormatException e){
-                    Log.i(TAG, "loi", e);
-                }
-            }
-        });
-
-
-    }
+//    private void showdialog(){
+//
+//        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+//        LayoutInflater inflater1 = getLayoutInflater();
+//        View view1 = inflater1.inflate(R.layout.item_add_sanpham, null);
+//        builder1.setView(view1);
+//        AlertDialog alertDialog = builder1.create();
+//        Button btnadd = view1.findViewById(R.id.item_add);
+//        EditText idsp = view1.findViewById(R.id.item_id_sp_home);
+//        EditText tensp = view1.findViewById(R.id.item_ten_sp_home);
+//        EditText ngay =view1.findViewById(R.id.item_ngay_sp_home);
+//        EditText trangthai =view1.findViewById(R.id.item_trangthai_sp_home);
+//        EditText tieude =view1.findViewById(R.id.item_tieude_sp_home);
+//        EditText item_tenCL_sp_home =view1.findViewById(R.id.item_tenCL_sp_home);
+//        EditText item_giatien_sp_home =view1.findViewById(R.id.item_giatien_sp_home);
+//        EditText item_Size_sp_home =view1.findViewById(R.id.item_Size_sp_home);
+//
+//
+//        btnadd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                try{
+//                    int id = Integer.parseInt(idsp.getText().toString());
+//                    String ten = tensp.getText().toString();
+//                    String ngayd = ngay.getText().toString();
+//                    String TT = trangthai.getText().toString();
+//                    String TD = tieude.getText().toString();
+//                    String TCL = item_tenCL_sp_home.getText().toString();
+//                    int giatien = Integer.parseInt(item_giatien_sp_home.getText().toString());
+//                    int Size = Integer.parseInt(item_Size_sp_home.getText().toString());
+//
+//
+//                    boolean kt = dao.themSP(id,ten,ngayd,TT,TD,TCL,giatien,Size);
+//                    if(kt){
+//                        list.clear();
+//                        list.addAll(dao.getDS_sanpham());
+//                        adapter.notifyDataSetChanged();
+//                        alertDialog.dismiss();
+//                        Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
+//                    }
+//                }catch (NumberFormatException e){
+//                    Log.i(TAG, "loi", e);
+//                }
+//            }
+//        });
+//
+//
+//    }
 }
