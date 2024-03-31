@@ -21,12 +21,14 @@ public class View_page extends FragmentStatePagerAdapter {
             case 2 : return new Fragment_thongbao();
             case 3 : return new Fragment_canhan();
 
+
         }
         return null;
     }
 
+
     @Override
     public int getCount() {
-        return 4;
+        return 0;
     }
 }

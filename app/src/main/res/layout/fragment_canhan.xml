@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Frament.Fragment_canhan">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="canhan" />
+        android:id="@+id/txtTaiKhoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tài khoản:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+    />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/txtHoTen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTaiKhoan"
+        android:text="Họ tên:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+    />
+
+    <Button
+        android:id="@+id/btnDoiMatKhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtHoTen"
+        android:text="Đổi mật khẩu"
+        android:textColor="#FFFFFF"
+    />
+
+    <Button
+        android:id="@+id/btnDangXuat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDoiMatKhau"
+        android:text="Đăng xuất"
+        android:textColor="#FFFFFF"
+    />
+</RelativeLayout>
