@@ -1,65 +1,93 @@
 package com.example.duan1chinhthuc.Frament;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.duan1chinhthuc.DangKyactivity;
+import com.example.duan1chinhthuc.Database.DbHelper;
 import com.example.duan1chinhthuc.R;
+import com.example.duan1chinhthuc.dangnhap;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment_canhan#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Fragment_canhan extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextView txtTaiKhoan, txtHoTen;
+    private Button btnDoiMatKhau, btnDangXuat;
+    private DbHelper dbHelper;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Fragment_canhan() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_canhan.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Fragment_canhan newInstance(String param1, String param2) {
-        Fragment_canhan fragment = new Fragment_canhan();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_canhan, container, false);
+
+        dbHelper = new DbHelper(getActivity());
+        txtTaiKhoan = view.findViewById(R.id.txtTaiKhoan);
+        txtHoTen = view.findViewById(R.id.txtHoTen);
+        btnDoiMatKhau = view.findViewById(R.id.btnDoiMatKhau);
+        btnDangXuat = view.findViewById(R.id.btnDangXuat);
+
+        // Lấy thông tin tài khoản từ cơ sở dữ liệu và hiển thị
+        getAccountInfo();
+
+        // Xử lý sự kiện nút Đổi mật khẩu
+        btnDoiMatKhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Gọi phương thức đổi mật khẩu
+                changePassword();
+            }
+        });
+
+        // Xử lý sự kiện nút Đăng xuất
+        btnDangXuat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Thực hiện đăng xuất
+                logout();
+            }
+        });
+
+        return view;
+    }
+
+    private void getAccountInfo() {
+        // Mở cơ sở dữ liệu để truy vấn
+        dbHelper = new DbHelper(getActivity());
+        Cursor cursor = dbHelper.getReadableDatabase().rawQuery("SELECT * FROM thuthu", null);
+
+        // Kiểm tra xem dữ liệu có sẵn hay không
+        if (cursor != null && cursor.moveToFirst()) {
+            // Lấy thông tin tài khoản từ cơ sở dữ liệu và hiển thị lên giao diện
+            String taiKhoan = cursor.getString(cursor.getColumnIndex("matt"));
+            String hoTen = cursor.getString(cursor.getColumnIndex("hoten"));
+            txtTaiKhoan.setText("Tài khoản: " + taiKhoan);
+            txtHoTen.setText("Họ tên: " + hoTen);
+        } else {
+            // Hiển thị thông báo nếu không tìm thấy thông tin tài khoản
+            Toast.makeText(getActivity(), "Không tìm thấy thông tin tài khoản", Toast.LENGTH_SHORT).show();
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_canhan, container, false);
+    private void changePassword() {
+        // Tạo Intent để mở Activity Đổi mật khẩu
+        Intent intent = new Intent(getActivity(), DangKyactivity.class);
+        startActivity(intent);
+    }
+
+    private void logout() {
+        // Thực hiện đăng xuất bằng cách đóng Activity hiện tại và chuyển về màn hình đăng nhập
+        getActivity().finish();
+        Intent intent = new Intent(getActivity(), dangnhap.class);
+        startActivity(intent);
     }
 }

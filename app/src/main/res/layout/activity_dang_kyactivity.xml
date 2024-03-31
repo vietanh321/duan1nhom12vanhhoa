@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".dangnhap">
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_back"
+        android:layout_marginRight="150dp"
+        android:layout_marginTop="10dp"/>
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Name"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/txtten"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:hint="xxxxxxxxx"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/user"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/txtma"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:hint="xyz@gmail.com"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/user"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/txtpass"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:hint="*******"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/ic_eyes"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comfirm Password"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="100dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/edtnhaplaimatkhaumoi"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPassword"
+        android:hint="*******"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/ic_eyes"
+
+        />
+
+    <Button
+        android:id="@+id/btndk"
+        android:layout_marginTop="20sp"
+        android:layout_width="360dp"
+        android:layout_height="59dp"
+        android:text="Sign up"
+        android:background="@drawable/customdangnhap"/>
+
+
+
+</LinearLayout>
