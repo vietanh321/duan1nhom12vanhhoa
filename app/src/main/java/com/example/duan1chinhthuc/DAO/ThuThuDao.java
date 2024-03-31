@@ -1,27 +1,24 @@
 package com.example.duan1chinhthuc.DAO;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 
 import com.example.duan1chinhthuc.Database.DbHelper;
-import com.example.duan1chinhthuc.Database.DbHelper;
-
 
 public class  ThuThuDao {
     private final DbHelper dbHelper;
-    SharedPreferences sharedPreferences;
+    private final SharedPreferences sharedPreferences;
 
     public ThuThuDao(Context context) {
         dbHelper = new DbHelper(context);
-        sharedPreferences = context.getSharedPreferences("Thongtin", MODE_PRIVATE);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public  boolean login(String matt, String matkhau) {
+    public boolean login(String matt, String matkhau) {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from thuthu where matt =? and matkhau =?", new String[]{matt, matkhau});
         if (cursor.getCount() != 0) {
@@ -30,13 +27,17 @@ public class  ThuThuDao {
             editor.putString("matt", cursor.getString(0));
             editor.putString("loaitaikhoan", cursor.getString(3));
             editor.putString("hoten", cursor.getString(1));
-            editor.commit();
+            editor.apply();
+            cursor.close();
+            db.close();
             return true;
         } else {
+            cursor.close();
+            db.close();
             return false;
         }
-
     }
+
     public boolean signup(String matt, String ten, String matkhau) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -48,32 +49,40 @@ public class  ThuThuDao {
         long result = db.insert("thuthu", null, values);
         db.close();
 
-        if (result == -1) {
-            return false;
-        } else {
+        if (result != -1) {
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("matt", matt);
             editor.putString("loaitaikhoan", "thuthu");
             editor.putString("hoten", ten);
             editor.putString("matkhau", matkhau);
-            editor.commit();
+            editor.apply();
             return true;
         }
+        return false;
     }
 
-    public int capnhatpass(String user ,String cu, String moi) {
+    public boolean checkUserExists(String matt) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM thuthu WHERE matt = ?", new String[]{matt});
+        boolean exists = cursor.getCount() > 0;
+        cursor.close();
+        db.close();
+        return exists;
+    }
+
+    public int capnhatpass(String user, String cu, String moi) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from thuthu where matt = ? and matkhau = ?", new String[]{user, cu});
         if (cursor.getCount() > 0) {
             ContentValues values = new ContentValues();
             values.put("matkhau", moi);
             long kt = db.update("thuthu", values, "matt =?", new String[]{user});
-            if (kt == -1)
-                return -1;
-            return 1;
+            cursor.close();
+            db.close();
+            if (kt != -1) return 1;
         }
+        cursor.close();
+        db.close();
         return 0;
     }
-
-
 }

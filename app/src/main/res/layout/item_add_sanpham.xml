@@ -1,92 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:hint="c"
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/productsInfo"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông tin SP"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/ten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên SP"
+                android:layout_marginTop="10dp"/>
+
+
+            <EditText
+                android:id="@+id/Chatlieu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Chất Liệu"/>
+
+
+
+            <EditText
+                android:id="@+id/Gia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Giá"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/thongtin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="THông Tin"
+                android:inputType="number"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/item_id_sp_home"
-            android:layout_gravity="center"
-            />
+            app:layout_constraintTop_toBottomOf="@id/productsInfo"
+            app:layout_constraintStart_toStartOf="@id/productsInfo"
+            app:layout_constraintEnd_toEndOf="@id/productsInfo"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/item_ten_sp_home"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sản phẩm Chi Tiết"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="c"
-            android:minHeight="48dp" />
+            <EditText
+                android:id="@+id/Size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Sizes"
+                android:inputType="number"/>
 
-        <EditText
-            android:id="@+id/item_ngay_sp_home"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/mau"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Màu"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/anh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"/>
+            </LinearLayout>
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="c"
-            android:minHeight="48dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/buttonImagesPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ảnh"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:id="@+id/tvSelectedImages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:layout_marginStart="20dp"/>
+            </LinearLayout>
 
-        <EditText
-            android:id="@+id/item_trangthai_sp_home"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="c"
-            android:minHeight="48dp" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/item_tieude_sp_home"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="c"
-            android:minHeight="48dp" />
 
-        <EditText
-            android:id="@+id/item_tenCL_sp_home"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="c"
-            android:minHeight="48dp" />
 
-        <EditText
-            android:id="@+id/item_giatien_sp_home"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="giatien"
-            android:minHeight="48dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <EditText
-            android:id="@+id/item_Size_sp_home"
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="size"
-            android:minHeight="48dp" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="add"
-            android:id="@+id/item_add"
-            />
-    </LinearLayout>
-
-</LinearLayout>
+</ScrollView>

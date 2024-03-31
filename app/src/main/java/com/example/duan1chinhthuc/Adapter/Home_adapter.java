@@ -18,11 +18,11 @@ import com.example.duan1chinhthuc.mode.San_Pham;
 import java.util.ArrayList;
 
 public class Home_adapter extends RecyclerView.Adapter<Home_adapter.viewholder> {
-private final ArrayList<San_Pham> list;
-private final Context context;
+    private final ArrayList<San_Pham> list;
+    private final Context context;
 
-Home_adapter adapter;
-Home_DAO dao;
+    Home_adapter adapter;
+    Home_DAO dao;
 
     public Home_adapter(ArrayList<San_Pham> list, Context context) {
         this.list = list;
@@ -41,9 +41,9 @@ Home_DAO dao;
 
     @Override
     public void onBindViewHolder(@NonNull Home_adapter.viewholder holder, int position) {
-holder.idSP.setText(Integer.toString(list.get(position).getId_sanpham()));
-holder.tenSP.setText(list.get(position).getTensp());
-holder.tieude.setText(list.get(position).getTieude());
+        holder.idSP.setText(Integer.toString(list.get(position).getId_sanpham()));
+        holder.tenSP.setText(list.get(position).getTensp());
+        holder.tieude.setText(list.get(position).getTieude());
         holder.ngayban.setText(list.get(position).getNgaydangban());
         holder.trangthai.setText(list.get(position).getTrangthai());
         holder.id_CL.setText(Integer.toString(list.get(position).getId_chatlieu()));
@@ -68,8 +68,8 @@ holder.tieude.setText(list.get(position).getTieude());
     }
 
     public class viewholder extends RecyclerView.ViewHolder {
-TextView idSP,tenSP,tieude,ngayban,trangthai,id_CL,ten_CL,id_sp_CT,giatien,size;
-ImageView hinhanhsp;
+        TextView idSP,tenSP,tieude,ngayban,trangthai,id_CL,ten_CL,id_sp_CT,giatien,size;
+        ImageView hinhanhsp;
         public viewholder(@NonNull View itemView) {
             super(itemView);
             idSP = itemView.findViewById(R.id.item_id_sp_home);

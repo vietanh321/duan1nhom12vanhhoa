@@ -19,9 +19,74 @@
     />
 
    </LinearLayout>
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="16dp">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageViewShoe"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/giay" />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_marginStart="16dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textViewShoeName"-->
+<!--                android:text="Giày Nike "-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textViewShoePrice"-->
+<!--                android:text="1.000.000 đ"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="16sp"/>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <Button-->
+<!--                    android:id="@+id/buttonAddToCart"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Thêm vào giỏ hàng"/>-->
+
+<!--                <Spinner-->
+<!--                    android:id="@+id/spinnerSize"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="16dp"/>-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/editTextQuantity"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:inputType="number"-->
+<!--                    android:text="1"/>-->
+
+<!--            </LinearLayout>-->
+
+<!--        </LinearLayout>-->
+<!--    </LinearLayout>-->
+
     <androidx.recyclerview.widget.RecyclerView
 
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="200dp"
 android:layout_centerHorizontal="true"
         android:layout_width="380dp"
         android:layout_height="match_parent"
