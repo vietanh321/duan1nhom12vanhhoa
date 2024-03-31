@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/shape_timkiem"
+    app:circularflow_radiusInDP="50dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:background="#F8F6F6"
+        android:src="@drawable/img_11"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/CTSP_img"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="70dp"
+                android:text=" Giày :"
+                android:textSize="17dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_ten_sp_home_12"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_tieude_sp_home_12"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/item_trangthai_sp_home_12"
+            android:layout_gravity="center"
+            />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="100dp"
+                android:text=" CHất Liệu :"
+                android:textSize="17dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:textColor="@color/Blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_tenCL_sp_home_12"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="50dp"
+                android:text=" Giá :"
+                android:textSize="17dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:textColor="#FF0000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_giatien_sp_home_12"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="50dp"
+                android:text=" Size :"
+                android:textSize="17dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:textColor="#FF0000"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_Size_sp_home_12"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_marginRight="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/add_love"
+
+
+            />
+        <Button
+            android:backgroundTint="@color/Blue"
+            android:hint="Add to cart"
+            android:textSize="20dp"
+            android:textColorHint="@color/white"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:id="@+id/btn_add_cart"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

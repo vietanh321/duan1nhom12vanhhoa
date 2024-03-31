@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.duan1chinhthuc.Fragment_admin.add_delete_update;
 import com.example.duan1chinhthuc.Fragment_admin.delete_sp;
+import com.example.duan1chinhthuc.Fragment_admin.update_sp;
 import com.example.duan1chinhthuc.Frament.Fragment_home;
 import com.example.duan1chinhthuc.Frament.Frament_yeuthich;
 import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
@@ -58,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (!loaiTK.equals("admin")){
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.m_themsanpham).setVisible(false);
+            menu.findItem(R.id.m_xóaanpham).setVisible(false);
+            menu.findItem(R.id.m_update).setVisible(false);
+        }else if (!loaiTK.equals("thuthu")){
+
         }
 
         ImageView giohang = findViewById(R.id.giohang_main);
@@ -155,6 +160,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else if (id == R.id.m_xóaanpham) {
                 Fragment fragment = new delete_sp();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else if (id == R.id.m_update) {
+                Fragment fragment = new update_sp();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }
             drawerLayout.closeDrawer(GravityCompat.END);

@@ -9,19 +9,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.duan1chinhthuc.Database.DbHelper;
-import com.example.duan1chinhthuc.R;
-import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
 import com.example.duan1chinhthuc.mode.San_Pham;
-
 
 import java.util.ArrayList;
 
-public class Home_DAO {
-
+public class giohang_DAO {
     Context context;
     private final DbHelper dbHelper;
 
-    public Home_DAO(Context context) {
+    public giohang_DAO(Context context) {
         dbHelper  = new DbHelper(context);
     }
 
@@ -55,7 +51,7 @@ public class Home_DAO {
         }
         return list;
     }
-//    public ArrayList<SanPhamChiTiet> getDS_sanpham_shrot(){
+    //    public ArrayList<SanPhamChiTiet> getDS_sanpham_shrot(){
 //        ArrayList<SanPhamChiTiet> list = new ArrayList<>();
 //        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
 //        try{
@@ -118,6 +114,4 @@ public class Home_DAO {
         }
         return false;
     }
-
-
 }

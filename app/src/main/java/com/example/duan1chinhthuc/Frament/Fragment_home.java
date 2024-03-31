@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1chinhthuc.Adapter.Home_adapter;
+import com.example.duan1chinhthuc.Adapter.adapter_user;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
@@ -31,10 +32,12 @@ import java.util.ArrayList;
 public class Fragment_home extends Fragment {
     RecyclerView rcv;
     Home_DAO dao;
-    Home_adapter adapter;
+    RecyclerView.Adapter adapter;
+
 ArrayList <San_Pham> list;
 ArrayList<SanPhamChiTiet> list1;
 Context context;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View view =  inflater.inflate(R.layout.fragment_home2, container, false).getRootView();
@@ -43,20 +46,11 @@ Context context;
         rcv = view.findViewById(R.id.fragment_home_rcv);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rcv.setLayoutManager(layoutManager);
-//        FloatingActionButton floatingActionButton = view.findViewById(R.id.FL_add_btn);
+
         dao = new Home_DAO(getContext());
         list = dao.getDS_sanpham();
-        adapter = new Home_adapter(list, getContext());
+        adapter = new adapter_user(list, getContext());
         rcv.setAdapter(adapter);
-//
-//        Button btnadd = view.findViewById(R.id.them_sp_home);
-//        btnadd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showdialog();
-//            }
-//        });
-
 
         sale_img.setOnClickListener(new View.OnClickListener() {
             @Override
