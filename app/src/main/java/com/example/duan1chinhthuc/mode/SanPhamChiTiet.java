@@ -1,47 +1,29 @@
 package com.example.duan1chinhthuc.mode;
 
 public class SanPhamChiTiet {
-    private int id_SP_chitiet;
-    private int id_sanpham;
-    private int id_chatlieu;
+
+    private String tensp;
     private int id_hinh_anh;
+    private int url_hinhanh;
     private int gia_sp;
-    private int Size;
+
 
     public SanPhamChiTiet() {
     }
 
-    public SanPhamChiTiet(int id_SP_chitiet, int id_sanpham, int id_chatlieu, int id_hinh_anh, int gia_sp, int size) {
-        this.id_SP_chitiet = id_SP_chitiet;
-        this.id_sanpham = id_sanpham;
-        this.id_chatlieu = id_chatlieu;
+    public SanPhamChiTiet(String tensp, int id_hinh_anh, int url_hinhanh, int gia_sp) {
+        this.tensp = tensp;
         this.id_hinh_anh = id_hinh_anh;
+        this.url_hinhanh = url_hinhanh;
         this.gia_sp = gia_sp;
-        Size = size;
     }
 
-    public int getId_SP_chitiet() {
-        return id_SP_chitiet;
+    public String getTensp() {
+        return tensp;
     }
 
-    public void setId_SP_chitiet(int id_SP_chitiet) {
-        this.id_SP_chitiet = id_SP_chitiet;
-    }
-
-    public int getId_sanpham() {
-        return id_sanpham;
-    }
-
-    public void setId_sanpham(int id_sanpham) {
-        this.id_sanpham = id_sanpham;
-    }
-
-    public int getId_chatlieu() {
-        return id_chatlieu;
-    }
-
-    public void setId_chatlieu(int id_chatlieu) {
-        this.id_chatlieu = id_chatlieu;
+    public void setTensp(String tensp) {
+        this.tensp = tensp;
     }
 
     public int getId_hinh_anh() {
@@ -52,19 +34,19 @@ public class SanPhamChiTiet {
         this.id_hinh_anh = id_hinh_anh;
     }
 
+    public int getUrl_hinhanh() {
+        return url_hinhanh;
+    }
+
+    public void setUrl_hinhanh(int url_hinhanh) {
+        this.url_hinhanh = url_hinhanh;
+    }
+
     public int getGia_sp() {
         return gia_sp;
     }
 
     public void setGia_sp(int gia_sp) {
         this.gia_sp = gia_sp;
-    }
-
-    public int getSize() {
-        return Size;
-    }
-
-    public void setSize(int size) {
-        Size = size;
     }
 }

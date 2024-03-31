@@ -14,8 +14,7 @@ public class San_Pham {
     private int giatien;
     private int size;
 
-    public San_Pham(String tensp, String tieude, String ngaydangban, String trangthai, String id_CL, String id_HA, int giatien, int size) {
-    }
+
 
     public San_Pham(int id_sanpham, String tensp, String tieude, String ngaydangban, String trangthai, int id_chatlieu, String tenchatlieu, int hinhanh, int urlhinhanh, int id_spchitiet, int giatien, int size) {
         this.id_sanpham = id_sanpham;
