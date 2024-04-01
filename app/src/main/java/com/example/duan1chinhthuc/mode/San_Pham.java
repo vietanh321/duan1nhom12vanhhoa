@@ -1,6 +1,8 @@
 package com.example.duan1chinhthuc.mode;
 
-public class San_Pham {
+import java.io.Serializable;
+
+public class San_Pham implements Serializable {
     private int id_sanpham;
     private String tensp;
     private String tieude;

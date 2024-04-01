@@ -1,42 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- fragment_frament_yeuthich.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/item_ten_sp_home_12"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:background="#404285F4"
-        android:padding="5dp">
+        android:text="Tên sản phẩm"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+    <TextView
+        android:id="@+id/item_tieude_sp_home_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_ten_sp_home_12"
+        android:text="Tiêu đề"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
 
-        <Button
-            android:id="@+id/filter_button"
-            style="bold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:backgroundTint="#4F91D7"
-            android:text="Fillter"
-            android:textColor="@color/black" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/item_trangthai_sp_home_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_tieude_sp_home_12"
+        android:text="Trạng thái"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/item_tenCL_sp_home_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_trangthai_sp_home_12"
+        android:text="Tên chất liệu"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
+    <TextView
+        android:id="@+id/item_giatien_sp_home_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_tenCL_sp_home_12"
+        android:text="Giá tiền"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
 
-    </FrameLayout>
+    <TextView
+        android:id="@+id/item_Size_sp_home_12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_giatien_sp_home_12"
+        android:text="Size"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp"/>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/myImageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/item_Size_sp_home_12"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/add_love"/>
+</RelativeLayout>

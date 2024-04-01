@@ -24,7 +24,7 @@ import com.example.duan1chinhthuc.Fragment_admin.delete_sp;
 import com.example.duan1chinhthuc.Fragment_admin.update_sp;
 import com.example.duan1chinhthuc.Frament.Fragment_canhan;
 import com.example.duan1chinhthuc.Frament.Fragment_home;
-import com.example.duan1chinhthuc.Frament.Frament_yeuthich;
+import com.example.duan1chinhthuc.Frament.Fragment_yeuthich;
 import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
 
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             } else if (id == R.id.nav_yeuthich) {
 
-                Fragment fragment = new Frament_yeuthich();
+                Fragment fragment = new Fragment_yeuthich();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             } else if (id == R.id.nav_thongbao) {
 
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 finish();
             }else  if (id == R.id.m_Favorite) {
-                Fragment fragment = new Frament_yeuthich();
+                Fragment fragment = new Fragment_yeuthich();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else  if (id == R.id.m_Orders) {
 

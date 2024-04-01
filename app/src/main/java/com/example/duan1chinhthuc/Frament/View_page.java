@@ -17,7 +17,7 @@ public class View_page extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0 : return  new Fragment_home();
-            case 1 : return new Frament_yeuthich();
+            case 1 : return new Fragment_yeuthich();
             case 2 : return new Fragment_thongbao();
             case 3 : return new Fragment_canhan();
 
