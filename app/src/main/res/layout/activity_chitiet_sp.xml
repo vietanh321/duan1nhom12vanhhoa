@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/shape_timkiem"
-    app:circularflow_radiusInDP="50dp"
-    android:layout_height="wrap_content">
+    tools:context=".chitiet.chitiet_sp">
+
+
     <ImageView
         android:background="#F8F6F6"
         android:src="@drawable/img_11"
@@ -16,7 +18,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="wrap_content"
+        android:layout_height="450dp"
         >
 
         <LinearLayout
@@ -96,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/item_giatien_sp_home_12"
                 android:layout_gravity="center"
+                android:numeric="integer"
                 />
         </LinearLayout>
         <LinearLayout
@@ -128,27 +131,27 @@
 
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="15dp"
+
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
         <ImageView
             android:layout_marginRight="30dp"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:src="@drawable/add_love"
-
-
             />
+
         <Button
-            android:backgroundTint="@color/Blue"
-            android:hint="Add to cart"
-            android:textSize="20dp"
-            android:textColorHint="@color/white"
+
+            android:id="@+id/btn_add_cart12"
             android:layout_width="250dp"
             android:layout_height="60dp"
-            android:id="@+id/btn_add_cart"
-            />
+            android:backgroundTint="@color/Blue"
+            android:hint="Add to cart"
+            android:textColorHint="@color/white"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
