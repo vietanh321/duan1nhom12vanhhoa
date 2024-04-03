@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 42);
+        super(context, DB_name, null, 57);
     }
 
 
@@ -25,11 +25,13 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String db_thuthu="create table thuthu(matt text primary key," + "hoten text," + "matkhau text," + "loaitaikhoan text)";
         db.execSQL(db_thuthu);
-        String db_giohang="create table giohang(Id_giohang text primary key," + " Id_taikhoan text references Id_giohang(Id_taikhoan))";
+        String db_giohang="create table giohang(id_giohang text primary key ," + " Id_spchitiet text references spchitiet(Id_spchitiet),"+ "matt text references thuthu(matt),"+"soluongsp integer,Tensp text references spchitiet(Tensp),gia integer references spchitiet(gia))";
         db.execSQL(db_giohang);
+
+
         String db_spchitiet="create table spchitiet(Id_spchitiet integer primary key ,"
-                + "Id_chatlieu integer references Id_spchitiet(Id_chatlieu)," +
-                " " + "Id_hinhanh integer references Id_spchitiet(Id_hinhanh)," +
+                + "Id_chatlieu integer references chatlieu(Id_chatlieu)," +
+                " " + "Id_hinhanh integer references hinhanh(Id_hinhanh)," +
                 " " + "gia integer," + "size integer,"+"tensp text,"+"tieude text,"+"trangthai text,"+"ngaydangban text)";
         db.execSQL(db_spchitiet);
 
@@ -39,10 +41,9 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(db_chatlieu);
         String db_hinhanh="create table hinhanh(hinhanh integer primary key," + "urlhinhanh integer)";
         db.execSQL(db_hinhanh);
-        String db_danhgia="create table danhgia(Id_danhgia text primary key," + "Id_taikhoan text references Id_danhgia(Id_taikhoan) ," + "note text)";
+        String db_danhgia="create table danhgia(Id_danhgia text primary key," + "Id_taikhoan text references thuthu(matt) ," + "note text)";
         db.execSQL(db_danhgia);
-        db.execSQL("INSERT INTO thuthu VALUES ('hoaddph46289','duy hoa','hoaddph46289','admin'),('hoaddph46289tt','thi thinh','hoaddph46289tt','thuthu')");
-        db.execSQL("INSERT INTO giohang VALUES('giohang2','TK2')");
+        db.execSQL("INSERT INTO thuthu VALUES ('hoaddph46289','duy hoa','hoaddph46289','admin'),('hoaddph46289tt','thi thinh','hoaddph46289tt','thuthu'),('tv1','thi thinh','1','thuthu')");
         db.execSQL("INSERT INTO danhgia VALUES('dgia1','tk2','Sản phẩm đẹp')");
 
         db.execSQL("insert into hinhanh values(1,1)");
@@ -61,6 +62,7 @@ public class DbHelper extends SQLiteOpenHelper {
            db.execSQL("drop table if exists chatlieu");
            db.execSQL("drop table if exists hinhanh");
            db.execSQL("drop table if exists danhgia");
+
            onCreate(db);
        }
     }

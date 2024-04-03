@@ -9,9 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.example.duan1chinhthuc.Database.DbHelper;
-import com.example.duan1chinhthuc.R;
-import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
 import com.example.duan1chinhthuc.mode.San_Pham;
+import com.example.duan1chinhthuc.mode.gio_hang;
 
 
 import java.util.ArrayList;
@@ -55,25 +54,7 @@ public class Home_DAO {
         }
         return list;
     }
-//    public ArrayList<SanPhamChiTiet> getDS_sanpham_shrot(){
-//        ArrayList<SanPhamChiTiet> list = new ArrayList<>();
-//        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
-//        try{
-//            Cursor cursor = sqLiteDatabase.rawQuery("SELECT ct.Tensp,ha.hinhanh,ha.urlhinhanh,ct.gia \n" +
-//                    "FROM  spchitiet ct,hinhanh ha, chatlieu cl \n"+
-//                    "WHERE  ct.Id_chatlieu = cl.Id_chatlieu and ct.Id_hinhanh = ha.hinhanh ",null);
-//            if (cursor.getCount() > 0){
-//                cursor.moveToFirst();
-//                while (!cursor.isAfterLast()){
-//                    list.add(new San_Pham(cursor.getString(0),cursor.getInt(1),cursor.getInt(2),cursor.getInt(3)));
-//                    cursor.moveToNext();
-//                }
-//            }
-//        }catch (Exception e){
-//            Log.i(TAG, "loi", e);
-//        }
-//        return list;
-//    }
+
     public boolean themSP(int id_sanpham , String tensp, String tieude, String ngaydangban, String trangthai, int idchatlieu, int hinhanh, int giatien, int size){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -89,6 +70,39 @@ public class Home_DAO {
         long kt = db.insert("spchitiet" , null, values);
         return (kt>0);
     }
+
+
+//----------------------------------------------------------------------------------------------------
+    public boolean themSP_giohang(int id_sanpham , String tensp, int giatien){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("Id_spchitiet",id_sanpham);
+        values.put("Tensp", tensp);
+        values.put("gia", giatien);
+        long kt = db.insert("giohang" , null, values);
+        return (kt>0);
+    }
+    public ArrayList<gio_hang> getDS_sanpham_giohang(){
+        ArrayList<gio_hang> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
+        try{
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT ct.Id_spchitiet ,ct.Tensp,ct.gia \n" +
+                    "FROM  spchitiet ct,hinhanh ha, chatlieu cl ,giohang gh,thuthu tt\n"+
+                    "WHERE  ct.Id_chatlieu = cl.Id_chatlieu and ct.Id_hinhanh = ha.hinhanh and gh.matt = tt.matt and gh.Id_spchitiet = ct.Id_spchitiet",null);
+            if (cursor.getCount() > 0){
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()){
+                    list.add(new gio_hang(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3),cursor.getInt(4)));
+                    cursor.moveToNext();
+                }
+            }
+        }catch (Exception e){
+            Log.i(TAG, "loi", e);
+        }
+        return list;
+    }
+
+//----------------------------------------------------------------------------------------------------
 
     public  boolean capnhatsanpham(San_Pham pm){
         SQLiteDatabase db = dbHelper.getWritableDatabase();

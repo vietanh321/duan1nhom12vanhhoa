@@ -11,21 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Duan1chinhthuc"
         tools:targetApi="31">
-       
-
         <activity
-            android:name=".chitiet.chitietsanpham"
+            android:name=".chitiet.chitiet_sp"
             android:exported="false" />
         <activity
-            android:name=".Admin.add_sanpham_admin"
-
+            android:name=".ThongTinKHActivity"
+            android:exported="false" />
+        <activity
             android:name=".Frament.Fragment_canhan"
-
             android:exported="false" />
         <activity
             android:name=".DangKyactivity"
             android:exported="false" />
-        
         <activity
             android:name=".order"
             android:exported="false" />
@@ -35,13 +32,11 @@
         <activity
             android:name=".QuenmatkhauActivity"
             android:exported="false" />
-
-        <activity
-            android:name=".dangnhap"
-            android:exported="false" />
-
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".dangnhap"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

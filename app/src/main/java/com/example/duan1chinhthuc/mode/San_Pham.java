@@ -1,6 +1,8 @@
 package com.example.duan1chinhthuc.mode;
 
-public class San_Pham {
+import java.io.Serializable;
+
+public class San_Pham implements Serializable {
     private int id_sanpham;
     private String tensp;
     private String tieude;
@@ -13,6 +15,7 @@ public class San_Pham {
     private int Id_spchitiet;
     private int giatien;
     private int size;
+    private int soluongmua;
 
 
 
@@ -29,6 +32,24 @@ public class San_Pham {
         Id_spchitiet = id_spchitiet;
         this.giatien = giatien;
         this.size = size;
+    }
+
+    public San_Pham(int id_sanpham, String tensp, int soluongmua) {
+        this.id_sanpham = id_sanpham;
+        this.tensp = tensp;
+        this.soluongmua = soluongmua;
+    }
+
+    public San_Pham() {
+
+    }
+
+    public int getSoluongmua() {
+        return soluongmua;
+    }
+
+    public void setSoluongmua(int soluongmua) {
+        this.soluongmua = soluongmua;
     }
 
     public int getId_sanpham() {

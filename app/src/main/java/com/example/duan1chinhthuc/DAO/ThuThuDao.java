@@ -1,5 +1,7 @@
 package com.example.duan1chinhthuc.DAO;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,7 +17,7 @@ public class  ThuThuDao {
 
     public ThuThuDao(Context context) {
         dbHelper = new DbHelper(context);
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPreferences = context.getSharedPreferences("Thongtin", MODE_PRIVATE);
     }
 
     public boolean login(String matt, String matkhau) {

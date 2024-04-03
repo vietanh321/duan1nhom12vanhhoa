@@ -1,80 +1,67 @@
 package com.example.duan1chinhthuc.mode;
 
-public class gio_hang {
-    private int id_giohang;
-    private int id_idtaikhoan;
-    private int id_sanpham;
-    private String ten_sanpham;
-    private int soluong_sp;
-    private int giatien;
-    private int size;
+import java.io.Serializable;
 
-    public gio_hang() {
+public class gio_hang implements Serializable {
+    private int id;
+    private String tensp;
+    private int giasp;
+    private int hinhanhsp;
+    private int soluongsp;
+
+    public gio_hang(int id, String name, int giamoi, String image, int sl) {
     }
 
-    public gio_hang(int id_giohang, int id_idtaikhoan, int id_sanpham, String ten_sanpham, int soluong_sp, int giatien, int size) {
-        this.id_giohang = id_giohang;
-        this.id_idtaikhoan = id_idtaikhoan;
-        this.id_sanpham = id_sanpham;
-        this.ten_sanpham = ten_sanpham;
-        this.soluong_sp = soluong_sp;
-        this.giatien = giatien;
-        this.size = size;
+    public gio_hang(int id, String tensp, int giasp, int hinhanhsp, int soluongsp) {
+        this.id = id;
+        this.tensp = tensp;
+        this.giasp = giasp;
+        this.hinhanhsp = hinhanhsp;
+        this.soluongsp = soluongsp;
     }
 
-    public int getId_giohang() {
-        return id_giohang;
+    public gio_hang(String tensp, int giasp) {
+        this.tensp = tensp;
+        this.giasp = giasp;
     }
 
-    public void setId_giohang(int id_giohang) {
-        this.id_giohang = id_giohang;
+    public int getId() {
+        return id;
     }
 
-    public int getId_idtaikhoan() {
-        return id_idtaikhoan;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setId_idtaikhoan(int id_idtaikhoan) {
-        this.id_idtaikhoan = id_idtaikhoan;
+    public String getTensp() {
+        return tensp;
     }
 
-    public int getId_sanpham() {
-        return id_sanpham;
+    public void setTensp(String tensp) {
+        this.tensp = tensp;
     }
 
-    public void setId_sanpham(int id_sanpham) {
-        this.id_sanpham = id_sanpham;
+    public int getGiasp() {
+        return giasp;
     }
 
-    public String getTen_sanpham() {
-        return ten_sanpham;
+    public void setGiasp(int giasp) {
+        this.giasp = giasp;
     }
 
-    public void setTen_sanpham(String ten_sanpham) {
-        this.ten_sanpham = ten_sanpham;
+    public int getHinhanhsp() {
+        return hinhanhsp;
     }
 
-    public int getSoluong_sp() {
-        return soluong_sp;
+    public void setHinhanhsp(int hinhanhsp) {
+        this.hinhanhsp = hinhanhsp;
     }
 
-    public void setSoluong_sp(int soluong_sp) {
-        this.soluong_sp = soluong_sp;
+    public int getSoluongsp() {
+        return soluongsp;
     }
 
-    public int getGiatien() {
-        return giatien;
-    }
-
-    public void setGiatien(int giatien) {
-        this.giatien = giatien;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
+    public void setSoluongsp(int soluongsp) {
+        this.soluongsp = soluongsp;
     }
 }

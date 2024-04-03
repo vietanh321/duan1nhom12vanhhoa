@@ -1,42 +1,41 @@
 package com.example.duan1chinhthuc.Frament;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duan1chinhthuc.Adapter.Home_adapter;
 import com.example.duan1chinhthuc.Adapter.adapter_user;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
+import com.example.duan1chinhthuc.InterfaceRecycle;
 import com.example.duan1chinhthuc.R;
+import com.example.duan1chinhthuc.chitiet.chitiet_sp;
 import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
 import com.example.duan1chinhthuc.mode.San_Pham;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.duan1chinhthuc.mode.gio_hang;
 
 import java.util.ArrayList;
 
 public class Fragment_home extends Fragment {
+    private static boolean visible;
     RecyclerView rcv;
     Home_DAO dao;
-    RecyclerView.Adapter adapter;
+    adapter_user adapter;
 
 ArrayList <San_Pham> list;
+
 ArrayList<SanPhamChiTiet> list1;
-Context context;
+    public static ArrayList<gio_hang> manggiohang;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -51,6 +50,16 @@ Context context;
         list = dao.getDS_sanpham();
         adapter = new adapter_user(list, getContext());
         rcv.setAdapter(adapter);
+
+        ImageView addtocarrt = view.findViewById(R.id.add_to_cart);
+        adapter.setOnclickRecycle(new InterfaceRecycle() {
+            @Override
+            public void setOnclick(int position) {
+                Intent intent = new Intent(getActivity(), chitiet_sp.class);
+                intent.putExtra("thongtinchitiet", list.get(position));
+                startActivity(intent);
+            }
+        });
 
         sale_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +80,8 @@ Context context;
 
        return view;
     }
+
+
 //    private void showdialog(){
 //
 //        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());

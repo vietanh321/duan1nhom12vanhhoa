@@ -2,6 +2,7 @@ package com.example.duan1chinhthuc;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -22,6 +24,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.duan1chinhthuc.Fragment_admin.add_delete_update;
 import com.example.duan1chinhthuc.Fragment_admin.delete_sp;
 import com.example.duan1chinhthuc.Fragment_admin.update_sp;
+import com.example.duan1chinhthuc.Frament.Fragment_canhan;
 import com.example.duan1chinhthuc.Frament.Fragment_home;
 import com.example.duan1chinhthuc.Frament.Frament_yeuthich;
 import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
@@ -61,8 +64,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.findItem(R.id.m_themsanpham).setVisible(false);
             menu.findItem(R.id.m_xóaanpham).setVisible(false);
             menu.findItem(R.id.m_update).setVisible(false);
-        }else if (!loaiTK.equals("thuthu")){
+        }
+        if (loaiTK.equals("admin")){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Thông báo");
+            builder.setMessage("Bạn đang là admin. Bạn có muốn chuyển qua trang quản lý của admin không?");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
         }
 
         ImageView giohang = findViewById(R.id.giohang_main);
@@ -72,6 +91,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(MainActivity.this, giohang.class);
                 startActivity(intent);
                 finish();
+                try {
+                    if (loaiTK.equals("admin")){
+                        AlertDialog.Builder builder1;
+                        builder1 = new AlertDialog.Builder(context);
+                        builder1.setTitle("Thông báo");
+                        builder1.setMessage("Bạn đang là admin không thể dùng chức năng");
+                        builder1.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        });
+                        builder1.show();
+                    }else {
+                       }
+                }catch (Exception e){}
+
+
             }
         });
 
@@ -112,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             } else if (id == R.id.nav_canhan) {
 
-                Fragment fragment = new Fragment();
+                Fragment fragment = new Fragment_canhan();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }
             drawerLayout.closeDrawer(GravityCompat.END);
@@ -133,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         try {
             if (id == R.id.m_profile) {
 
-                Fragment fragment = new Fragment_profile();
+                Fragment fragment = new Fragment_canhan();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else   if (id == R.id.m_mycart) {
                 Intent intent = new Intent(MainActivity.this, giohang.class);

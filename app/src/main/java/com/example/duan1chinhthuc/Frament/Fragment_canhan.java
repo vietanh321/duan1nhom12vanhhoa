@@ -1,5 +1,6 @@
 package com.example.duan1chinhthuc.Frament;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -68,8 +69,8 @@ public class Fragment_canhan extends Fragment {
         // Kiểm tra xem dữ liệu có sẵn hay không
         if (cursor != null && cursor.moveToFirst()) {
             // Lấy thông tin tài khoản từ cơ sở dữ liệu và hiển thị lên giao diện
-            String taiKhoan = cursor.getString(cursor.getColumnIndex("matt"));
-            String hoTen = cursor.getString(cursor.getColumnIndex("hoten"));
+            @SuppressLint("Range") String taiKhoan = cursor.getString(cursor.getColumnIndex("matt"));
+            @SuppressLint("Range") String hoTen = cursor.getString(cursor.getColumnIndex("hoten"));
             txtTaiKhoan.setText("Tài khoản: " + taiKhoan);
             txtHoTen.setText("Họ tên: " + hoTen);
         } else {
