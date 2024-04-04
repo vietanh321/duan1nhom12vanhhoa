@@ -20,6 +20,11 @@
             <item android:id="@+id/m_themsanpham" android:title="@string/themsanpham"/>
             <item android:id="@+id/m_xóaanpham" android:title="xóa sản phẩm"/>
             <item android:id="@+id/m_update" android:title="Update SP"/>
+            <item android:id="@+id/m_QL_DH" android:title="QL đơn hàng"/>
+            <item android:id="@+id/m_QL_TK_user" android:title="QL tài khoản người dùng"/>
+
+
+
 
             <item android:id="@+id/m_Dangxuat" android:title="@string/nav_Dang_xuat"/>
         </menu>

@@ -17,14 +17,24 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 57);
+        super(context, DB_name, null, 60);
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer, trangthai integer,ngay text)";
+        db.execSQL(chitietdonhang);
+        String donhang = "CREATE TABLE DONHANG(id integer primary key, tenkhachhang text,sodienthoai integer, " +
+                "email text,diachi text,Id_spchitiet references spchitiet(Id_spchitiet),trangthai text,size integer)";
+        db.execSQL(donhang);
+
+
         String db_thuthu="create table thuthu(matt text primary key," + "hoten text," + "matkhau text," + "loaitaikhoan text)";
         db.execSQL(db_thuthu);
+
+
+
         String db_giohang="create table giohang(id_giohang text primary key ," + " Id_spchitiet text references spchitiet(Id_spchitiet),"+ "matt text references thuthu(matt),"+"soluongsp integer,Tensp text references spchitiet(Tensp),gia integer references spchitiet(gia))";
         db.execSQL(db_giohang);
 
@@ -62,6 +72,8 @@ public class DbHelper extends SQLiteOpenHelper {
            db.execSQL("drop table if exists chatlieu");
            db.execSQL("drop table if exists hinhanh");
            db.execSQL("drop table if exists danhgia");
+           db.execSQL("drop table if exists CHITIETDONHANG");
+           db.execSQL("drop table if exists DONHANG");
 
            onCreate(db);
        }

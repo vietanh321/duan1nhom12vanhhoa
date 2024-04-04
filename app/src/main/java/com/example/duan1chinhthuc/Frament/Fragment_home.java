@@ -8,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1chinhthuc.Adapter.Home_adapter;
 import com.example.duan1chinhthuc.Adapter.adapter_user;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.InterfaceRecycle;
@@ -52,14 +54,14 @@ ArrayList<SanPhamChiTiet> list1;
         rcv.setAdapter(adapter);
 
         ImageView addtocarrt = view.findViewById(R.id.add_to_cart);
-        adapter.setOnclickRecycle(new InterfaceRecycle() {
-            @Override
-            public void setOnclick(int position) {
-                Intent intent = new Intent(getActivity(), chitiet_sp.class);
-                intent.putExtra("thongtinchitiet", list.get(position));
-                startActivity(intent);
-            }
-        });
+//        adapter.setOnclickRecycle(new InterfaceRecycle() {
+//            @Override
+//            public void setOnclick(int position) {
+//                Intent intent = new Intent(getActivity(), chitiet_sp.class);
+//                intent.putExtra("thongtinchitiet", list.get(position));
+//                startActivity(intent);
+//            }
+//        });
 
         sale_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,11 +79,33 @@ ArrayList<SanPhamChiTiet> list1;
             }
         });
 
+        SearchView srview = view.findViewById(R.id.searchSach);
+        srview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ArrayList<San_Pham> newlist = new ArrayList<>();
+                for (San_Pham s : list){
+                    if (s.getTensp().toLowerCase().contains(newText.toLowerCase())){
+                        newlist.add(s);
+                    }
+                }
+                gettimkiem(newlist);
+                return false;
+            }
+        });
        return view;
     }
 
-
+    private void gettimkiem (ArrayList<San_Pham> list){
+        //data
+        adapter = new adapter_user(list, getContext());
+        rcv.setAdapter(adapter);
+    }
 //    private void showdialog(){
 //
 //        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());

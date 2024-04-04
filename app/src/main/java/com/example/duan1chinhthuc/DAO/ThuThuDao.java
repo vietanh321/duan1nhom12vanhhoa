@@ -2,14 +2,21 @@ package com.example.duan1chinhthuc.DAO;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.preference.PreferenceManager;
+import android.util.Log;
 
 import com.example.duan1chinhthuc.Database.DbHelper;
+import com.example.duan1chinhthuc.mode.San_Pham;
+import com.example.duan1chinhthuc.mode.nguoidung;
+
+import java.util.ArrayList;
 
 public class  ThuThuDao {
     private final DbHelper dbHelper;
@@ -18,6 +25,26 @@ public class  ThuThuDao {
     public ThuThuDao(Context context) {
         dbHelper = new DbHelper(context);
         sharedPreferences = context.getSharedPreferences("Thongtin", MODE_PRIVATE);
+    }
+
+
+    public ArrayList<nguoidung> getDS_nguoidung(){
+        ArrayList<nguoidung> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
+        try{
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT  *\n" +
+                    "FROM  thuthu where loaitaikhoan = 'thuthu' \n",null);
+            if (cursor.getCount() > 0){
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()){
+                    list.add(new nguoidung(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3)));
+                    cursor.moveToNext();
+                }
+            }
+        }catch (Exception e){
+            Log.i(TAG, "loi", e);
+        }
+        return list;
     }
 
     public boolean login(String matt, String matkhau) {
@@ -86,5 +113,15 @@ public class  ThuThuDao {
         cursor.close();
         db.close();
         return 0;
+    }
+
+    public boolean delete(String mapm){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from thuthu where matt = ?", new String[]{String.valueOf(mapm)});
+        if(cursor.getCount() > 0){
+            long kt = db.delete("thuthu", "matt =?", new String[]{String.valueOf(mapm)}) ;
+            return true;
+        }
+        return false;
     }
 }

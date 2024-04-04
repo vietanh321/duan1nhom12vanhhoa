@@ -92,7 +92,7 @@ public class Home_DAO {
             if (cursor.getCount() > 0){
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()){
-                    list.add(new gio_hang(cursor.getInt(0),cursor.getString(1),cursor.getInt(2), cursor.getInt(3),cursor.getInt(4)));
+                    list.add(new gio_hang(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
                     cursor.moveToNext();
                 }
             }
