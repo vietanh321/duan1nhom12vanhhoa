@@ -9,7 +9,13 @@ public class gio_hang implements Serializable {
     private int hinhanhsp;
     private int soluongsp;
 
-    public gio_hang(int id, String name, int giamoi, String image, int sl) {
+    public gio_hang(int id, String tensp, int giasp) {
+        this.id = id;
+        this.tensp = tensp;
+        this.giasp = giasp;
+    }
+
+    public gio_hang() {
     }
 
     public gio_hang(int id, String tensp, int giasp, int hinhanhsp, int soluongsp) {

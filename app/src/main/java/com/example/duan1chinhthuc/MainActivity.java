@@ -21,6 +21,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.duan1chinhthuc.Fragment_admin.QL_donhang;
+import com.example.duan1chinhthuc.Fragment_admin.QL_tk_user;
 import com.example.duan1chinhthuc.Fragment_admin.add_delete_update;
 import com.example.duan1chinhthuc.Fragment_admin.delete_sp;
 import com.example.duan1chinhthuc.Fragment_admin.update_sp;
@@ -30,7 +32,6 @@ import com.example.duan1chinhthuc.Frament.Frament_yeuthich;
 import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
 
 
-import com.example.duan1chinhthuc.Frament.Fragment_profile;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.findItem(R.id.m_themsanpham).setVisible(false);
             menu.findItem(R.id.m_xóaanpham).setVisible(false);
             menu.findItem(R.id.m_update).setVisible(false);
+            menu.findItem(R.id.m_QL_TK_user).setVisible(false);
+            menu.findItem(R.id.m_QL_DH).setVisible(false);
+
         }
         if (loaiTK.equals("admin")){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -88,9 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         giohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, giohang.class);
-                startActivity(intent);
-                finish();
+
                 try {
                     if (loaiTK.equals("admin")){
                         AlertDialog.Builder builder1;
@@ -104,8 +106,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                             }
                         });
+                        builder1.setPositiveButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+
+                            }
+                        });
                         builder1.show();
                     }else {
+                        Intent intent = new Intent(MainActivity.this, giohang.class);
+                        startActivity(intent);
+                        finish();
                        }
                 }catch (Exception e){}
 
@@ -190,9 +202,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Fragment fragment = new Fragment_thongbao();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else if (id == R.id.m_Dangxuat) {
-                Intent intent = new Intent(MainActivity.this, dangnhap.class);
-                startActivity(intent);
-                finish();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setTitle("Thông báo");
+                    builder.setMessage("Bạn có Muốn Đăng Xuất Không ?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(MainActivity.this, dangnhap.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+
             } if (id == R.id.m_themsanpham) {
                 Fragment fragment = new add_delete_update();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
@@ -201,6 +229,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else if (id == R.id.m_update) {
                 Fragment fragment = new update_sp();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else if (id == R.id.m_QL_DH) {
+                Fragment fragment = new QL_donhang();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else if (id == R.id.m_QL_TK_user) {
+                Fragment fragment = new QL_tk_user();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }
             drawerLayout.closeDrawer(GravityCompat.END);
