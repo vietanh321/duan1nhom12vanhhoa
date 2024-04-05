@@ -48,13 +48,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_Tenchatlieu_SP_ADD"
-                android:hint="TenChatLieu_String"
+                android:hint="ID_Chất Liệu"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_hinhanh_SP_ADD"
-                android:hint="Hinhanh_Integer"
+                android:hint="ID_hình ảnh"
                 android:phoneNumber="true"
                 />
             <EditText
@@ -69,6 +69,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/edt_Size_SP_ADD"
                 android:hint="Size_Integer"
+                android:phoneNumber="true"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_id_loai_SP_ADD"
+                android:hint="ID_Loại sản phẩm"
                 android:phoneNumber="true"
                 />
 <LinearLayout

@@ -69,11 +69,10 @@ public class DonHang_DAO {
     }
 
 
-    public boolean them_donhang(int idDonhang12, int idSp12, String tenkhachhang12, int sodienthoai12, String email12, String diachi12, String trangthai12, int size12) {
+    public boolean them_donhang(int idSp12, String tenkhachhang12, int sodienthoai12, String email12, String diachi12, String trangthai12, int size12) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Id_spchitiet", idSp12);
-        values.put("id",idDonhang12);
         values.put("tenkhachhang", tenkhachhang12);
         values.put("sodienthoai", sodienthoai12);
         values.put("email", email12);

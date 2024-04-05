@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -149,7 +150,7 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
 
     public class viewholder extends RecyclerView.ViewHolder {
         TextView id_DH,id_SP,tenKH,SDT,email,diachi,size,trangthai;
-        Button xoa;
+        ImageView xoa;
         public viewholder(@NonNull View itemView) {
             super(itemView);
             xoa = itemView.findViewById(R.id.delete_donhang);

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/font"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Frament.danh_muc_sp">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@drawable/shape_timkiem"
+
+    android:gravity="center"
+    >
+    <ImageView
+        android:id="@+id/danhmuc1"
+        android:src="@drawable/danhmuc_thehao_img"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_marginRight="15dp"
+        />
+    <ImageView
+        android:id="@+id/danhmuc2"
+        android:src="@drawable/danhmuc2"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+
+        />
+    <ImageView
+        android:id="@+id/danhmuc3"
+        android:src="@drawable/danhmuc3"
+        android:layout_marginLeft="15dp"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+
+        />
+
+</LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="20dp"
+
+        android:layout_gravity="center"
+        android:layout_width="380dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/fragment_danhmucsp_rcv"/>
+</LinearLayout>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/shape_cart_dathang"
+    android:padding="15dp"
+    android:background="@drawable/khung_dangky"
     android:layout_marginTop="10dp"
     app:circularflow_radiusInDP="20dp"
     android:orientation="horizontal"
@@ -17,67 +18,165 @@
         android:orientation="vertical"
         >
 
-        <TextView
-            android:gravity="center"
-            android:textColor="@color/Blue"
+       <LinearLayout
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           >
+           <TextView
+               android:text="ID sản phẩm :"
+               android:gravity="center"
+               android:textColor="@color/Blue"
+               android:layout_width="100dp"
+               android:layout_height="wrap_content"
+               android:fontFamily="sans-serif-black"
+               />
+           <TextView
+               android:gravity="center"
+               android:textColor="#FF0000"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/id_sanpham22"
+               android:phoneNumber="true"
+               android:textSize="20dp"
+               android:fontFamily="sans-serif-black"
+               android:hint="ID Sản Phẩm ?"/>
+
+       </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/id_sanpham22"
-            android:phoneNumber="true"
-            android:textSize="20dp"
-            android:fontFamily="sans-serif-black"
-            android:hint="ID Sản Phẩm ?"/>
-        <TextView
-            android:textColor="@color/white"
+            >
+            <TextView
+                android:text="ID Đơn hàng :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idDonhang22"
+                android:phoneNumber="true"
+                android:hint="ID_Đơn hàng ?"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/idDonhang22"
-            android:phoneNumber="true"
-            android:hint="ID_Đơn hàng ?"/>
+            >
+            <TextView
+                android:text="Tên KH :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textinputname22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên khách hàng" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="Số điện thoại :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textinputsdt22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Số điện thoại"
+                android:inputType="phone" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="Gmail :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textinputemail22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="Địa Chỉ :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textinputaddress22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:hint="Địa chỉ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="Size :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/size22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPostalAddress"
+                android:hint="size" />
+        </LinearLayout>
 
         <TextView
-            android:textColor="@color/white"
-            android:id="@+id/textinputname22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Tên khách hàng" />
-
-        <TextView
-            android:textColor="@color/white"
-            android:id="@+id/textinputsdt22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Số điện thoại"
-            android:inputType="phone" />
-
-        <TextView
-            android:textColor="@color/white"
-            android:id="@+id/textinputemail22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
-
-        <TextView
-            android:textColor="@color/white"
-            android:id="@+id/textinputaddress22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:inputType="textPostalAddress"
-            android:hint="Địa chỉ" />
-        <TextView
-            android:textColor="@color/white"
-            android:id="@+id/size22"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:inputType="textPostalAddress"
-            android:hint="size" />
-        <TextView
+            android:textColor="@color/black"
             android:gravity="center"
             android:id="@+id/trangthai22"
             android:layout_width="match_parent"
@@ -89,17 +188,15 @@
 
     </LinearLayout>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/delete_donhang"
-            android:hint="X"
-            android:backgroundTint="#FF0000"
-            android:textColorHint="@color/white"
-            />
+       <ImageView
+           android:src="@drawable/delete_red"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:id="@+id/delete_donhang"
+           />
 
     </LinearLayout>
 </LinearLayout>

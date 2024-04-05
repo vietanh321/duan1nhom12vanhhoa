@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 60);
+        super(context, DB_name, null, 72);
     }
 
 
@@ -42,9 +42,11 @@ public class DbHelper extends SQLiteOpenHelper {
         String db_spchitiet="create table spchitiet(Id_spchitiet integer primary key ,"
                 + "Id_chatlieu integer references chatlieu(Id_chatlieu)," +
                 " " + "Id_hinhanh integer references hinhanh(Id_hinhanh)," +
-                " " + "gia integer," + "size integer,"+"tensp text,"+"tieude text,"+"trangthai text,"+"ngaydangban text)";
+                " " + "gia integer," + "size integer,"+"tensp text,"+"tieude text,"+"trangthai text,"+"ngaydangban text,"+"idloaisp integer references loaisp(idloaisp))";
         db.execSQL(db_spchitiet);
 
+        String db_loaisp="create table loaisp(idloaisp integer primary key," + "tenloai text)";
+        db.execSQL(db_loaisp);
 
 
         String db_chatlieu="create table chatlieu(Id_chatlieu integer primary key," + "tenchatlieu text)";
@@ -58,8 +60,11 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.execSQL("insert into hinhanh values(1,1)");
         db.execSQL("insert into chatlieu values(1,'cotton')");
-        db.execSQL("insert into spchitiet values(1,1,1,400,29,'Nike','Top bán chạy','con hang','14/12/2024')");
+        db.execSQL("insert into spchitiet values(1,1,1,400,29,'Nike','Top bán chạy','con hang','14/12/2024',1)");
+        db.execSQL("insert into spchitiet values(2,1,1,400,29,'Lười da bò','Top bán chạy','con hang','14/12/2024',2)");
+        db.execSQL("insert into spchitiet values(3,1,1,400,29,'Lười da cá xấu','Top bán chạy','con hang','14/12/2024',2)");
 
+        db.execSQL("insert into loaisp values(1,'Giày Thể Thao'),(2,'giày Lười')");
 
     }
 
@@ -74,7 +79,7 @@ public class DbHelper extends SQLiteOpenHelper {
            db.execSQL("drop table if exists danhgia");
            db.execSQL("drop table if exists CHITIETDONHANG");
            db.execSQL("drop table if exists DONHANG");
-
+           db.execSQL("drop table if exists loaisp");
            onCreate(db);
        }
     }

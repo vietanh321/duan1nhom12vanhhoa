@@ -19,7 +19,7 @@ import com.example.duan1chinhthuc.Adapter.adapter_user;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.InterfaceRecycle;
 import com.example.duan1chinhthuc.R;
-import com.example.duan1chinhthuc.chitiet.chitiet_sp;
+//import com.example.duan1chinhthuc.chitiet.chitiet_sp;
 import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
 import com.example.duan1chinhthuc.mode.San_Pham;
 import com.example.duan1chinhthuc.mode.gio_hang;
