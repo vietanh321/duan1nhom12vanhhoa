@@ -82,6 +82,18 @@
                 android:id="@+id/item_Size_sp_home"
                 android:layout_gravity="center"
                 />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_id_loai_sp_home"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/item_ten_loaisp_home"
+                android:layout_gravity="center"
+                />
         </LinearLayout>
 
     </LinearLayout>

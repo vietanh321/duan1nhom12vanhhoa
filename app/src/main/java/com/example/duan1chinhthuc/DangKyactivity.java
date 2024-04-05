@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,15 @@ public class DangKyactivity extends AppCompatActivity {
         EditText txtten = findViewById(R.id.txtten);
         EditText txtpass = findViewById(R.id.txtpass);
         Button btndk = findViewById(R.id.btndk);
+        TextView b = findViewById(R.id.back);
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DangKyactivity.this, dangnhap.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         ThuThuDao dao = new ThuThuDao(this);
 
         btndk.setOnClickListener(new View.OnClickListener() {
@@ -47,10 +57,6 @@ public class DangKyactivity extends AppCompatActivity {
                             Toast.makeText(DangKyactivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                             // Chuyển hướng đến hoạt động đăng nhập sau khi đăng ký thành công
                             Intent intent = new Intent(DangKyactivity.this, dangnhap.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putString("TaiKhoan", user);
-                            bundle.putString("MatKhau", pass);
-                            intent.putExtras(bundle);
                             startActivity(intent);
                         } else {
                             Toast.makeText(DangKyactivity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();

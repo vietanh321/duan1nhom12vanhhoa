@@ -16,6 +16,9 @@ public class San_Pham implements Serializable {
     private int giatien;
     private int size;
     private int soluongmua;
+    private int id_loaisp;
+    private String ten_loaisp;
+
 
 
 
@@ -40,8 +43,38 @@ public class San_Pham implements Serializable {
         this.soluongmua = soluongmua;
     }
 
-    public San_Pham() {
 
+    public San_Pham(int id_sanpham, String tensp, String tieude, String ngaydangban, String trangthai, int id_chatlieu, String tenchatlieu, int hinhanh, int urlhinhanh, int id_spchitiet, int giatien, int size,int id_loaisp, String ten_loaisp) {
+        this.id_sanpham = id_sanpham;
+        this.tensp = tensp;
+        this.tieude = tieude;
+        this.ngaydangban = ngaydangban;
+        this.trangthai = trangthai;
+        Id_chatlieu = id_chatlieu;
+        this.tenchatlieu = tenchatlieu;
+        this.hinhanh = hinhanh;
+        this.urlhinhanh = urlhinhanh;
+        Id_spchitiet = id_spchitiet;
+        this.giatien = giatien;
+        this.size = size;
+        this.id_loaisp = id_loaisp;
+        this.ten_loaisp = ten_loaisp;
+    }
+
+    public int getId_loaisp() {
+        return id_loaisp;
+    }
+
+    public void setId_loaisp(int id_loaisp) {
+        this.id_loaisp = id_loaisp;
+    }
+
+    public String getTen_loaisp() {
+        return ten_loaisp;
+    }
+
+    public void setTen_loaisp(String ten_loaisp) {
+        this.ten_loaisp = ten_loaisp;
     }
 
     public int getSoluongmua() {

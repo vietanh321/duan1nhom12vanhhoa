@@ -39,7 +39,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:paddingLeft="10dp"
-        android:hint="xxxxxxxxx"
+        android:hint="Tên người dùng"
         android:background="@drawable/custom"
         android:drawableRight="@drawable/user"/>
 
@@ -58,7 +58,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:paddingLeft="10dp"
-        android:hint="xyz@gmail.com"
+        android:hint="tài khoản "
         android:background="@drawable/custom"
         android:drawableRight="@drawable/user"/>
 
@@ -77,31 +77,12 @@
         android:layout_marginTop="10dp"
         android:paddingLeft="20dp"
         android:inputType="textPassword"
-        android:hint="*******"
+        android:hint="mật khẩu"
         android:background="@drawable/custom"
         android:drawableRight="@drawable/ic_eyes"
 
         />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Comfirm Password"
-        android:layout_marginTop="16dp"
-        android:layout_marginRight="100dp"
-        android:textSize="15sp"/>
 
-    <EditText
-        android:id="@+id/edtnhaplaimatkhaumoi"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="20dp"
-        android:inputType="textPassword"
-        android:hint="*******"
-        android:background="@drawable/custom"
-        android:drawableRight="@drawable/ic_eyes"
-
-        />
 
     <Button
         android:id="@+id/btndk"

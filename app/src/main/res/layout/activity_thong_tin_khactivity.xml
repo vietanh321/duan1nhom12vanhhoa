@@ -37,12 +37,7 @@
             android:id="@+id/id_sanpham"
             android:phoneNumber="true"
             android:hint="ID Sản Phẩm ?"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/idDonhang"
-            android:phoneNumber="true"
-            android:hint="ID_Đơn hàng ?"/>
+
 
         <EditText
             android:id="@+id/textinputname"

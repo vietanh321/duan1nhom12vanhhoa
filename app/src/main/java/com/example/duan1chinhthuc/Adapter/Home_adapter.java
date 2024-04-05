@@ -53,6 +53,8 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.viewholder> 
         holder.id_sp_CT.setText(Integer.toString(list.get(position).getId_spchitiet()));
         holder.giatien.setText(Integer.toString(list.get(position).getGiatien()));
         holder.size.setText(Integer.toString(list.get(position).getSize()));
+        holder.id_loaisp.setText(Integer.toString(list.get(position).getId_loaisp()));
+        holder.ten_loaisp.setText(list.get(position).getTen_loaisp());
 
 
 
@@ -70,7 +72,7 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.viewholder> 
     }
 
     public class viewholder extends RecyclerView.ViewHolder {
-        TextView idSP,tenSP,tieude,ngayban,trangthai,id_CL,ten_CL,id_sp_CT,giatien,size;
+        TextView idSP,tenSP,tieude,ngayban,trangthai,id_CL,ten_CL,id_sp_CT,giatien,size,id_loaisp,ten_loaisp;
         ImageView hinhanhsp;
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -84,6 +86,8 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.viewholder> 
             id_sp_CT = itemView.findViewById(R.id.item_id_sp_CT_home);
             giatien = itemView.findViewById(R.id.item_giatien_sp_home);
             size = itemView.findViewById(R.id.item_Size_sp_home);
+            id_loaisp = itemView.findViewById(R.id.item_id_loai_sp_home);
+            ten_loaisp = itemView.findViewById(R.id.item_ten_loaisp_home);
         }
     }
 }

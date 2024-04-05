@@ -32,6 +32,7 @@ import com.example.duan1chinhthuc.Frament.Frament_yeuthich;
 import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
 
 
+import com.example.duan1chinhthuc.Frament.danh_muc_sp;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -158,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             } else if (id == R.id.nav_thongbao) {
 
-                Fragment fragment = new Fragment_thongbao();
+                Fragment fragment = new danh_muc_sp();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             } else if (id == R.id.nav_canhan) {
 

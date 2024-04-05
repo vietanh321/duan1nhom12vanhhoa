@@ -7,6 +7,7 @@
     tools:context=".Fragment_admin.delete_sp">
 
     <EditText
+        android:hint="Nhập ID sản phẩm"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

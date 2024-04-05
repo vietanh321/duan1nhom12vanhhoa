@@ -59,6 +59,7 @@ public class add_delete_update extends Fragment {
         EditText tenchatlieu_SP = view.findViewById(R.id.edt_Tenchatlieu_SP_ADD);
         EditText hinhanh = view.findViewById(R.id.edt_hinhanh_SP_ADD);
         EditText giatien_SP = view.findViewById(R.id.edt_giatien_SP_ADD);
+        EditText id_loai = view.findViewById(R.id.edt_id_loai_SP_ADD);
 
         EditText size_SP = view.findViewById(R.id.edt_Size_SP_ADD);
 Button button = view.findViewById(R.id.add_SP_123);
@@ -96,8 +97,9 @@ Button button = view.findViewById(R.id.add_SP_123);
             int giatien1 = Integer.parseInt(giatien_SP.getText().toString());
             int hinanh1 = Integer.parseInt(hinhanh.getText().toString());
             int size = Integer.parseInt(size_SP.getText().toString());
+            int id_loai1 = Integer.parseInt(id_loai.getText().toString());
 
-            Boolean kt = dao.themSP(id,ten,tieude,ngayban,trangthai,idchatlieu,hinanh1,giatien1,size);
+            Boolean kt = dao.themSP(id,ten,tieude,ngayban,trangthai,idchatlieu,hinanh1,giatien1,size,id_loai1);
 
             if(kt){
                 list.clear();

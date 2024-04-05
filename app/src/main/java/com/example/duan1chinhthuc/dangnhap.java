@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.duan1chinhthuc.DAO.DAO_gettkmk;
 import com.example.duan1chinhthuc.DAO.ThuThuDao;
+import com.example.duan1chinhthuc.Frament.Fragment_canhan;
 
 public class dangnhap extends AppCompatActivity {
 
@@ -24,6 +27,7 @@ public class dangnhap extends AppCompatActivity {
         Button btndk = findViewById(R.id.btnsignin);
 
         ThuThuDao dao = new ThuThuDao(this);
+        DAO_gettkmk dao1 = new DAO_gettkmk(this);
 
         btndk.setOnClickListener(new View.OnClickListener() {
             @Override
