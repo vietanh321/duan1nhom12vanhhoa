@@ -44,7 +44,7 @@
 
         android:layout_gravity="center"
         android:layout_width="380dp"
-        android:layout_height="match_parent"
+        android:layout_height="597dp"
         android:orientation="vertical"
         android:id="@+id/fragment_danhmucsp_rcv"/>
 </LinearLayout>

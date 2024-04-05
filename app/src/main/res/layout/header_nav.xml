@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-android:background="#3D50F1"
+android:background="#A4C183"
     android:gravity="bottom"
     android:padding="15dp"
     android:orientation="vertical">
@@ -11,14 +11,15 @@ android:background="#3D50F1"
 <ImageView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:src="@drawable/you"
+    android:src="@drawable/user_ssaa"
     android:id="@+id/heade"
     />
 
     <TextView
+        android:id="@+id/tennguoidung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcom :"
+        android:text="Welcom : "
         android:textSize="20dp"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-black"

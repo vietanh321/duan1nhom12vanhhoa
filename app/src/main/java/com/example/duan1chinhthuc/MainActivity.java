@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = findViewById(R.id.nvView);
         navigationView.setNavigationItemSelectedListener(this);
+
+
 
         //start app
         repleFrament(new Fragment_home());
@@ -116,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         });
                         builder1.show();
                     }else {
-                        Intent intent = new Intent(MainActivity.this, giohang.class);
+                        Intent intent = new Intent(MainActivity.this, order.class);
                         startActivity(intent);
                         finish();
                        }
@@ -186,10 +189,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 Fragment fragment = new Fragment_canhan();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
-            }else   if (id == R.id.m_mycart) {
-                Intent intent = new Intent(MainActivity.this, giohang.class);
-                startActivity(intent);
-                finish();
             }else  if (id == R.id.m_Favorite) {
                 Fragment fragment = new Frament_yeuthich();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();

@@ -119,7 +119,7 @@ holder.itemView.setOnClickListener(new View.OnClickListener() {
                 EditText email = view1.findViewById(R.id.textinputemail);
                 EditText diachi = view1.findViewById(R.id.textinputaddress);
                 EditText trangthai = view1.findViewById(R.id.trangthai);
-                EditText size1 = view1.findViewById(R.id.size);
+
                 AlertDialog alertDialog = builder1.create();
 
                 id_SP.setText(String.valueOf(list.get(position).getId_spchitiet()));
@@ -139,7 +139,7 @@ holder.itemView.setOnClickListener(new View.OnClickListener() {
                            DonHang_DAO donHang_dao = new DonHang_DAO(context);
 
                            int id_sp12 = Integer.parseInt(id_SP.getText().toString());
-                           int size12 = Integer.parseInt(size1.getText().toString());
+                           int size12 = Integer.parseInt(spn_soluong.getSelectedItem().toString());
                            int sodienthoai12 = Integer.parseInt(sodienthoai.getText().toString());
                            String trangthai12 = trangthai.getText().toString();
                            String tenkhachhang12 = tenkhachhang.getText().toString();
@@ -179,12 +179,6 @@ holder.itemView.setOnClickListener(new View.OnClickListener() {
     }
 
 });
-
-
-
-
-
-
 
         adapter = new Home_adapter(list, context);
         dao = new Home_DAO(context);

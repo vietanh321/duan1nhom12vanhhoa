@@ -17,13 +17,13 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 72);
+        super(context, DB_name, null, 73);
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer, trangthai integer,ngay text)";
+        String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer,matt text references thuthu(matt))";
         db.execSQL(chitietdonhang);
         String donhang = "CREATE TABLE DONHANG(id integer primary key, tenkhachhang text,sodienthoai integer, " +
                 "email text,diachi text,Id_spchitiet references spchitiet(Id_spchitiet),trangthai text,size integer)";
@@ -60,11 +60,27 @@ public class DbHelper extends SQLiteOpenHelper {
 
         db.execSQL("insert into hinhanh values(1,1)");
         db.execSQL("insert into chatlieu values(1,'cotton')");
-        db.execSQL("insert into spchitiet values(1,1,1,400,29,'Nike','Top bán chạy','con hang','14/12/2024',1)");
+        db.execSQL("insert into spchitiet values(1,1,1,400,29,'Nike Air Force 1 canvat','Top bán chạy','con hang','14/12/2024',1)");
+        db.execSQL("insert into spchitiet values(4,1,1,400,29,'NIKE AF1 LV BÒ XANH','Top bán chạy','con hang','14/12/2024',1)");
+        db.execSQL("insert into spchitiet values(5,1,1,400,29,'Giày Nike_Air Force 1','Top bán chạy','con hang','14/12/2024',1)");
+        db.execSQL("insert into spchitiet values(6,1,1,400,29,'Convers Chuck taylor 1970s','Top bán chạy','con hang','14/12/2024',1)");
+        db.execSQL("insert into spchitiet values(7,1,1,400,29,'Das Samba Classic','Top bán chạy','con hang','14/12/2024',1)");
+        db.execSQL("insert into spchitiet values(8,1,1,400,29,'Asics Court MZ Cream Black Gum','Top bán chạy','con hang','14/12/2024',1)");
         db.execSQL("insert into spchitiet values(2,1,1,400,29,'Lười da bò','Top bán chạy','con hang','14/12/2024',2)");
-        db.execSQL("insert into spchitiet values(3,1,1,400,29,'Lười da cá xấu','Top bán chạy','con hang','14/12/2024',2)");
+        db.execSQL("insert into spchitiet values(3,1,1,400,29,'Penny Loafer Black','Top bán chạy','con hang','14/12/2024',2)");
+        db.execSQL("insert into spchitiet values(9,1,1,400,29,'Penny Loafer Black','Top bán chạy','con hang','14/12/2024',2)");
+        db.execSQL("insert into spchitiet values(10,1,1,400,29,'Giày Vans Old Skool','Top bán chạy','con hang','14/12/2024',2)");
+        db.execSQL("insert into spchitiet values(11,1,1,400,29,'Penny Loafer Da TIBAS','Top bán chạy','con hang','14/12/2024',2)");
+        db.execSQL("insert into spchitiet values(12,1,1,400,29,'GUDETU','Top bán chạy','con hang','14/12/2024',2)");
+        db.execSQL("insert into spchitiet values(13,1,1,400,29,'Chelsea Boots Classic','Top bán chạy','con hang','14/12/2024',3)");
+        db.execSQL("insert into spchitiet values(14,1,1,400,29,'Martin','Top bán chạy','con hang','14/12/2024',3)");
+        db.execSQL("insert into spchitiet values(15,1,1,400,29,'Harness Boots','Top bán chạy','con hang','14/12/2024',3)");
+        db.execSQL("insert into spchitiet values(16,1,1,400,29,'Boot ulzzang','Top bán chạy','con hang','14/12/2024',3)");
+        db.execSQL("insert into spchitiet values(17,1,1,400,29,'Boots Zip Black','Top bán chạy','con hang','14/12/2024',3)");
+        db.execSQL("insert into spchitiet values(18,1,1,400,29,'Chunky Combat Boots','Top bán chạy','con hang','14/12/2024',3)");
+        db.execSQL("insert into spchitiet values(19,1,1,400,29,'Zip Boots','Top bán chạy','con hang','14/12/2024',3)");
 
-        db.execSQL("insert into loaisp values(1,'Giày Thể Thao'),(2,'giày Lười')");
+        db.execSQL("insert into loaisp values(1,'Giày Thể Thao'),(2,'giày Lười'),(3,'Boot')");
 
     }
 

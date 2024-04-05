@@ -32,6 +32,9 @@
             android:textStyle="bold"
             android:gravity="center" />
         <EditText
+            android:enabled="false"
+            android:focusable="false"
+            android:inputType="none"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/id_sanpham"
@@ -69,21 +72,18 @@
             android:layout_marginTop="16dp"
             android:inputType="textPostalAddress"
             android:hint="Địa chỉ" />
+
         <EditText
-            android:id="@+id/size"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:inputType="textPostalAddress"
-            android:hint="size" />
-        <EditText
+            android:enabled="false"
+            android:focusable="false"
+            android:inputType="none"
             android:id="@+id/trangthai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:inputType="textPostalAddress"
+
             android:text="please don't remove it"
-            android:enabled="true"
+
             android:hint="trang thai" />
 
         <LinearLayout
