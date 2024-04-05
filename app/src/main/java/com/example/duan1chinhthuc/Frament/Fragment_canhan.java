@@ -16,17 +16,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.duan1chinhthuc.Adapter.adapter_user;
 import com.example.duan1chinhthuc.DAO.DAO_gettkmk;
-import com.example.duan1chinhthuc.DAO.Home_DAO;
-import com.example.duan1chinhthuc.DangKyactivity;
 import com.example.duan1chinhthuc.Database.DbHelper;
-import com.example.duan1chinhthuc.MainActivity;
+import com.example.duan1chinhthuc.UpdatePassword;
 import com.example.duan1chinhthuc.R;
+import com.example.duan1chinhthuc.UpdatePasswordActivity;
 import com.example.duan1chinhthuc.dangnhap;
-import com.example.duan1chinhthuc.mode.San_Pham;
 import com.example.duan1chinhthuc.mode.gettkmk;
 
 import java.util.ArrayList;
@@ -102,10 +98,14 @@ public class Fragment_canhan extends Fragment {
     }
 
     private void changePassword() {
+        // Truyền context của Fragment_canhan vào constructor của UpdatePassword
+        UpdatePassword updatePassword = new UpdatePassword(getActivity());
+
         // Tạo Intent để mở Activity Đổi mật khẩu
-        Intent intent = new Intent(getActivity(), DangKyactivity.class);
+        Intent intent = new Intent(getActivity(), UpdatePasswordActivity.class);
         startActivity(intent);
     }
+
 
     private void logout() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
