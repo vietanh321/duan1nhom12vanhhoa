@@ -17,14 +17,39 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="mã Sản phẩm :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:gravity="center"
+                android:phoneNumber="true"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif-black"
+                android:hint="ID Sản Phẩm ?"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/idDonhang22"
+                />
 
+        </LinearLayout>
        <LinearLayout
            android:orientation="horizontal"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            >
            <TextView
-               android:text="ID sản phẩm :"
+               android:text="Mã đơn hàng :"
                android:gravity="center"
                android:textColor="@color/Blue"
                android:layout_width="100dp"
@@ -40,31 +65,10 @@
                android:phoneNumber="true"
                android:textSize="20dp"
                android:fontFamily="sans-serif-black"
-               android:hint="ID Sản Phẩm ?"/>
+               android:hint="ID Đơn hàng ?"/>
 
        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:text="ID Đơn hàng :"
-                android:gravity="center"
-                android:textColor="@color/Blue"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                />
-            <TextView
-                android:textColor="@color/black"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/idDonhang22"
-                android:phoneNumber="true"
-                android:hint="ID_Đơn hàng ?"/>
 
-        </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -109,27 +113,7 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:text="Gmail :"
-                android:gravity="center"
-                android:textColor="@color/Blue"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                />
-            <TextView
-                android:textColor="@color/black"
-                android:id="@+id/textinputemail22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
-        </LinearLayout>
+
 
         <LinearLayout
             android:orientation="horizontal"
@@ -174,7 +158,52 @@
                 android:inputType="textPostalAddress"
                 android:hint="size" />
         </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="Số lượng sp :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/textinputemail22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Số lượng sp"
+                android:inputType="textEmailAddress" />
 
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:text="Tổng tiền :"
+                android:gravity="center"
+                android:textColor="@color/Blue"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                />
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/tongtien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:inputType="textEmailAddress" />
+
+
+        </LinearLayout>
         <TextView
             android:textColor="@color/black"
             android:gravity="center"

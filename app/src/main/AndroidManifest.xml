@@ -11,38 +11,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Duan1chinhthuc"
         tools:targetApi="31">
-
-
-
         <activity
-            android:name=".UpdatePasswordActivity"
+            android:name=".Activity_ADMIN.MainActivity_admin"
             android:exported="false" />
         <activity
-            android:name=".UpdatePassword"
-            android:exported="false" />
-        
-
-        
-        <activity
-            android:name=".Frament.Fragment_canhan"
+            android:name=".Activity_user.UpdatePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".DangKyactivity"
+            android:name=".Activity_user.UpdatePassword"
             android:exported="false" />
         <activity
-            android:name=".order"
+            android:name=".Frament_user.Fragment_canhan"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_user.DangKyactivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_user.order"
             android:exported="false" />
         <activity
             android:name=".giohang"
             android:exported="false" />
         <activity
-            android:name=".QuenmatkhauActivity"
+            android:name=".Activity_user.QuenmatkhauActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity_user.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".dangnhap"
+            android:name=".Activity_user.dangnhap"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -212,6 +212,7 @@ public class Home_DAO {
             values.put("Id_hinhanh",pm.getHinhanh());
             values.put("gia", pm.getGiatien());
             values.put("size", pm.getSize());
+            values.put("idloaisp", pm.getId_loaisp());
             long row = db.update("spchitiet",  values,  "Id_spchitiet = ?", new String[]{String.valueOf(pm.getId_sanpham())});
             return (row>0);
         }

@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#CBFDFDFD"
     android:layout_height="match_parent">
 
 <ImageView
     android:src="@drawable/user_ssaa"
     android:layout_width="200dp"
     android:layout_height="200dp"
-    android:layout_marginTop="-130dp"
+    android:layout_marginTop="-10dp"
     android:layout_centerHorizontal="true"
     />
 
     <TextView
-        android:layout_marginTop="100dp"
-        android:background="@drawable/khung_dangky"
+        android:layout_marginTop="30dp"
         android:id="@+id/txtTaiKhoan"
         android:layout_width="380dp"
         android:layout_height="50dp"
         android:textSize="35dp"
         android:textColor="#000000"
     />
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="__________________________________________________________"
+        />
     <TextView
         android:layout_marginTop="25dp"
-        android:background="@drawable/khung_dangky"
         android:id="@+id/txtHoTen"
         android:layout_below="@id/txtTaiKhoan"
         android:layout_width="380dp"
@@ -33,9 +37,20 @@
         android:textSize="35dp"
         android:textColor="#000000"
     />
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="__________________________________________________________"
+        />
+    <TextView
+        android:id="@+id/tvRecoverPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recovery Password"
+        android:textColor="#0000FF"
+        android:layout_marginTop="100dp"/>
     <Button
-        android:layout_marginTop="50dp"
+
         android:layout_centerHorizontal="true"
         android:id="@+id/btnDoiMatKhau"
         android:layout_width="300dp"
@@ -50,11 +65,12 @@
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/btnDangXuat"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_below="@id/btnDoiMatKhau"
         android:text="Đăng xuất"
-        android:backgroundTint="#FF0000"
-        android:textColor="#FFFFFF"
+        android:textSize="20dp"
+        android:backgroundTint="#CBFDFDFD"
+        android:textColor="#000000"
     />
-</RelativeLayout>
+</LinearLayout>

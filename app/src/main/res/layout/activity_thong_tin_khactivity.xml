@@ -57,13 +57,7 @@
             android:inputType="phone"
             android:hint="Số điện thoại" />
 
-        <EditText
-            android:id="@+id/textinputemail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:inputType="textEmailAddress"
-            android:hint="Email" />
+
 
         <EditText
             android:id="@+id/textinputaddress"
@@ -72,7 +66,13 @@
             android:layout_marginTop="16dp"
             android:inputType="textPostalAddress"
             android:hint="Địa chỉ" />
-
+        <EditText
+            android:id="@+id/textinputemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:inputType="textEmailAddress"
+            android:hint="Số lượng sản phẩm" />
         <EditText
             android:enabled="false"
             android:focusable="false"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
 
-            android:text="please don't remove it"
+            android:text="chờ xác nhận"
 
             android:hint="trang thai" />
 
@@ -94,12 +94,14 @@
             android:layout_marginTop="20dp">
 
             <Button
+                android:backgroundTint="#9C4483"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnxacnhan"
                 android:text="Xác nhận" />
 
             <Button
+                android:backgroundTint="#AE3E3E"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnquaylai"

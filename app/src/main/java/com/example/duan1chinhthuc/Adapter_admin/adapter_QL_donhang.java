@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Adapter;
+package com.example.duan1chinhthuc.Adapter_admin;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -19,7 +19,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1chinhthuc.DAO.DonHang_DAO;
-import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.Donhang;
 
@@ -111,6 +110,7 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
                 ngay.setText(list.get(position).getNgay_model());
 
                 Button btnxacnhan = view1.findViewById(R.id.btnxacnhan);
+                Button btnquaylai = view1.findViewById(R.id.btnquaylai);
                 btnxacnhan.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -142,7 +142,12 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
                     }
                 });
 
-
+                btnquaylai.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
 
 
                 alertDialog.show();

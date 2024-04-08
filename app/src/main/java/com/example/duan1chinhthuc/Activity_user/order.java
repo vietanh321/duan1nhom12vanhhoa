@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc;
+package com.example.duan1chinhthuc.Activity_user;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.example.duan1chinhthuc.R;
 
 public class order extends AppCompatActivity {
 

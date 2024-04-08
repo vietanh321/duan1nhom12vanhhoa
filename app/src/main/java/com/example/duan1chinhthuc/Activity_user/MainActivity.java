@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc;
+package com.example.duan1chinhthuc.Activity_user;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -28,13 +27,14 @@ import com.example.duan1chinhthuc.Fragment_admin.add_delete_update;
 import com.example.duan1chinhthuc.Fragment_admin.delete_sp;
 import com.example.duan1chinhthuc.Fragment_admin.fragment_doanhthu;
 import com.example.duan1chinhthuc.Fragment_admin.update_sp;
-import com.example.duan1chinhthuc.Frament.Fragment_canhan;
-import com.example.duan1chinhthuc.Frament.Fragment_home;
-import com.example.duan1chinhthuc.Frament.Frament_yeuthich;
-import com.example.duan1chinhthuc.Frament.Fragment_thongbao;
+import com.example.duan1chinhthuc.Frament_user.Fragment_canhan;
+import com.example.duan1chinhthuc.Frament_user.Fragment_home;
+import com.example.duan1chinhthuc.Frament_user.Frament_yeuthich;
+import com.example.duan1chinhthuc.Frament_user.Fragment_thongbao;
 
 
-import com.example.duan1chinhthuc.Frament.danh_muc_sp;
+import com.example.duan1chinhthuc.Frament_user.danh_muc_sp;
+import com.example.duan1chinhthuc.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

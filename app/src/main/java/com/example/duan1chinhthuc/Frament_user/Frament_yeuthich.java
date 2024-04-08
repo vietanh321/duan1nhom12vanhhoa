@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Frament;
+package com.example.duan1chinhthuc.Frament_user;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -12,12 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.duan1chinhthuc.Adapter.adapter_QL_donhang;
-import com.example.duan1chinhthuc.Adapter.adapter_QL_nguoidung;
-import com.example.duan1chinhthuc.DAO.DonHang_DAO;
+import com.example.duan1chinhthuc.Adapter_admin.adapter_QL_nguoidung;
 import com.example.duan1chinhthuc.DAO.ThuThuDao;
 import com.example.duan1chinhthuc.R;
-import com.example.duan1chinhthuc.mode.Donhang;
 import com.example.duan1chinhthuc.mode.nguoidung;
 
 import java.util.ArrayList;

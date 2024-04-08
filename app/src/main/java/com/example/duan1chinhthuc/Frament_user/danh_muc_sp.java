@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Frament;
+package com.example.duan1chinhthuc.Frament_user;
 
 import android.os.Bundle;
 
@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.duan1chinhthuc.Adapter.adapter_danhmuc;
-import com.example.duan1chinhthuc.Adapter.adapter_user;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.San_Pham;

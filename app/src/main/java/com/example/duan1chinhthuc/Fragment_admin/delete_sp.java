@@ -1,11 +1,8 @@
 package com.example.duan1chinhthuc.Fragment_admin;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.duan1chinhthuc.Adapter.Home_adapter;
+import com.example.duan1chinhthuc.Adapter_admin.Home_adapter;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.SanPhamChiTiet;

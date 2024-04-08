@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.duan1chinhthuc.Adapter.Home_adapter;
+import com.example.duan1chinhthuc.Adapter_admin.Home_adapter;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
@@ -60,39 +60,44 @@ public class update_sp extends Fragment {
         EditText tenchatlieu_SP = view.findViewById(R.id.edt_Tenchatlieu_SP_update);
         EditText hinhanh = view.findViewById(R.id.edt_hinhanh_SP_update);
         EditText giatien_SP = view.findViewById(R.id.edt_giatien_SP_update);
+        EditText loaisp = view.findViewById(R.id.edt_idloai_SP_update);
+
 
         EditText size_SP = view.findViewById(R.id.edt_Size_SP_update);
         Button update = view.findViewById(R.id.update_SP_123);
 
 
 
-//        update.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                try {
-//                    int id = Integer.parseInt(id_SP.getText().toString());
-//                    String ten = ten_SP.getText().toString();
-//                    String tieude = tieude_SP.getText().toString();
-//                    String ngayban = ngayban_SP.getText().toString();
-//                    String trangthai = trangthai_SP.getText().toString();
-//                    int idchatlieu = Integer.parseInt(tenchatlieu_SP.getText().toString());
-//                    int giatien1 = Integer.parseInt(giatien_SP.getText().toString());
-//                    int hinanh1 = Integer.parseInt(hinhanh.getText().toString());
-//                    int size = Integer.parseInt(size_SP.getText().toString());
-//
-//                    Boolean kt = dao.capnhatsanpham(id,ten,tieude,ngayban,trangthai,idchatlieu,hinanh1,giatien1,size);
-//
-//                    if(kt){
-//                        list.clear();
-//                        list.addAll(dao.getDS_sanpham());
-//                        adapter.notifyDataSetChanged();
-//
-//                    }
-//                }catch (Exception e){
-//                    Log.i(TAG, "Fail", e);
-//                }
-//            }
-//        });
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    int id = Integer.parseInt(id_SP.getText().toString());
+                    String ten = ten_SP.getText().toString();
+                    String tieude = tieude_SP.getText().toString();
+                    String ngayban = ngayban_SP.getText().toString();
+                    String trangthai = trangthai_SP.getText().toString();
+                    int idchatlieu = Integer.parseInt(tenchatlieu_SP.getText().toString());
+                    int giatien1 = Integer.parseInt(giatien_SP.getText().toString());
+                    int hinanh1 = Integer.parseInt(hinhanh.getText().toString());
+                    int size = Integer.parseInt(size_SP.getText().toString());
+                    int loaisp1 = Integer.parseInt(loaisp.getText().toString());
+
+                    San_Pham ls = new San_Pham(id,ten,tieude,ngayban,trangthai,idchatlieu,hinanh1,giatien1,size,loaisp1);
+                    Boolean kt = dao.capnhatsanpham(ls);
+
+                    if(kt){
+                        list.clear();
+                        list.addAll(dao.getDS_sanpham());
+                        adapter.notifyDataSetChanged();
+
+                    }
+                }catch (Exception e){
+                    Log.i(TAG, "Fail", e);
+                }
+            }
+        });
+
 
 
         return view;

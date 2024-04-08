@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Frament;
+package com.example.duan1chinhthuc.Frament_user;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

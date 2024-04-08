@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/font"
-    tools:context=".Frament.Fragment_sale">
+    tools:context=".Frament_user.Fragment_sale">
 
     <TextView
         android:id="@+id/back_sale"
