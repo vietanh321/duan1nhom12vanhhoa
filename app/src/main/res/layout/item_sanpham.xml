@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/shape_timkiem"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/khung_dangky"
     app:circularflow_radiusInDP="30dp"
     android:layout_height="wrap_content">
     <LinearLayout

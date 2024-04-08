@@ -17,7 +17,7 @@ public class DAO_thongke {
         ngaybatdau = ngaybatdau.replace("/","");
         ngayketthuc = ngayketthuc.replace("/","");
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select sum(tienthue) from phieumuon where substr(ngay,7) ||substr(ngay, 4,2) || substr(ngay,1,2) between ? and ?", new String[]{ngaybatdau, ngayketthuc});
+        Cursor cursor = db.rawQuery("select sum(tongtien) from DONHANG where substr(ngay,7) ||substr(ngay, 4,2) || substr(ngay,1,2) between ? and ?", new String[]{ngaybatdau, ngayketthuc});
         if (cursor.getCount() > 0){
             cursor.moveToFirst();
             return cursor.getInt(0);

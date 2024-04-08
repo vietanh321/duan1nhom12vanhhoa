@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <group android:checkableBehavior="single">
 <item android:id="@+id/m_profile" android:title="@string/Profile"  android:icon="@drawable/user_ssaa"/>
-    <item android:id="@+id/m_Favorite" android:title="@string/Favorite"  android:icon="@drawable/add_love"/>
-    <item android:id="@+id/m_Orders" android:title="@string/Orders" android:icon="@drawable/transpots"/>
+    <item android:id="@+id/m_Favorite" android:title="@string/Favorite"  android:icon="@drawable/love_img"/>
+    <item android:id="@+id/m_Orders" android:title="@string/Orders" android:icon="@drawable/oder_img"/>
 
 
-            <item android:id="@+id/m_Notification" android:title="@string/Notification" android:icon="@drawable/img_2"/>
+            <item android:id="@+id/m_Notification" android:title="@string/Notification" android:icon="@drawable/thongbao_img"/>
 
 
 
@@ -17,8 +17,9 @@
             <item android:id="@+id/m_themsanpham" android:title="@string/themsanpham" android:icon="@drawable/add_add"/>
             <item android:id="@+id/m_xóaanpham" android:title="xóa sản phẩm" android:icon="@drawable/delete_tk_nguoidung"/>
             <item android:id="@+id/m_update" android:title="Update SP" android:icon="@drawable/transpots"/>
-            <item android:id="@+id/m_QL_DH" android:title="QL đơn hàng"/>
-            <item android:id="@+id/m_QL_TK_user" android:title="QL tài khoản người dùng"/>
+            <item android:id="@+id/m_QL_DH" android:title="QL đơn hàng" android:icon="@drawable/quanly_hoadon"/>
+            <item android:id="@+id/m_QL_TK_user" android:title="QL tài khoản người dùng" android:icon="@drawable/quanly_taikhoan"/>
+            <item android:id="@+id/m_thongke" android:title="Doanh Thu"  android:icon="@drawable/thongkedoanhthi_img"/>
 
 
 

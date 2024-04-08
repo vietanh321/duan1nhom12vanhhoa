@@ -11,15 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
-import com.example.duan1chinhthuc.Adapter.Home_adapter;
-import com.example.duan1chinhthuc.Adapter.adapter_QL_donhang;
+import com.example.duan1chinhthuc.Adapter_admin.adapter_QL_donhang;
 import com.example.duan1chinhthuc.DAO.DonHang_DAO;
-import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.Donhang;
-import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
-import com.example.duan1chinhthuc.mode.San_Pham;
 
 import java.util.ArrayList;
 
@@ -45,6 +42,51 @@ public class QL_donhang extends Fragment {
         list = dao.getDS_donhang();
         adapter = new adapter_QL_donhang(list, getContext());
         rcv.setAdapter(adapter);
+
+        ImageView img1 = view.findViewById(R.id.danhmuc1);
+        ImageView img2 = view.findViewById(R.id.danhmuc2);
+        ImageView img3 = view.findViewById(R.id.danhmuc3);
+        img1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rcv = view.findViewById(R.id.rcv_QL_DH);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                rcv.setLayoutManager(layoutManager);
+
+                dao = new DonHang_DAO(getContext());
+                list = dao.getDS_donhang1();
+                adapter = new adapter_QL_donhang(list, getContext());
+                rcv.setAdapter(adapter);
+            }
+        });
+
+        img2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rcv = view.findViewById(R.id.rcv_QL_DH);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                rcv.setLayoutManager(layoutManager);
+
+                dao = new DonHang_DAO(getContext());
+                list = dao.getDS_donhang2();
+                adapter = new adapter_QL_donhang(list, getContext());
+                rcv.setAdapter(adapter);
+            }
+        });
+
+        img3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rcv = view.findViewById(R.id.rcv_QL_DH);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                rcv.setLayoutManager(layoutManager);
+
+                dao = new DonHang_DAO(getContext());
+                list = dao.getDS_donhang3();
+                adapter = new adapter_QL_donhang(list, getContext());
+                rcv.setAdapter(adapter);
+            }
+        });
 
         return view;
     }

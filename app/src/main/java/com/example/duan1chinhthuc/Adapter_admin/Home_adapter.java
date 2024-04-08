@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Adapter;
+package com.example.duan1chinhthuc.Adapter_admin;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,7 +16,6 @@ import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.San_Pham;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Home_adapter extends RecyclerView.Adapter<Home_adapter.viewholder> {
     private final ArrayList<San_Pham> list;

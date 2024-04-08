@@ -7,7 +7,7 @@
     android:gravity="center"
     android:id="@+id/my_activity"
     android:orientation="vertical"
-    tools:context=".dangnhap">
+    tools:context=".Activity_user.dangnhap">
 
     <ImageView
 

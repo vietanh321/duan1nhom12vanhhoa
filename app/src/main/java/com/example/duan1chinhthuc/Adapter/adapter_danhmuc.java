@@ -5,6 +5,7 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +28,10 @@ import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.Donhang;
 import com.example.duan1chinhthuc.mode.San_Pham;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewholder>{
     Spinner spn_soluong;
@@ -58,107 +62,119 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
         holder.tenSP.setText(list.get(position).getTensp());
         holder.giatien.setText(Integer.toString(list.get(position).getGiatien()));
         holder.ten_loaisp.setText(list.get(position).getTen_loaisp());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                androidx.appcompat.app.AlertDialog.Builder builder1 = new androidx.appcompat.app.AlertDialog.Builder(context);
-                LayoutInflater inflater1 = LayoutInflater.from(context);
-                View view1 = inflater1.inflate(R.layout.chitiet_sp_user, null);
-                builder1.setView(view1);
-                androidx.appcompat.app.AlertDialog alertDialog = builder1.create();
-                TextView idSP = view1.findViewById(R.id.ma_sp);
-                TextView ten = view1.findViewById(R.id.item_ten_sp_home_12);
-                TextView tieude = view1.findViewById(R.id.item_tieude_sp_home_12);
-                TextView trangthai = view1.findViewById(R.id.item_trangthai_sp_home_12);
-                TextView tenchatlieu = view1.findViewById(R.id.item_tenCL_sp_home_12);
-                TextView giatien = view1.findViewById(R.id.item_giatien_sp_home_12);
-                spn_soluong=view1.findViewById(R.id.spn_soluong);
-                idSP.setText(String.valueOf(list.get(position).getId_sanpham()));
-                ten.setText(String.valueOf(list.get(position).getTensp()));
-                tieude.setText(String.valueOf(list.get(position).getTieude()));
-                trangthai.setText(String.valueOf(list.get(position).getTrangthai()));
-                tenchatlieu.setText(String.valueOf(list.get(position).getTenchatlieu()));
-                giatien.setText(String.valueOf(list.get(position).getGiatien()));
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin", Context.MODE_PRIVATE);
+        String loaiTK = sharedPreferences.getString("loaitaikhoan", "");
 
-                Spiner();
+        try {
+            if (loaiTK.equals("admin")){
 
-
-                Button addtocart = view1.findViewById(R.id.btn_add_cart);
-
-                addtocart.setOnClickListener(new View.OnClickListener() {
+            }else {
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         androidx.appcompat.app.AlertDialog.Builder builder1 = new androidx.appcompat.app.AlertDialog.Builder(context);
                         LayoutInflater inflater1 = LayoutInflater.from(context);
-                        View view1 = inflater1.inflate(R.layout.activity_thong_tin_khactivity, null);
+                        View view1 = inflater1.inflate(R.layout.chitiet_sp_user, null);
                         builder1.setView(view1);
+                        androidx.appcompat.app.AlertDialog alertDialog = builder1.create();
+                        TextView idSP = view1.findViewById(R.id.ma_sp);
+                        TextView ten = view1.findViewById(R.id.item_ten_sp_home_12);
+                        TextView tieude = view1.findViewById(R.id.item_tieude_sp_home_12);
+                        TextView trangthai = view1.findViewById(R.id.item_trangthai_sp_home_12);
+                        TextView tenchatlieu = view1.findViewById(R.id.item_tenCL_sp_home_12);
+                        TextView giatien = view1.findViewById(R.id.item_giatien_sp_home_12);
+                        spn_soluong=view1.findViewById(R.id.spn_soluong);
+                        idSP.setText(String.valueOf(list.get(position).getId_sanpham()));
+                        ten.setText(String.valueOf(list.get(position).getTensp()));
+                        tieude.setText(String.valueOf(list.get(position).getTieude()));
+                        trangthai.setText(String.valueOf(list.get(position).getTrangthai()));
+                        tenchatlieu.setText(String.valueOf(list.get(position).getTenchatlieu()));
+                        giatien.setText(String.valueOf(list.get(position).getGiatien()));
 
-                        EditText id_SP = view1.findViewById(R.id.id_sanpham);
-                        EditText tenkhachhang = view1.findViewById(R.id.textinputname);
-                        EditText sodienthoai = view1.findViewById(R.id.textinputsdt);
-                        EditText email = view1.findViewById(R.id.textinputemail);
-                        EditText diachi = view1.findViewById(R.id.textinputaddress);
-                        EditText trangthai = view1.findViewById(R.id.trangthai);
+                        Spiner();
 
-                        AlertDialog alertDialog = builder1.create();
 
-                        id_SP.setText(String.valueOf(list.get(position).getId_spchitiet()));
+                        Button addtocart = view1.findViewById(R.id.btn_add_cart);
 
-                        Button quayliaj = view1.findViewById(R.id.btnquaylai);
-                        quayliaj.setOnClickListener(new View.OnClickListener() {
+                        addtocart.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                alertDialog.dismiss();
-                            }
-                        });
-                        Button btnxacnhan = view1.findViewById(R.id.btnxacnhan);
-                        btnxacnhan.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                try {
-                                    DonHang_DAO donHang_dao = new DonHang_DAO(context);
+                                androidx.appcompat.app.AlertDialog.Builder builder1 = new androidx.appcompat.app.AlertDialog.Builder(context);
+                                LayoutInflater inflater1 = LayoutInflater.from(context);
+                                View view1 = inflater1.inflate(R.layout.activity_thong_tin_khactivity, null);
+                                builder1.setView(view1);
 
-                                    int id_sp12 = Integer.parseInt(id_SP.getText().toString());
-                                    int size12 = Integer.parseInt(spn_soluong.getSelectedItem().toString());
-                                    int sodienthoai12 = Integer.parseInt(sodienthoai.getText().toString());
-                                    String trangthai12 = trangthai.getText().toString();
-                                    String tenkhachhang12 = tenkhachhang.getText().toString();
-                                    String email12 = email.getText().toString();
-                                    String diachi12 = diachi.getText().toString();
+                                EditText id_SP = view1.findViewById(R.id.id_sanpham);
+                                EditText tenkhachhang = view1.findViewById(R.id.textinputname);
+                                EditText sodienthoai = view1.findViewById(R.id.textinputsdt);
+                                EditText email = view1.findViewById(R.id.textinputemail);
+                                EditText diachi = view1.findViewById(R.id.textinputaddress);
+                                EditText trangthai = view1.findViewById(R.id.trangthai);
 
+                                AlertDialog alertDialog = builder1.create();
 
-                                    boolean kt = donHang_dao.them_donhang(id_sp12,tenkhachhang12,
-                                            sodienthoai12,email12,diachi12,trangthai12,size12);
+                                id_SP.setText(String.valueOf(list.get(position).getId_spchitiet()));
 
-                                    if(kt){
-                                        Toast.makeText(context, "Đặt Hàng thành công !", Toast.LENGTH_SHORT).show();
-                                        list12.clear();
-                                        list12.addAll(dao1.getDS_donhang());
-                                        adapter.notifyDataSetChanged();
-                                        alertDialog.dismiss();
-
-                                    }else {
-                                        Toast.makeText(context, "Fail-Trùng mã đơn hàng hoặc id sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
-                                        notifyDataSetChanged();
+                                Button quayliaj = view1.findViewById(R.id.btnquaylai);
+                                quayliaj.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
                                         alertDialog.dismiss();
                                     }
-                                }catch (Exception e){
-                                    Log.i(TAG, "Fail", e);
+                                });
+                                Button btnxacnhan = view1.findViewById(R.id.btnxacnhan);
+                                btnxacnhan.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        try {
+                                            DonHang_DAO donHang_dao = new DonHang_DAO(context);
 
-                                }
+                                            int id_sp12 = Integer.parseInt(id_SP.getText().toString());
+                                            int size12 = Integer.parseInt(spn_soluong.getSelectedItem().toString());
+                                            int sodienthoai12 = Integer.parseInt(sodienthoai.getText().toString());
+                                            String trangthai12 = trangthai.getText().toString();
+                                            String tenkhachhang12 = tenkhachhang.getText().toString();
+                                            int email12 = Integer.parseInt(email.getText().toString());
+                                            String diachi12 = diachi.getText().toString();
+                                            int tongtien = email12 * list.get(position).getGiatien();
+                                            Date date = Calendar.getInstance().getTime();
+                                            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                                            String ngay = simpleDateFormat.format(date);
+                                            boolean kt = donHang_dao.them_donhang(id_sp12,tenkhachhang12,
+                                                    sodienthoai12,diachi12,trangthai12,size12,email12,tongtien,ngay);
 
+                                            if(kt){
+                                                Toast.makeText(context, "Đặt Hàng thành công !", Toast.LENGTH_SHORT).show();
+                                                list12.clear();
+                                                list12.addAll(dao1.getDS_donhang());
+                                                adapter.notifyDataSetChanged();
+                                                alertDialog.dismiss();
+
+                                            }else {
+                                                Toast.makeText(context, "Fail-Trùng mã đơn hàng hoặc id sản phẩm không tồn tại", Toast.LENGTH_SHORT).show();
+                                                notifyDataSetChanged();
+                                                alertDialog.dismiss();
+                                            }
+                                        }catch (Exception e){
+                                            Log.i(TAG, "Fail", e);
+
+                                        }
+
+                                    }
+                                });
+                                alertDialog.show();
                             }
                         });
+
+
+
                         alertDialog.show();
                     }
+
                 });
-
-
-
-                alertDialog.show();
             }
+        }catch (Exception e){}
 
-        });
         adapter = new adapter_danhmuc(list, context);
         dao = new Home_DAO(context);
     }
@@ -183,7 +199,7 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
     }
 
     private void Spiner() {
-        Integer[] soluong = new Integer[]{39,40,42};
+        Integer[] soluong = new Integer[]{38,39,40,41,42};
         ArrayAdapter<Integer> sl= new ArrayAdapter<>(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, soluong);
         spn_soluong.setAdapter(sl);
     }

@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Adapter;
+package com.example.duan1chinhthuc.Adapter_admin;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duan1chinhthuc.DAO.DonHang_DAO;
 import com.example.duan1chinhthuc.DAO.ThuThuDao;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.nguoidung;

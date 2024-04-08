@@ -1,20 +1,18 @@
-package com.example.duan1chinhthuc;
+package com.example.duan1chinhthuc.Activity_user;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan1chinhthuc.DAO.DAO_gettkmk;
 import com.example.duan1chinhthuc.DAO.ThuThuDao;
-import com.example.duan1chinhthuc.Frament.Fragment_canhan;
+import com.example.duan1chinhthuc.R;
 
 public class dangnhap extends AppCompatActivity {
 

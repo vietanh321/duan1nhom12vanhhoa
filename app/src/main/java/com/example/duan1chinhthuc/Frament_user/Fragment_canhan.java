@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Frament;
+package com.example.duan1chinhthuc.Frament_user;
 
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -17,13 +17,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
-import com.example.duan1chinhthuc.DAO.DAO_gettkmk;
 import com.example.duan1chinhthuc.DAO.ThuThuDao;
 import com.example.duan1chinhthuc.Database.DbHelper;
-import com.example.duan1chinhthuc.UpdatePassword;
+import com.example.duan1chinhthuc.Activity_user.UpdatePassword;
 import com.example.duan1chinhthuc.R;
-import com.example.duan1chinhthuc.UpdatePasswordActivity;
-import com.example.duan1chinhthuc.dangnhap;
+import com.example.duan1chinhthuc.Activity_user.UpdatePasswordActivity;
+import com.example.duan1chinhthuc.Activity_user.dangnhap;
 import com.example.duan1chinhthuc.mode.gettkmk;
 
 import java.util.ArrayList;
@@ -37,6 +36,8 @@ public class Fragment_canhan extends Fragment {
     ArrayList<gettkmk> list;
 
 ThuThuDao dao;
+//    int[] images = {R.drawable.anh_slide1, R.drawable.anh_slide2, R.drawable.anh_slide3, R.drawable.anh_slide4, R.drawable.anh_slide5};
+
     private TextView textViewUserDetails;
     @SuppressLint("ResourceType")
     @Nullable

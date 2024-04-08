@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Fragment_admin.QL_donhang">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/shape_timkiem"
 
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/danhmuc1"
+            android:src="@drawable/choxacvnhan"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="15dp"
+            />
+        <ImageView
+            android:id="@+id/danhmuc2"
+            android:src="@drawable/danggiaohang"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+
+            />
+
+        <ImageView
+            android:id="@+id/danhmuc3"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/dagiaohang"
+
+            />
+
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
@@ -13,4 +45,4 @@
         android:orientation="vertical"
         android:id="@+id/rcv_QL_DH"/>
 
-</FrameLayout>
+</LinearLayout>
