@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.example.duan1chinhthuc.DAO.DAO_gettkmk;
+import com.example.duan1chinhthuc.DAO.ThuThuDao;
 import com.example.duan1chinhthuc.Database.DbHelper;
 import com.example.duan1chinhthuc.UpdatePassword;
 import com.example.duan1chinhthuc.R;
@@ -29,22 +30,19 @@ import java.util.ArrayList;
 
 public class Fragment_canhan extends Fragment {
 
-    private TextView txtTaiKhoan, txtHoTen;
+    private TextView txtTaiKhoan;
+    private TextView txtHoTen;
     private Button btnDoiMatKhau, btnDangXuat;
     private DbHelper dbHelper;
     ArrayList<gettkmk> list;
-    DAO_gettkmk dao;
+
+ThuThuDao dao;
+    private TextView textViewUserDetails;
+    @SuppressLint("ResourceType")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_canhan, container, false);
-
-
-
-
-
-
-
 
 
         dbHelper = new DbHelper(getActivity());
@@ -52,6 +50,12 @@ public class Fragment_canhan extends Fragment {
         txtHoTen = view.findViewById(R.id.txtHoTen);
         btnDoiMatKhau = view.findViewById(R.id.btnDoiMatKhau);
         btnDangXuat = view.findViewById(R.id.btnDangXuat);
+
+
+
+
+
+
 
         // Lấy thông tin tài khoản từ cơ sở dữ liệu và hiển thị
         getAccountInfo();
@@ -70,8 +74,6 @@ public class Fragment_canhan extends Fragment {
             @Override
             public void onClick(View v) {
                 // Thực hiện đăng xuất
-
-
                 logout();
             }
         });
