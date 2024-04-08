@@ -26,6 +26,7 @@ import com.example.duan1chinhthuc.Fragment_admin.QL_donhang;
 import com.example.duan1chinhthuc.Fragment_admin.QL_tk_user;
 import com.example.duan1chinhthuc.Fragment_admin.add_delete_update;
 import com.example.duan1chinhthuc.Fragment_admin.delete_sp;
+import com.example.duan1chinhthuc.Fragment_admin.fragment_doanhthu;
 import com.example.duan1chinhthuc.Fragment_admin.update_sp;
 import com.example.duan1chinhthuc.Frament.Fragment_canhan;
 import com.example.duan1chinhthuc.Frament.Fragment_home;
@@ -71,6 +72,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.findItem(R.id.m_update).setVisible(false);
             menu.findItem(R.id.m_QL_TK_user).setVisible(false);
             menu.findItem(R.id.m_QL_DH).setVisible(false);
+
+        }
+
+        if (!loaiTK.equals("thuthu")){
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.m_Favorite).setVisible(false);
+            menu.findItem(R.id.m_Orders).setVisible(false);
+            menu.findItem(R.id.m_Notification).setVisible(false);
 
         }
         if (loaiTK.equals("admin")){
@@ -235,6 +244,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else if (id == R.id.m_QL_TK_user) {
                 Fragment fragment = new QL_tk_user();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }else if (id == R.id.m_thongke) {
+                Fragment fragment = new fragment_doanhthu();
                 fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }
             drawerLayout.closeDrawer(GravityCompat.END);
