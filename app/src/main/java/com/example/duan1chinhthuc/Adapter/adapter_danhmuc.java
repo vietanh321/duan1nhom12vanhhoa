@@ -105,15 +105,21 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
                                 builder1.setView(view1);
 
                                 EditText id_SP = view1.findViewById(R.id.id_sanpham);
-                                EditText tenkhachhang = view1.findViewById(R.id.textinputname);
-                                EditText sodienthoai = view1.findViewById(R.id.textinputsdt);
-                                EditText email = view1.findViewById(R.id.textinputemail);
-                                EditText diachi = view1.findViewById(R.id.textinputaddress);
+                                EditText email = view1.findViewById(R.id.textinputemail);//soos luong sp
                                 EditText trangthai = view1.findViewById(R.id.trangthai);
+
+
+
+
+
+                                EditText editText = (EditText) view1.findViewById(R.id.trangthai);
+                                editText.setVisibility(View.GONE);
 
                                 AlertDialog alertDialog = builder1.create();
 
                                 id_SP.setText(String.valueOf(list.get(position).getId_spchitiet()));
+
+
 
                                 Button quayliaj = view1.findViewById(R.id.btnquaylai);
                                 quayliaj.setOnClickListener(new View.OnClickListener() {
@@ -127,21 +133,26 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
                                     @Override
                                     public void onClick(View v) {
                                         try {
+
+                                            if(email.getText().toString().equals("")){
+                                                Toast.makeText(context, "Nhập số lượng mua", Toast.LENGTH_SHORT).show();
+                                                return;
+                                            }
+
                                             DonHang_DAO donHang_dao = new DonHang_DAO(context);
 
                                             int id_sp12 = Integer.parseInt(id_SP.getText().toString());
                                             int size12 = Integer.parseInt(spn_soluong.getSelectedItem().toString());
-                                            int sodienthoai12 = Integer.parseInt(sodienthoai.getText().toString());
                                             String trangthai12 = trangthai.getText().toString();
-                                            String tenkhachhang12 = tenkhachhang.getText().toString();
                                             int email12 = Integer.parseInt(email.getText().toString());
-                                            String diachi12 = diachi.getText().toString();
                                             int tongtien = email12 * list.get(position).getGiatien();
                                             Date date = Calendar.getInstance().getTime();
                                             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
                                             String ngay = simpleDateFormat.format(date);
-                                            boolean kt = donHang_dao.them_donhang(id_sp12,tenkhachhang12,
-                                                    sodienthoai12,diachi12,trangthai12,size12,email12,tongtien,ngay);
+
+                                            SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
+                                            int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
+                                            boolean kt = donHang_dao.them_donhang(id_sp12,trangthai12,size12,email12,tongtien,ngay,id_user1);
 
                                             if(kt){
                                                 Toast.makeText(context, "Đặt Hàng thành công !", Toast.LENGTH_SHORT).show();
@@ -159,8 +170,9 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
                                             Log.i(TAG, "Fail", e);
 
                                         }
-
+                                        alertDialog.dismiss();
                                     }
+
                                 });
                                 alertDialog.show();
                             }

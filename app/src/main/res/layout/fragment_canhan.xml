@@ -14,24 +14,10 @@
     android:layout_marginTop="-10dp"
     android:layout_centerHorizontal="true"
     />
-
     <TextView
-        android:layout_marginTop="30dp"
-        android:id="@+id/txtTaiKhoan"
-        android:layout_width="380dp"
-        android:layout_height="50dp"
-        android:textSize="35dp"
-        android:textColor="#000000"
-    />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="__________________________________________________________"
-        />
-    <TextView
+        android:gravity="center"
         android:layout_marginTop="25dp"
         android:id="@+id/txtHoTen"
-        android:layout_below="@id/txtTaiKhoan"
         android:layout_width="380dp"
         android:layout_height="50dp"
         android:textSize="35dp"

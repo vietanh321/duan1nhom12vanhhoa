@@ -3,6 +3,8 @@ package com.example.duan1chinhthuc.Adapter_admin;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1chinhthuc.DAO.DonHang_DAO;
@@ -25,12 +28,15 @@ import com.example.duan1chinhthuc.mode.Donhang;
 import java.util.ArrayList;
 
 public class adapter_QL_donhang extends RecyclerView.Adapter<adapter_QL_donhang.viewholder>{
-    private final ArrayList<Donhang> list;
+     ArrayList<Donhang> list;
     private final Context context;
     Spinner spn_soluong;
     adapter_QL_donhang adapter;
     DonHang_DAO dao;
     TextView textView;
+    String sodienthoai;
+    String diachi;
+    String tenKH;
 
     public adapter_QL_donhang(ArrayList<Donhang> list, Context context) {
         this.list = list;
@@ -49,17 +55,23 @@ public class adapter_QL_donhang extends RecyclerView.Adapter<adapter_QL_donhang.
 
     @Override
     public void onBindViewHolder(@NonNull adapter_QL_donhang.viewholder holder, @SuppressLint("RecyclerView") int position) {
-
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
         holder.id_DH.setText(Integer.toString(list.get(position).getId()));
         holder.id_SP.setText(Integer.toString(list.get(position).getId_chitietsp()));
-        holder.tenKH.setText(list.get(position).getTenkhachhang());
-        holder.SDT.setText(Integer.toString(list.get(position).getSodienthoai()));
         holder.email.setText(Integer.toString(list.get(position).getSoluong_sp()));
-        holder.diachi.setText(list.get(position).getDiachi());
         holder.size.setText(Integer.toString(list.get(position).getSize()));
         holder.trangthai.setText(list.get(position).getTrangthaidonhang());
-//        email12 = email12 *  list.get(position).getGiatien();
         holder.tongtien1.setText(Integer.toString(list.get(position).getTongtien()));
+     sodienthoai = sharedPreferences.getString("sodienthoai","");
+       diachi  = sharedPreferences.getString("diachi","");
+        tenKH  = sharedPreferences.getString("hoten","");
+
+        holder.diachi.setText(diachi);
+        holder.tenKH.setText(tenKH);
+        holder.SDT.setText(sodienthoai);
+
+
+
 
         if (list.get(position).getTrangthaidonhang().equals("chờ xác nhận")){
             holder.trangthai.setTextColor(Color.parseColor("#0A47FD"));
@@ -82,61 +94,74 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 androidx.appcompat.app.AlertDialog.Builder builder1 = new androidx.appcompat.app.AlertDialog.Builder(context);
                 LayoutInflater inflater1 = LayoutInflater.from(context);
                 View view1 = inflater1.inflate(R.layout.item_update_donhang, null);
                 builder1.setView(view1);
                 androidx.appcompat.app.AlertDialog alertDialog = builder1.create();
-                EditText id_SP = view1.findViewById(R.id.id_sanpham);
-                EditText id_donhang = view1.findViewById(R.id.idDonhang);
-                EditText tenkhachhang = view1.findViewById(R.id.textinputname);
-                EditText sodienthoai = view1.findViewById(R.id.textinputsdt);
-                EditText email = view1.findViewById(R.id.textinputemail);
-                EditText diachi = view1.findViewById(R.id.textinputaddress);
-//                EditText trangthai = view1.findViewById(R.id.trangthai);
-                EditText size = view1.findViewById(R.id.size);
-                spn_soluong=view1.findViewById(R.id.trangthai);
-                EditText ngay = view1.findViewById(R.id.ngay);
-
-
-                id_SP.setText(String.valueOf(list.get(position).getId_chitietsp()));
-                id_donhang.setText(String.valueOf(list.get(position).getId()));
-                tenkhachhang.setText(list.get(position).getTenkhachhang());
-                sodienthoai.setText(String.valueOf(list.get(position).getSodienthoai()));
-                email.setText(String.valueOf(list.get(position).getSoluong_sp()));
-                diachi.setText(list.get(position).getDiachi());
-                Spiner(); //chọn trạng thái
-                size.setText(String.valueOf(list.get(position).getSize()));
-                ngay.setText(list.get(position).getNgay_model());
 
                 Button btnxacnhan = view1.findViewById(R.id.btnxacnhan);
                 Button btnquaylai = view1.findViewById(R.id.btnquaylai);
                 btnxacnhan.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        int id_SP1 = Integer.parseInt(id_SP.getText().toString());
-                        int id_donhang1 = Integer.parseInt(id_donhang.getText().toString());
-                        String tenkhachhang1 = tenkhachhang.getText().toString();
-                        int sodienthoai1 = Integer.parseInt(sodienthoai.getText().toString());
-                        int email1 = Integer.parseInt(email.getText().toString());
-                        String diachi1 = diachi.getText().toString();
-                        String trangthai1 = spn_soluong.getSelectedItem().toString();
-                        int size1 = Integer.parseInt(size.getText().toString());
-                        int tongtien = email1 * list.get(position).getTongtien();
-
-                        String ngay1 = ngay.getText().toString();
-
-//                        if (email.getText().toString().equals("")){}
-                        Donhang ls = new Donhang(id_SP1, id_donhang1,tenkhachhang1,sodienthoai1,diachi1,trangthai1,size1,email1,tongtien,ngay1);
-                        boolean kt = dao.capnhatdonhang_admin(ls);
-                        if(kt){
-                            list.clear();
-                            list.addAll(dao.getDS_donhang());
-                            adapter.notifyDataSetChanged();
-                            alertDialog.dismiss();
-                            Toast.makeText(context, "Succesfully", Toast.LENGTH_SHORT).show();
+                        if (list.get(position).getTrangthaidonhang().equals("chờ xác nhận")){
+                          String trangthai = "đang giao hàng";
+                          Donhang ls=list.get(position);
+                          ls.setTrangthaidonhang(trangthai);
+                            boolean kt = dao.capnhatdonhang_admin(ls);
+                            if(kt){
+                                list.clear();
+                                list.addAll(dao.getDS_donhang());
+                                adapter.notifyDataSetChanged();
+                                alertDialog.dismiss();
+                                Toast.makeText(context, "Succesfully", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
+                            }
+                        }else if(list.get(position).getTrangthaidonhang().equals("đang giao hàng")){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                            builder.setTitle("Thông báo");
+                            builder.setMessage("Đơn hàng thay đổi trạng thái - đảm bảo đơn hàng đã được thanh toán trước khi xác nhận ?");
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String trangthai = "đã giao";
+                                    Donhang ls=list.get(position);
+                                    ls.setTrangthaidonhang(trangthai);
+                                    boolean kt = dao.capnhatdonhang_admin(ls);
+                                    if(kt){
+                                        list.clear();
+                                        list.addAll(dao.getDS_donhang());
+                                        adapter.notifyDataSetChanged();
+                                        alertDialog.dismiss();
+                                        Toast.makeText(context, "Succesfully", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            builder.show();
                         }else{
-                            Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("Thông báo");
+                            builder.setMessage("Không thể thay đổi trạng thái , khi đơn hàng đã được giao !");
+
+                            builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    alertDialog.dismiss();
+                                }
+                            });
+                            builder.show();
                         }
 
                     }
@@ -164,7 +189,7 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
     }
 
     public class viewholder extends RecyclerView.ViewHolder {
-        TextView id_DH,id_SP,tenKH,SDT,email,diachi,size,trangthai,tongtien1;
+        TextView id_DH,id_SP,tenKH,SDT,email,diachi,size,trangthai,tongtien1,matt;
         ImageView xoa;
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -178,11 +203,12 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
             size = itemView.findViewById(R.id.size22);
             tongtien1 = itemView.findViewById(R.id.tongtien);
             trangthai = itemView.findViewById(R.id.trangthai22);
+            matt = itemView.findViewById(R.id.matt);
         }
     }
 
     private void Spiner() {
-        String[] soluong = new String[]{"chờ xác nhận","đang giao hàng","đã giao"};
+        String[] soluong = new String[]{"đang giao hàng"};
         ArrayAdapter<String> sl= new ArrayAdapter<>(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, soluong);
         spn_soluong.setAdapter(sl);
     }

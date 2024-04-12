@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <group android:checkableBehavior="single">
-<item android:id="@+id/admin_themsanpham" android:title="Them san pham" />
-    <item android:id="@+id/admin_quanlydonhang" android:title="quan ly don hang" />
-
 
 
 
@@ -14,7 +11,17 @@
 
     <item  android:title="" >
         <menu>
-            <item android:id="@+id/admin_Dangxuat" android:title="@string/nav_Dang_xuat"/>
+            <item android:id="@+id/m_themsanpham" android:title="@string/themsanpham" android:icon="@drawable/add_add"/>
+            <item android:id="@+id/m_xóaanpham" android:title="xóa sản phẩm" android:icon="@drawable/delete_tk_nguoidung"/>
+            <item android:id="@+id/m_update" android:title="Update SP" android:icon="@drawable/transpots"/>
+            <item android:id="@+id/m_QL_DH" android:title="QL đơn hàng" android:icon="@drawable/quanly_hoadon"/>
+            <item android:id="@+id/m_QL_TK_user" android:title="QL tài khoản người dùng" android:icon="@drawable/quanly_taikhoan"/>
+            <item android:id="@+id/m_thongke" android:title="Doanh Thu"  android:icon="@drawable/thongkedoanhthi_img"/>
+
+
+
+
+            <item android:id="@+id/m_Dangxuat" android:title="@string/nav_Dang_xuat" android:icon="@drawable/img_14"/>
         </menu>
     </item>
 </group>

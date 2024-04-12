@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 77);
+        super(context, DB_name, null, 85);
     }
 
 
@@ -25,12 +25,15 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer,matt text references thuthu(matt))";
         db.execSQL(chitietdonhang);
-        String donhang = "CREATE TABLE DONHANG(id integer primary key, tenkhachhang text,sodienthoai integer, " +
-                "diachi text,Id_spchitiet references spchitiet(Id_spchitiet),trangthai text,size integer,soluong_sp integer,tongtien integer,ngay text)";
+        String donhang = "CREATE TABLE DONHANG(id integer primary key, " +
+                "Id_spchitiet references spchitiet(Id_spchitiet)," +
+                "trangthai text,size integer,soluong_sp integer," +
+                "tongtien integer,ngay text,id_user integer," +
+                "FOREIGN key (id_user) REFERENCES thuthu(id_usser))";
         db.execSQL(donhang);
 
 
-        String db_thuthu="create table thuthu(matt text primary key," + "hoten text," + "matkhau text," + "loaitaikhoan text)";
+        String db_thuthu="create table thuthu(id_usser integer primary key AUTOINCREMENT, matt text," + "hoten text," + "matkhau text," + "loaitaikhoan text,"+"sodienthoai integer,diachi text)";
         db.execSQL(db_thuthu);
 
 
@@ -55,7 +58,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(db_hinhanh);
         String db_danhgia="create table danhgia(Id_danhgia text primary key," + "Id_taikhoan text references thuthu(matt) ," + "note text)";
         db.execSQL(db_danhgia);
-        db.execSQL("INSERT INTO thuthu VALUES ('hoaddph46289','duy hoa','hoaddph46289','admin'),('hoaddph46289tt','thi thinh','hoaddph46289tt','thuthu'),('tv1','thi thinh','1','thuthu')");
+        db.execSQL("INSERT INTO thuthu VALUES (1,'hoaddph46289','duy hoa','hoaddph46289','admin',09864688,'han noi'),(3,'tv1','thi thinh','1','thuthu',03434565655,'ha noi'),(4,'tv2','thi thinh','2','thuthu',098989465,'ha noi')");
         db.execSQL("INSERT INTO danhgia VALUES('dgia1','tk2','Sản phẩm đẹp')");
 
         db.execSQL("insert into hinhanh values(1,1)");

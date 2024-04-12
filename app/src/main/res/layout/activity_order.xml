@@ -19,10 +19,35 @@
             />
 
     </LinearLayout>
+<!--    <LinearLayout-->
+<!--      android:gravity="center"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        >-->
+<!--<ImageView-->
+
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:src="@drawable/cxndh"-->
+<!--    />-->
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/dgh"-->
+<!--            />-->
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:src="@drawable/ddgh"-->
+<!--            />-->
+<!--    </LinearLayout>-->
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:layout_width="380dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/rvc_oder"/>
+        android:id="@+id/rcv_QL_DH_user"/>
+
 </LinearLayout>

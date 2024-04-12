@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    <item   android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
     <item  android:id="@+id/adnav_home" android:icon="@drawable/img" android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
-        <item   android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
-    <item  android:id="@+id/adnav_yeuthich" android:icon="@drawable/img_1" android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
         <item   android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
     <item  android:id="@+id/adnav_thongbao" android:icon="@drawable/img_2" android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
         <item   android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
     <item  android:id="@+id/adnav_canhan" android:icon="@drawable/img_3" android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
+    <item   android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
         <item   android:title="" app:showAsAction="always" android:iconTint="@color/white"  />
 </menu>
 

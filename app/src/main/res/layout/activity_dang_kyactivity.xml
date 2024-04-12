@@ -82,6 +82,43 @@
         android:drawableRight="@drawable/ic_eyes"
 
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Địa chỉ"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+    <EditText
+        android:id="@+id/diachi"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:hint="Nhập địa chỉ"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/ic_eyes"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="120dp"
+        android:textSize="15sp"/>
+    <EditText
+        android:numeric="integer"
+        android:id="@+id/sodienthoai"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:hint="Nhập số điện thoại"
+        android:background="@drawable/custom"
+        android:drawableRight="@drawable/ic_eyes"
+
+        />
 
 
     <Button
