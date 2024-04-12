@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.duan1chinhthuc.Database.DbHelper;
+import com.example.duan1chinhthuc.mode.Donhang;
 import com.example.duan1chinhthuc.mode.San_Pham;
 import com.example.duan1chinhthuc.mode.nguoidung;
 
@@ -21,10 +22,12 @@ import java.util.ArrayList;
 public class  ThuThuDao {
     private final DbHelper dbHelper;
     private final SharedPreferences sharedPreferences;
+    SQLiteDatabase db;
 
     public ThuThuDao(Context context) {
         dbHelper = new DbHelper(context);
-        sharedPreferences = context.getSharedPreferences("Thongtin", MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences("Thongtin_tt", MODE_PRIVATE);
+        db = dbHelper.getWritableDatabase();
     }
 
 
@@ -38,7 +41,7 @@ public class  ThuThuDao {
             if (cursor.getCount() > 0){
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()){
-                    list.add(new nguoidung(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3)));
+                    list.add(new nguoidung(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)));
                     cursor.moveToNext();
                 }
             }
@@ -54,26 +57,30 @@ public class  ThuThuDao {
         if (cursor.getCount() != 0) {
             cursor.moveToFirst();
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("matt", cursor.getString(0));
-            editor.putString("loaitaikhoan", cursor.getString(3));
-            editor.putString("hoten", cursor.getString(1));
+            editor.putString("id_usser", cursor.getString(0));
+            editor.putString("matt", cursor.getString(1));
+            editor.putString("hoten", cursor.getString(2));
+            editor.putString("matkhau", cursor.getString(3));
+            editor.putString("loaitaikhoan", cursor.getString(4));
+            editor.putString("sodienthoai", cursor.getString(5));
+            editor.putString("diachi", cursor.getString(6));
             editor.apply();
             cursor.close();
             db.close();
             return true;
         } else {
-            cursor.close();
-            db.close();
             return false;
         }
     }
 
-    public boolean signup(String matt, String ten, String matkhau) {
+    public boolean signup(String matt, String ten, String matkhau,String diachi ,int sodienthoai) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("matt", matt);
         values.put("hoten", ten);
         values.put("matkhau", matkhau);
+        values.put("sodienthoai", sodienthoai);
+        values.put("diachi", diachi);
         values.put("loaitaikhoan", "thuthu");
 
         long result = db.insert("thuthu", null, values);
@@ -124,5 +131,25 @@ public class  ThuThuDao {
             return true;
         }
         return false;
+    }
+
+
+    public ArrayList<Donhang> gettknguoidung(int id){
+        ArrayList<Donhang> list = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
+        try{
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT  * \n" +
+                    "FROM   DONHANG \n"+
+                    "WHERE id_user = ? ",new String[]{String.valueOf(id)});
+            if (cursor.getCount() > 0){
+                cursor.moveToFirst();
+                while (!cursor.isAfterLast()){
+                    list.add(new Donhang(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3), cursor.getInt(4),cursor.getInt(5),cursor.getString(6),cursor.getInt(7)));                    cursor.moveToNext();
+                }
+            }
+        }catch (Exception e){
+            Log.i(TAG, "loi", e);
+        }
+        return list;
     }
 }

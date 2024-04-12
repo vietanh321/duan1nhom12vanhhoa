@@ -80,7 +80,7 @@
                 >
                 <ImageView
                     android:id="@+id/add_to_cart"
-                    android:layout_width="30dp"
+                    android:layout_width="50dp"
                     android:layout_height="30dp"
                     android:src="@drawable/add_add"
                     android:layout_marginRight="150dp"

@@ -1,8 +1,10 @@
 package com.example.duan1chinhthuc.Frament_user;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -46,20 +48,20 @@ ThuThuDao dao;
         View view = inflater.inflate(R.layout.fragment_canhan, container, false);
 
 
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
+        String matt = sharedPreferences.getString("matt","");
+        String hoten = sharedPreferences.getString("hoten","");
+
         dbHelper = new DbHelper(getActivity());
-        txtTaiKhoan = view.findViewById(R.id.txtTaiKhoan);
+
         txtHoTen = view.findViewById(R.id.txtHoTen);
         btnDoiMatKhau = view.findViewById(R.id.btnDoiMatKhau);
         btnDangXuat = view.findViewById(R.id.btnDangXuat);
+        txtHoTen.setText(hoten);
 
 
 
 
-
-
-
-        // Lấy thông tin tài khoản từ cơ sở dữ liệu và hiển thị
-        getAccountInfo();
 
         // Xử lý sự kiện nút Đổi mật khẩu
         btnDoiMatKhau.setOnClickListener(new View.OnClickListener() {

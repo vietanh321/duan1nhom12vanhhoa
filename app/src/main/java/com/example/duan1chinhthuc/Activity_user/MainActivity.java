@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.duan1chinhthuc.Activity_ADMIN.MainActivity_admin;
 import com.example.duan1chinhthuc.Fragment_admin.QL_donhang;
 import com.example.duan1chinhthuc.Fragment_admin.QL_tk_user;
 import com.example.duan1chinhthuc.Fragment_admin.add_delete_update;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //start app
         repleFrament(new Fragment_home());
-        SharedPreferences sharedPreferences = getSharedPreferences("Thongtin", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("Thongtin_tt", MODE_PRIVATE);
         String loaiTK = sharedPreferences.getString("loaitaikhoan", "");
         if (!loaiTK.equals("admin")){
             Menu menu = navigationView.getMenu();
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.findItem(R.id.m_update).setVisible(false);
             menu.findItem(R.id.m_QL_TK_user).setVisible(false);
             menu.findItem(R.id.m_QL_DH).setVisible(false);
+            menu.findItem(R.id.m_thongke).setVisible(false);
 
         }
 
@@ -89,6 +91,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
+                    Intent intent  = new Intent(MainActivity.this, MainActivity_admin.class);
+                    startActivity(intent);
+                    finish();
 
                 }
             });

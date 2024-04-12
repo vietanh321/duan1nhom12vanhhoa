@@ -1,12 +1,14 @@
 package com.example.duan1chinhthuc.mode;
 
 public class nguoidung {
+    private int id_user;
     private String matt;
     private String hoten;
     private String matkhau;
     private String loaitaikhoan;
 
-    public nguoidung(String matt, String hoten, String matkhau, String loaitaikhoan) {
+    public nguoidung(int id_user, String matt, String hoten, String matkhau, String loaitaikhoan) {
+        this.id_user = id_user;
         this.matt = matt;
         this.hoten = hoten;
         this.matkhau = matkhau;
@@ -14,6 +16,14 @@ public class nguoidung {
     }
 
     public nguoidung() {
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public String getMatt() {
