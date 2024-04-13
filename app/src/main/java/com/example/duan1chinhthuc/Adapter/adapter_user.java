@@ -24,12 +24,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1chinhthuc.Adapter_admin.Home_adapter;
 import com.example.duan1chinhthuc.Adapter_admin.adapter_QL_donhang;
+import com.example.duan1chinhthuc.DAO.Dao_love;
 import com.example.duan1chinhthuc.DAO.DonHang_DAO;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.InterfaceRecycle;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.Donhang;
 import com.example.duan1chinhthuc.mode.San_Pham;
+import com.example.duan1chinhthuc.mode.love_model;
 import com.example.duan1chinhthuc.mode.nguoidung;
 
 import java.text.SimpleDateFormat;
@@ -55,6 +57,9 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
     Home_adapter adapter;
     Home_DAO dao;
     DonHang_DAO dao1;
+    Dao_love dao_love;
+    ArrayList<love_model> list_love;
+    adapter_love adapter_love;
 
     ArrayList<Donhang> list12;
     private static int nextId = 1;
@@ -91,16 +96,8 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
 
         try {
             if (loaiTK.equals("admin")){
-
+                Toast.makeText(context, "ADMIN ?", Toast.LENGTH_SHORT).show();
             }else {
-                holder.addcart.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                    }
-                });
-
-
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -127,6 +124,32 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
 
 
                         Button addtocart = view1.findViewById(R.id.btn_add_cart);
+                        ImageView addtolove = view1.findViewById(R.id.add_to_love_ct);
+
+                        addtolove.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                         try {
+                             Dao_love love = new Dao_love(context);
+
+                             int id_sp1 = Integer.parseInt(idSP.getText().toString());
+                             String tensp1 = ten.getText().toString();
+                             SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
+                             int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
+
+
+                             boolean kt = love.addSanPhamtoLove(id_sp1,tensp1,id_user1);
+                             if(kt){
+                                 Toast.makeText(context, "thành công !", Toast.LENGTH_SHORT).show();
+                                 list_love.clear();
+                                 list_love.addAll(dao_love.get_ds_love_sp());
+                                 alertDialog.dismiss();
+                                 adapter_love.notifyDataSetChanged();
+                             }
+                         }catch (Exception e){}
+
+                            }
+                        });
 
                         addtocart.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -230,13 +253,10 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
 
     public class viewholder extends RecyclerView.ViewHolder {
         TextView idSP,tenSP,tieude,ngayban,trangthai,id_CL,ten_CL,id_sp_CT,giatien,size,idhinhanh;
-        Button addtocart;
-        ImageView hinhanhsp,hinhanh,love,addcart;
+
         public viewholder(@NonNull View itemView) {
             super(itemView);
-            addtocart = itemView.findViewById(R.id.btn_add_cart);
-            love = itemView.findViewById(R.id.add_to_love);
-            addcart =  itemView.findViewById(R.id.add_to_cart);
+
             tenSP = itemView.findViewById(R.id.user_ten_sp);
 //            idhinhanh = itemView.findViewById(R.id.user_idhinhanh_hinhanh);
             giatien = itemView.findViewById(R.id.user_giatien_sp);

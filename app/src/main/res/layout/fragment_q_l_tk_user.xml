@@ -4,9 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment_admin.QL_tk_user">
+    <androidx.appcompat.widget.SearchView
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_timkiem"
+        android:layout_width="380dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Looking for shoes"
+        android:hint="Looking for shoes"
+        android:layout_height="45dp"
+        android:id="@+id/searchSach_user"></androidx.appcompat.widget.SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:layout_width="380dp"
         android:layout_height="match_parent"

@@ -1,4 +1,4 @@
-package com.example.duan1chinhthuc.Activity_user;
+package com.example.duan1chinhthuc.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;

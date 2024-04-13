@@ -183,9 +183,9 @@ public class adapter_donhang_user extends RecyclerView.Adapter<adapter_donhang_u
             id_DH = itemView.findViewById(R.id.idDonhang22);
             id_SP = itemView.findViewById(R.id.id_sanpham22);
             tenKH = itemView.findViewById(R.id.textinputname22);
-            SDT = itemView.findViewById(R.id.textinputsdt22);
+
             email = itemView.findViewById(R.id.textinputemail22);
-            diachi = itemView.findViewById(R.id.textinputaddress22);
+
             size = itemView.findViewById(R.id.size22);
             tongtien1 = itemView.findViewById(R.id.tongtien);
             trangthai = itemView.findViewById(R.id.trangthai22);

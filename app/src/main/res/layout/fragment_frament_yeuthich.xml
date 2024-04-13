@@ -6,37 +6,44 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:background="#404285F4"
-        android:padding="5dp">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/filter_button"
-            style="bold"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:textColor="#FF8400"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:backgroundTint="#4F91D7"
-            android:text="Fillter"
-            android:textColor="@color/black" />
+            android:text="your"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:fontFamily="serif-monospace"
+            />
+        <TextView
+            android:textColor="#59AE0F"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" favorite"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:fontFamily="serif-monospace"
+            />
+        <TextView
+            android:textColor="#BE0DFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" products"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+            android:fontFamily="serif-monospace"
+            />
     </LinearLayout>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical" />
-
-    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:layout_width="380dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/rcv_QL_DH_user_12"/>
 
 </LinearLayout>

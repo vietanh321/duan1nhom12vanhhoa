@@ -9,12 +9,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.duan1chinhthuc.Database.DbHelper;
-import com.example.duan1chinhthuc.mode.Donhang;
-import com.example.duan1chinhthuc.mode.San_Pham;
 import com.example.duan1chinhthuc.mode.nguoidung;
 
 import java.util.ArrayList;
@@ -41,7 +38,7 @@ public class  ThuThuDao {
             if (cursor.getCount() > 0){
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()){
-                    list.add(new nguoidung(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4)));
+                    list.add(new nguoidung(cursor.getInt(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getInt(5),cursor.getString(6)));
                     cursor.moveToNext();
                 }
             }
@@ -107,7 +104,7 @@ public class  ThuThuDao {
         return exists;
     }
 
-    public int capnhatpass(String user, String cu, String moi) {
+    public int capnhaptongtin(String user, String cu, String moi) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from thuthu where matt = ? and matkhau = ?", new String[]{user, cu});
         if (cursor.getCount() > 0) {
@@ -122,7 +119,6 @@ public class  ThuThuDao {
         db.close();
         return 0;
     }
-
     public boolean delete(String mapm){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from thuthu where matt = ?", new String[]{String.valueOf(mapm)});
@@ -132,24 +128,17 @@ public class  ThuThuDao {
         }
         return false;
     }
-
-
-    public ArrayList<Donhang> gettknguoidung(int id){
-        ArrayList<Donhang> list = new ArrayList<>();
-        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
-        try{
-            Cursor cursor = sqLiteDatabase.rawQuery("SELECT  * \n" +
-                    "FROM   DONHANG \n"+
-                    "WHERE id_user = ? ",new String[]{String.valueOf(id)});
-            if (cursor.getCount() > 0){
-                cursor.moveToFirst();
-                while (!cursor.isAfterLast()){
-                    list.add(new Donhang(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3), cursor.getInt(4),cursor.getInt(5),cursor.getString(6),cursor.getInt(7)));                    cursor.moveToNext();
-                }
-            }
-        }catch (Exception e){
-            Log.i(TAG, "loi", e);
+    public boolean capnhaptongtin_giaohang(nguoidung pm) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from thuthu where id_usser = ?", new String[]{String.valueOf(pm.getId_user())});
+        if(cursor.getCount() > 0) {
+            ContentValues values = new ContentValues();
+            values.put("hoten", pm.getHoten());
+            values.put("sodienthoai", pm.getSdt());
+            values.put("diachi", pm.getDiachi());
+            long row = db.update("thuthu",  values,  "id_usser = ?", new String[]{String.valueOf(pm.getId_user())});
+            return (row>0);
         }
-        return list;
+        return false;
     }
 }

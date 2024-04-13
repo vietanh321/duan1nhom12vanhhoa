@@ -17,39 +17,52 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 85);
+        super(context, DB_name, null, 89);
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        //---------------------------------------------------------------------//
         String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer,matt text references thuthu(matt))";
         db.execSQL(chitietdonhang);
+        //---------------------------------------------------------------------//
         String donhang = "CREATE TABLE DONHANG(id integer primary key, " +
                 "Id_spchitiet references spchitiet(Id_spchitiet)," +
                 "trangthai text,size integer,soluong_sp integer," +
                 "tongtien integer,ngay text,id_user integer," +
                 "FOREIGN key (id_user) REFERENCES thuthu(id_usser))";
         db.execSQL(donhang);
+        //---------------------------------------------------------------------//
 
-
-        String db_thuthu="create table thuthu(id_usser integer primary key AUTOINCREMENT, matt text," + "hoten text," + "matkhau text," + "loaitaikhoan text,"+"sodienthoai integer,diachi text)";
+        String db_thuthu="create table thuthu(id_usser integer primary key AUTOINCREMENT, " +
+                "matt text," + "hoten text," + "matkhau text," + "loaitaikhoan text,"+"sodienthoai integer,diachi text)";
         db.execSQL(db_thuthu);
 
-
+        //---------------------------------------------------------------------//
 
         String db_giohang="create table giohang(id_giohang text primary key ," + " Id_spchitiet text references spchitiet(Id_spchitiet),"+ "matt text references thuthu(matt),"+"soluongsp integer,Tensp text references spchitiet(Tensp),gia integer references spchitiet(gia))";
         db.execSQL(db_giohang);
 
-
+        //---------------------------------------------------------------------//
         String db_spchitiet="create table spchitiet(Id_spchitiet integer primary key ,"
                 + "Id_chatlieu integer references chatlieu(Id_chatlieu)," +
                 " " + "Id_hinhanh integer references hinhanh(Id_hinhanh)," +
                 " " + "gia integer," + "size integer,"+"tensp text,"+"tieude text,"+"trangthai text,"+"ngaydangban text,"+"idloaisp integer references loaisp(idloaisp))";
         db.execSQL(db_spchitiet);
-
+        //---------------------------------------------------------------------//
         String db_loaisp="create table loaisp(idloaisp integer primary key," + "tenloai text)";
         db.execSQL(db_loaisp);
+        //---------------------------------------------------------------------//
+
+        String db_cart = "create table love(id_love integer PRIMARY KEY AUTOINCREMENT," +
+                "id_sp integer references spchitiet(Id_spchitiet)," +
+                "ten_sp text references spchitiet(tensp)," +
+                "id_user integer," +
+                "FOREIGN key (id_user) REFERENCES thuthu(id_usser))";
+        db.execSQL(db_cart);
+
 
 
         String db_chatlieu="create table chatlieu(Id_chatlieu integer primary key," + "tenchatlieu text)";
@@ -99,6 +112,7 @@ public class DbHelper extends SQLiteOpenHelper {
            db.execSQL("drop table if exists CHITIETDONHANG");
            db.execSQL("drop table if exists DONHANG");
            db.execSQL("drop table if exists loaisp");
+           db.execSQL("drop table if exists love");
            onCreate(db);
        }
     }

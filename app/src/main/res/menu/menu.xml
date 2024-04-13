@@ -4,14 +4,6 @@
 <item android:id="@+id/m_profile" android:title="@string/Profile"  android:icon="@drawable/user_ssaa"/>
     <item android:id="@+id/m_Favorite" android:title="@string/Favorite"  android:icon="@drawable/love_img"/>
     <item android:id="@+id/m_Orders" android:title="@string/Orders" android:icon="@drawable/oder_img"/>
-
-
-            <item android:id="@+id/m_Notification" android:title="@string/Notification" android:icon="@drawable/thongbao_img"/>
-
-
-
-
-
     <item  android:title="" >
         <menu>
             <item android:id="@+id/m_themsanpham" android:title="@string/themsanpham" android:icon="@drawable/add_add"/>

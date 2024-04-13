@@ -71,31 +71,8 @@ ArrayList<SanPhamChiTiet> list1;
         adapter = new adapter_user(list, getContext());
         rcv.setAdapter(adapter);
 
-        ImageView addtocarrt = view.findViewById(R.id.add_to_cart);
-//        adapter.setOnclickRecycle(new InterfaceRecycle() {
-//            @Override
-//            public void setOnclick(int position) {
-//                Intent intent = new Intent(getActivity(), chitiet_sp.class);
-//                intent.putExtra("thongtinchitiet", list.get(position));
-//                startActivity(intent);
-//            }
-//        });
 
-//        sale_img.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                int id = v.getId();
-//                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-//                if (id==R.id.fragment_home_img_sale){
-//
-//                    Fragment fragment = new Fragment_sale();
-//                    fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
-//                }
-//
-//
-//
-//            }
-//        });
+
 
         SearchView srview = view.findViewById(R.id.searchSach);
         srview.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

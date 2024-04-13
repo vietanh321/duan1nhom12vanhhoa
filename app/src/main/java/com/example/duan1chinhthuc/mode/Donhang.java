@@ -9,6 +9,9 @@ public class Donhang {
     int tongtien;
     String ngay_model;
     int id_user;
+    int sdt;
+    String diachi;
+    String hoten;
 
     public Donhang() {
     }
@@ -22,6 +25,44 @@ public class Donhang {
         this.tongtien = tongtien;
         this.ngay_model = ngay_model;
         this.id_user = id_user;
+    }
+
+    public Donhang(int id, int id_chitietsp, String trangthaidonhang, int size, int soluong_sp, int tongtien, String ngay_model, int id_user, int sdt, String diachi, String hoten) {
+        this.id = id;
+        this.id_chitietsp = id_chitietsp;
+        this.trangthaidonhang = trangthaidonhang;
+        this.size = size;
+        this.soluong_sp = soluong_sp;
+        this.tongtien = tongtien;
+        this.ngay_model = ngay_model;
+        this.id_user = id_user;
+        this.sdt = sdt;
+        this.diachi = diachi;
+        this.hoten = hoten;
+    }
+
+    public int getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(int sdt) {
+        this.sdt = sdt;
+    }
+
+    public String getDiachi() {
+        return diachi;
+    }
+
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
+    }
+
+    public String getHoten() {
+        return hoten;
+    }
+
+    public void setHoten(String hoten) {
+        this.hoten = hoten;
     }
 
     public int getId() {

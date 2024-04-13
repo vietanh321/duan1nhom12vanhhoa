@@ -38,10 +38,9 @@
 
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:layout_width="380dp"
-        android:layout_height="match_parent"
+        android:layout_height="620dp"
         android:orientation="vertical"
         android:id="@+id/rcv_QL_DH"/>
 

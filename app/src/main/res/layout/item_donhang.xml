@@ -75,7 +75,8 @@
             android:layout_height="wrap_content"
             >
             <TextView
-                android:text="Tên KH :"
+                android:textSize="20dp"
+                android:text="ID_uer :"
                 android:gravity="center"
                 android:textColor="@color/Blue"
                 android:layout_width="100dp"
@@ -84,59 +85,14 @@
                 />
 
             <TextView
-                android:textColor="@color/black"
+                android:textSize="20dp"
                 android:id="@+id/textinputname22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tên khách hàng" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:text="Số điện thoại :"
                 android:gravity="center"
-                android:textColor="@color/Blue"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                />
-            <TextView
-                android:textColor="@color/black"
-                android:id="@+id/textinputsdt22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Số điện thoại"
-                android:inputType="phone" />
+                android:textColor="#FF0000"
+                android:hint="" />
         </LinearLayout>
-
-
-
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <TextView
-                android:text="Địa Chỉ :"
-                android:gravity="center"
-                android:textColor="@color/Blue"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
-                />
-            <TextView
-                android:textColor="@color/black"
-                android:id="@+id/textinputaddress22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPostalAddress"
-                android:hint="Địa chỉ" />
-        </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

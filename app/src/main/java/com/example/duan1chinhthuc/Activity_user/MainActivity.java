@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Menu menu = navigationView.getMenu();
             menu.findItem(R.id.m_Favorite).setVisible(false);
             menu.findItem(R.id.m_Orders).setVisible(false);
-            menu.findItem(R.id.m_Notification).setVisible(false);
+
 
         }
         if (loaiTK.equals("admin")){
@@ -211,10 +211,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent = new Intent(MainActivity.this, order.class);
                 startActivity(intent);
                 finish();
-            }else  if (id == R.id.m_Notification) {
-
-                Fragment fragment = new Fragment_thongbao();
-                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
             }else if (id == R.id.m_Dangxuat) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setTitle("Thông báo");

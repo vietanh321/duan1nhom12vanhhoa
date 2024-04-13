@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.duan1chinhthuc.DAO.UpdatePassword;
 import com.example.duan1chinhthuc.R;
 
 public class UpdatePasswordActivity extends AppCompatActivity {

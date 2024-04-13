@@ -62,16 +62,19 @@ public class adapter_QL_donhang extends RecyclerView.Adapter<adapter_QL_donhang.
         holder.size.setText(Integer.toString(list.get(position).getSize()));
         holder.trangthai.setText(list.get(position).getTrangthaidonhang());
         holder.tongtien1.setText(Integer.toString(list.get(position).getTongtien()));
-     sodienthoai = sharedPreferences.getString("sodienthoai","");
-       diachi  = sharedPreferences.getString("diachi","");
-        tenKH  = sharedPreferences.getString("hoten","");
-
-        holder.diachi.setText(diachi);
-        holder.tenKH.setText(tenKH);
-        holder.SDT.setText(sodienthoai);
+        holder.tenKH.setText(Integer.toString(list.get(position).getId_user()));
 
 
 
+
+
+//     sodienthoai = sharedPreferences.getString("sodienthoai","");
+//       diachi  = sharedPreferences.getString("diachi","");
+//        tenKH  = sharedPreferences.getString("hoten","");
+//
+//        holder.diachi.setText(diachi);
+//        holder.tenKH.setText(tenKH);
+//        holder.SDT.setText(sodienthoai);
 
         if (list.get(position).getTrangthaidonhang().equals("chờ xác nhận")){
             holder.trangthai.setTextColor(Color.parseColor("#0A47FD"));
@@ -196,14 +199,14 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
             xoa = itemView.findViewById(R.id.delete_donhang);
             id_DH = itemView.findViewById(R.id.idDonhang22);
             id_SP = itemView.findViewById(R.id.id_sanpham22);
-            tenKH = itemView.findViewById(R.id.textinputname22);
-            SDT = itemView.findViewById(R.id.textinputsdt22);
             email = itemView.findViewById(R.id.textinputemail22);
-            diachi = itemView.findViewById(R.id.textinputaddress22);
+
             size = itemView.findViewById(R.id.size22);
             tongtien1 = itemView.findViewById(R.id.tongtien);
             trangthai = itemView.findViewById(R.id.trangthai22);
-            matt = itemView.findViewById(R.id.matt);
+
+            ///
+            tenKH = itemView.findViewById(R.id.textinputname22);
         }
     }
 
