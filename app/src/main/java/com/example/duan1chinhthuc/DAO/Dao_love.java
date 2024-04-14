@@ -33,7 +33,7 @@ public class Dao_love {
             if (cursor.getCount() > 0){
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()){
-                    list.add(new love_model(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3)));
+                    list.add(new love_model(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4),cursor.getString(5)));
                     cursor.moveToNext();
                 }
             }
@@ -42,11 +42,13 @@ public class Dao_love {
         }
         return list;
     }
-    public boolean addSanPhamtoLove(int id , String ten ,int id_user) {
+    public boolean addSanPhamtoLove(int id , String ten ,int gia,String tieude,int id_user) {
         SQLiteDatabase db = myDbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("id_sp", id);
         values.put("ten_sp",ten);
+        values.put("gia",gia);
+        values.put("tieude",tieude);
         values.put("id_user",id_user);
         long kt = db.insert("love" , null, values);
         return (kt>0);
@@ -69,7 +71,7 @@ public class Dao_love {
             if (cursor.getCount() > 0){
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()){
-                    list.add(new love_model(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3)));
+                    list.add(new love_model(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3),cursor.getInt(4),cursor.getString(5)));
                     cursor.moveToNext();
                 }
             }

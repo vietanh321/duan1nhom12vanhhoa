@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -71,6 +72,16 @@ ArrayList<SanPhamChiTiet> list1;
         adapter = new adapter_user(list, getContext());
         rcv.setAdapter(adapter);
 
+        TextView bsl = view.findViewById(R.id.bestseller);
+        bsl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                Fragment fragment = new best_seller();
+                fragmentManager.beginTransaction().replace(R.id.frame_layout, fragment).commit();
+            }
+        });
+
 
 
 
@@ -95,6 +106,9 @@ ArrayList<SanPhamChiTiet> list1;
         });
        return view;
     }
+
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

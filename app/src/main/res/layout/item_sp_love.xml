@@ -62,15 +62,16 @@
                 android:layout_height="wrap_content"
                 >
                 <TextView
-                    android:text=" mã :"
+                    android:text=" Giá :"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     />
                 <TextView
+                    android:textColor="#FF0008"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ma_sp_love"
+                    android:id="@+id/gia_sanpham_love"
                     android:layout_gravity="center"
                     />
             </LinearLayout>

@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 89);
+        super(context, DB_name, null, 103);
     }
 
 
@@ -59,6 +59,8 @@ public class DbHelper extends SQLiteOpenHelper {
         String db_cart = "create table love(id_love integer PRIMARY KEY AUTOINCREMENT," +
                 "id_sp integer references spchitiet(Id_spchitiet)," +
                 "ten_sp text references spchitiet(tensp)," +
+                "gia integer references spchitiet(gia)," +
+                "tieude text references spchitiet(tieude)," +
                 "id_user integer," +
                 "FOREIGN key (id_user) REFERENCES thuthu(id_usser))";
         db.execSQL(db_cart);

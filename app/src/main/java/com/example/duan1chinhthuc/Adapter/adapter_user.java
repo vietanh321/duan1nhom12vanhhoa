@@ -119,6 +119,11 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
                         trangthai.setText(String.valueOf(list.get(position).getTrangthai()));
                         tenchatlieu.setText(String.valueOf(list.get(position).getTenchatlieu()));
                         giatien.setText(String.valueOf(list.get(position).getGiatien()));
+                        TextView idCL = view1.findViewById(R.id.item_idCL_sp_home_12);
+                        idCL.setText(String.valueOf(list.get(position).getId_chatlieu()));
+
+                        TextView editText = (TextView) view1.findViewById(R.id.item_idCL_sp_home_12);
+                        editText.setVisibility(View.GONE);
 
                         Spiner();
 
@@ -129,25 +134,29 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
                         addtolove.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                         try {
-                             Dao_love love = new Dao_love(context);
 
-                             int id_sp1 = Integer.parseInt(idSP.getText().toString());
-                             String tensp1 = ten.getText().toString();
-                             SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
-                             int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
+                        try {
+                            Dao_love love = new Dao_love(context);
+
+                            int id_sp1 = Integer.parseInt(idSP.getText().toString());
+                            String tensp1 = ten.getText().toString();
+                            SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
+                            int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
+                            int giatien1 = Integer.parseInt(giatien.getText().toString());
+                            String tieude1 = tieude.getText().toString();
 
 
-                             boolean kt = love.addSanPhamtoLove(id_sp1,tensp1,id_user1);
-                             if(kt){
-                                 Toast.makeText(context, "thành công !", Toast.LENGTH_SHORT).show();
-                                 list_love.clear();
-                                 list_love.addAll(dao_love.get_ds_love_sp());
-                                 alertDialog.dismiss();
-                                 adapter_love.notifyDataSetChanged();
-                             }
-                         }catch (Exception e){}
+                            boolean kt = love.addSanPhamtoLove(id_sp1,tensp1,giatien1,tieude1,id_user1);
+                            if(kt){
+                                Toast.makeText(context, "thành công !", Toast.LENGTH_SHORT).show();
+                                list_love.clear();
+                                list_love.addAll(dao_love.get_ds_love_sp());
+                                alertDialog.dismiss();
+                                adapter_love.notifyDataSetChanged();
+                            }
 
+
+                        }catch (Exception e){}
                             }
                         });
 

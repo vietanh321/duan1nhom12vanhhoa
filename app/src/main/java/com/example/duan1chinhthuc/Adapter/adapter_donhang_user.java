@@ -69,99 +69,32 @@ public class adapter_donhang_user extends RecyclerView.Adapter<adapter_donhang_u
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
-//                AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
-//                LayoutInflater inflater1 = LayoutInflater.from(context);
-//                View view1 = inflater1.inflate(R.layout.item_update_donhang, null);
-//                builder1.setView(view1);
-//                AlertDialog alertDialog = builder1.create();
-//                EditText id_SP = view1.findViewById(R.id.id_sanpham);
-//                EditText id_donhang = view1.findViewById(R.id.idDonhang);
-//                EditText tenkhachhang = view1.findViewById(R.id.textinputname);
-//                EditText sodienthoai = view1.findViewById(R.id.textinputsdt);
-//                EditText email = view1.findViewById(R.id.textinputemail);
-//                EditText diachi = view1.findViewById(R.id.textinputaddress);
-//                EditText size = view1.findViewById(R.id.size);
-//                spn_soluong=view1.findViewById(R.id.trangthai);
-//                EditText ngay = view1.findViewById(R.id.ngay);
-//
-//
-//                id_SP.setText(String.valueOf(list.get(position).getId_chitietsp()));
-//                id_donhang.setText(String.valueOf(list.get(position).getId()));
-//
-//                email.setText(String.valueOf(list.get(position).getSoluong_sp()));
-//                Spiner();
-//                size.setText(String.valueOf(list.get(position).getSize()));
-//                ngay.setText(list.get(position).getNgay_model());
-//
-//                Button btnxacnhan = view1.findViewById(R.id.btnxacnhan);
-//                Button btnquaylai = view1.findViewById(R.id.btnquaylai);
-//                btnxacnhan.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        if (list.get(position).getTrangthaidonhang().equals("chờ xác nhận")){
-//                            int id_SP1 = Integer.parseInt(id_SP.getText().toString());
-//                            int id_donhang1 = Integer.parseInt(id_donhang.getText().toString());
-//                            String tenkhachhang1 = tenkhachhang.getText().toString();
-//                            int sodienthoai1 = Integer.parseInt(sodienthoai.getText().toString());
-//                            int email1 = Integer.parseInt(email.getText().toString());
-//                            String diachi1 = diachi.getText().toString();
-//                            String trangthai1 = spn_soluong.getSelectedItem().toString();
-//                            int size1 = Integer.parseInt(size.getText().toString());
-//                            int tongtien = email1 * list.get(position).getTongtien();
-//
-//                            String ngay1 = ngay.getText().toString();
-//                            Donhang ls = new Donhang(id_SP1, id_donhang1,tenkhachhang1,sodienthoai1,diachi1,trangthai1,size1,email1,tongtien,ngay1);
-//                            boolean kt = dao.capnhatdonhang_user(ls);
-//                            if(kt){
-//                                list.clear();
-//                                list.addAll(dao.getDS_donhang());
-//                                adapter.notifyDataSetChanged();
-//                                alertDialog.dismiss();
-//                                Toast.makeText(context, "Succesfully", Toast.LENGTH_SHORT).show();
-//                            }else{
-//                                Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
-//                            }
-//                        }else if(list.get(position).getTrangthaidonhang().equals("đang giao hàng")){
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//                            builder.setTitle("Thông báo");
-//                            builder.setMessage("Không thể thay đổi thông tin , khi đơn hàng đang được giao !");
-//
-//                            builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    dialog.dismiss();
-//                                    alertDialog.dismiss();
-//                                }
-//                            });
-//                            builder.show();
-//                        }else{
-//                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//                            builder.setTitle("Thông báo");
-//                            builder.setMessage("Không thể thay đổi thông tin , khi đơn hàng đã được giao !");
-//
-//                            builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    dialog.dismiss();
-//                                    alertDialog.dismiss();
-//                                }
-//                            });
-//                            builder.show();
-//                        }
-//
-//                    }
-//                });
-//
-//                btnquaylai.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        alertDialog.dismiss();
-//                    }
-//                });
-//
-//
-//                alertDialog.show();
+                if(list.get(position).getTrangthaidonhang().equals("chờ xác nhận")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    builder.setTitle("Thông báo");
+                    builder.setMessage("Bạn có muốn hủy đơn hàng không ? ");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if(dao.delete(list.get(holder.getAdapterPosition()).getId())){
+                                list.clear();
+                                list.addAll(dao.getDS_donhang());
+                                notifyDataSetChanged();
+                                dialog.dismiss();
+                                Toast.makeText(context, "Đã hủy", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    builder.show();
+                }else if(list.get(position).getTrangthaidonhang().equals("đang giao hàng")&&list.get(position).getTrangthaidonhang().equals("đã giao")){
+                    Toast.makeText(context, "Không thể hủy", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

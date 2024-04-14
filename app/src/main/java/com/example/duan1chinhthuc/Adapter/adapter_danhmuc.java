@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,12 +22,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1chinhthuc.DAO.Dao_love;
 import com.example.duan1chinhthuc.DAO.DonHang_DAO;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.InterfaceRecycle;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.Donhang;
 import com.example.duan1chinhthuc.mode.San_Pham;
+import com.example.duan1chinhthuc.mode.love_model;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,6 +44,9 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
     adapter_danhmuc adapter;
     Home_DAO dao;
     DonHang_DAO dao1;
+    Dao_love dao_love;
+    ArrayList<love_model> list_love;
+    adapter_love adapter_love;
 
     ArrayList<Donhang> list12;
     private static int nextId = 1;
@@ -92,7 +98,36 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
                         giatien.setText(String.valueOf(list.get(position).getGiatien()));
 
                         Spiner();
+                        ImageView addtolove = view1.findViewById(R.id.add_to_love_ct);
 
+                        addtolove.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                try {
+                                    Dao_love love = new Dao_love(context);
+
+                                    int id_sp1 = Integer.parseInt(idSP.getText().toString());
+                                    String tensp1 = ten.getText().toString();
+                                    SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
+                                    int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
+                                    int giatien1 = Integer.parseInt(giatien.getText().toString());
+                                    String tieude1 = tieude.getText().toString();
+
+
+                                    boolean kt = love.addSanPhamtoLove(id_sp1,tensp1,giatien1,tieude1,id_user1);
+                                    if(kt){
+                                        Toast.makeText(context, "thành công !", Toast.LENGTH_SHORT).show();
+                                        list_love.clear();
+                                        list_love.addAll(dao_love.get_ds_love_sp());
+                                        alertDialog.dismiss();
+                                        adapter_love.notifyDataSetChanged();
+                                    }
+
+
+                                }catch (Exception e){}
+                            }
+                        });
 
                         Button addtocart = view1.findViewById(R.id.btn_add_cart);
 
