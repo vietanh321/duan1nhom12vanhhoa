@@ -148,10 +148,9 @@ public class Home_DAO {
         }
         return list;
     }
-    public boolean themSP(int id_sanpham , String tensp, String tieude, String ngaydangban, String trangthai, int idchatlieu, int hinhanh, int giatien, int size,int idloaisp){
+    public boolean themSP( String tensp, String tieude, String ngaydangban, String trangthai, int idchatlieu, int hinhanh, int giatien, int size,int idloaisp){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("Id_spchitiet",id_sanpham);
         values.put("Tensp", tensp);
         values.put("tieude", tieude);
         values.put("ngaydangban", ngaydangban);

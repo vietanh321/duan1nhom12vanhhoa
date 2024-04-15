@@ -68,7 +68,7 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
         holder.tenSP.setText(list.get(position).getTensp());
         holder.giatien.setText(Integer.toString(list.get(position).getGiatien()));
         holder.ten_loaisp.setText(list.get(position).getTen_loaisp());
-        SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
         String loaiTK = sharedPreferences.getString("loaitaikhoan", "");
 
         try {
@@ -187,7 +187,9 @@ public class adapter_danhmuc extends RecyclerView.Adapter<adapter_danhmuc.viewho
 
                                             SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
                                             int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
-                                            boolean kt = donHang_dao.them_donhang(id_sp12,trangthai12,size12,email12,tongtien,ngay,id_user1);
+                                            String sdt = sharedPreferences.getString("sodienthoai","");
+                                            String sc = sharedPreferences.getString("diachi","");
+                                            boolean kt = donHang_dao.them_donhang(id_sp12,trangthai12,size12,email12,tongtien,ngay,id_user1,sdt,sc);
 
                                             if(kt){
                                                 Toast.makeText(context, "Đặt Hàng thành công !", Toast.LENGTH_SHORT).show();

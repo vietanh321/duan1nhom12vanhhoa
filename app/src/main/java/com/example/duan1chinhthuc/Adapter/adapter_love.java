@@ -173,7 +173,9 @@ public class adapter_love extends RecyclerView.Adapter<adapter_love.viewholder>{
 
                                     SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
                                     int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
-                                    boolean kt = donHang_dao.them_donhang(id_sp12,trangthai12,size12,email12,tongtien,ngay,id_user1);
+                                    String sdt = sharedPreferences.getString("sodienthoai","");
+                                    String sc = sharedPreferences.getString("diachi","");
+                                    boolean kt = donHang_dao.them_donhang(id_sp12,trangthai12,size12,email12,tongtien,ngay,id_user1,sdt,sc);
 
                                     if(kt){
                                         Toast.makeText(context, "Đặt Hàng thành công !", Toast.LENGTH_SHORT).show();

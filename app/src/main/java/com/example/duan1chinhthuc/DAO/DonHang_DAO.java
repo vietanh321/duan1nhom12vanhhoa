@@ -36,7 +36,7 @@ public class DonHang_DAO {
             if (cursor.getCount() > 0){
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()){
-                    list.add(new Donhang(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3), cursor.getInt(4),cursor.getInt(5),cursor.getString(6),cursor.getInt(7)));
+                    list.add(new Donhang(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3), cursor.getInt(4),cursor.getInt(5),cursor.getString(6),cursor.getInt(7),cursor.getString(8),cursor.getString(9)));
                     cursor.moveToNext();
                 }
             }
@@ -45,6 +45,8 @@ public class DonHang_DAO {
         }
         return list;
     }
+
+
     public ArrayList<Donhang> getDS_donhang1(){
         ArrayList<Donhang> list = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
@@ -55,7 +57,8 @@ public class DonHang_DAO {
             if (cursor.getCount() > 0){
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()){
-                    list.add(new Donhang(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3), cursor.getInt(4),cursor.getInt(5),cursor.getString(6),cursor.getInt(7)));                    cursor.moveToNext();
+                    list.add(new Donhang(cursor.getInt(0),cursor.getInt(1),cursor.getString(2),cursor.getInt(3), cursor.getInt(4),cursor.getInt(5),cursor.getString(6),cursor.getInt(7)));
+                    cursor.moveToNext();
                 }
             }
         }catch (Exception e){
@@ -104,7 +107,7 @@ public class DonHang_DAO {
 
 
 
-    public boolean them_donhang(int idSp12, String trangthai12, int size12, int email12,int tongtien,String ngay,int id) {
+    public boolean them_donhang(int idSp12, String trangthai12, int size12, int email12,int tongtien,String ngay,int id,String sdt,String dc) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Id_spchitiet", idSp12);
@@ -114,6 +117,8 @@ public class DonHang_DAO {
         values.put("tongtien", tongtien);
         values.put("ngay", ngay);
         values.put("id_user", id);
+        values.put("sdt", sdt);
+        values.put("diachi", dc);
         long kt = db.insert("DONHANG" , null, values);
         return (kt>0);
 

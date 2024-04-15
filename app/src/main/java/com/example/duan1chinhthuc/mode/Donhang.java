@@ -9,12 +9,13 @@ public class Donhang {
     int tongtien;
     String ngay_model;
     int id_user;
-    int sdt;
+    String sdt;
     String diachi;
     String hoten;
 
     public Donhang() {
     }
+
 
     public Donhang(int id, int id_chitietsp, String trangthaidonhang, int size, int soluong_sp, int tongtien, String ngay_model, int id_user) {
         this.id = id;
@@ -27,7 +28,7 @@ public class Donhang {
         this.id_user = id_user;
     }
 
-    public Donhang(int id, int id_chitietsp, String trangthaidonhang, int size, int soluong_sp, int tongtien, String ngay_model, int id_user, int sdt, String diachi, String hoten) {
+    public Donhang(int id, int id_chitietsp, String trangthaidonhang, int size, int soluong_sp, int tongtien, String ngay_model, int id_user, String sdt, String diachi) {
         this.id = id;
         this.id_chitietsp = id_chitietsp;
         this.trangthaidonhang = trangthaidonhang;
@@ -38,14 +39,14 @@ public class Donhang {
         this.id_user = id_user;
         this.sdt = sdt;
         this.diachi = diachi;
-        this.hoten = hoten;
     }
 
-    public int getSdt() {
+
+    public String getSdt() {
         return sdt;
     }
 
-    public void setSdt(int sdt) {
+    public void setSdt(String sdt) {
         this.sdt = sdt;
     }
 
