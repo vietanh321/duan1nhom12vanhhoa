@@ -19,13 +19,20 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1chinhthuc.DAO.DonHang_DAO;
+import com.example.duan1chinhthuc.Fragment_admin.QL_tk_user;
+import com.example.duan1chinhthuc.Frament_user.Fragment_canhan;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.Donhang;
+import com.example.duan1chinhthuc.mode.nguoidung;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class adapter_QL_donhang extends RecyclerView.Adapter<adapter_QL_donhang.viewholder>{
      ArrayList<Donhang> list;
@@ -37,6 +44,8 @@ public class adapter_QL_donhang extends RecyclerView.Adapter<adapter_QL_donhang.
     String sodienthoai;
     String diachi;
     String tenKH;
+
+
 
     public adapter_QL_donhang(ArrayList<Donhang> list, Context context) {
         this.list = list;
@@ -66,16 +75,6 @@ public class adapter_QL_donhang extends RecyclerView.Adapter<adapter_QL_donhang.
 
 
 
-
-
-//     sodienthoai = sharedPreferences.getString("sodienthoai","");
-//       diachi  = sharedPreferences.getString("diachi","");
-//        tenKH  = sharedPreferences.getString("hoten","");
-//
-//        holder.diachi.setText(diachi);
-//        holder.tenKH.setText(tenKH);
-//        holder.SDT.setText(sodienthoai);
-
         if (list.get(position).getTrangthaidonhang().equals("chờ xác nhận")){
             holder.trangthai.setTextColor(Color.parseColor("#0A47FD"));
         }
@@ -83,15 +82,52 @@ public class adapter_QL_donhang extends RecyclerView.Adapter<adapter_QL_donhang.
             holder.trangthai.setTextColor(Color.parseColor("#ff0000"));
         }else if (list.get(position).getTrangthaidonhang().equals("đã giao")){}
 
+        holder.ttkh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                   AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                   builder.setTitle("Thông tin khách hàng");
+                   builder.setMessage("MÃ KH : "+list.get(position).getId_user()+"\n Số điện thoại : "+list.get(position).getSdt()+"\n Địa chỉ : "+list.get(position).getDiachi());
+                   builder.setPositiveButton(" Đóng ", new DialogInterface.OnClickListener() {
+                       @Override
+                       public void onClick(DialogInterface dialog, int which) {
+                           dialog.dismiss();
+
+                       }
+                   });
+
+                   builder.show();
+
+
+
+            }
+        });
+
 holder.xoa.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        if(dao.delete(list.get(holder.getAdapterPosition()).getId())){
-            list.clear();
-            list.addAll(dao.getDS_donhang());
-            notifyDataSetChanged();
-            Toast.makeText(context, "Đã xóa", Toast.LENGTH_SHORT).show();
-        }
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("Thông báo");
+        builder.setMessage("Bạn muốn từ chối xác nhận đơn hàng ?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(dao.delete(list.get(holder.getAdapterPosition()).getId())){
+                    list.clear();
+                    list.addAll(dao.getDS_donhang());
+                    notifyDataSetChanged();
+                    Toast.makeText(context, "Đã xóa", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
     }
 });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -110,19 +146,35 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (list.get(position).getTrangthaidonhang().equals("chờ xác nhận")){
-                          String trangthai = "đang giao hàng";
-                          Donhang ls=list.get(position);
-                          ls.setTrangthaidonhang(trangthai);
-                            boolean kt = dao.capnhatdonhang_admin(ls);
-                            if(kt){
-                                list.clear();
-                                list.addAll(dao.getDS_donhang());
-                                adapter.notifyDataSetChanged();
-                                alertDialog.dismiss();
-                                Toast.makeText(context, "Succesfully", Toast.LENGTH_SHORT).show();
-                            }else{
-                                Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
-                            }
+                            AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                            builder.setTitle("Thông báo");
+                            builder.setMessage("Xác nhận đơn hàng ?");
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String trangthai = "đang giao hàng";
+                                    Donhang ls=list.get(position);
+                                    ls.setTrangthaidonhang(trangthai);
+                                    boolean kt = dao.capnhatdonhang_admin(ls);
+                                    if(kt){
+                                        list.clear();
+                                        list.addAll(dao.getDS_donhang());
+                                        adapter.notifyDataSetChanged();
+                                        alertDialog.dismiss();
+                                        Toast.makeText(context, "Succesfully", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(context, "Fail", Toast.LENGTH_SHORT).show();
+                                    }
+
+                                }
+                            });
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            builder.show();
                         }else if(list.get(position).getTrangthaidonhang().equals("đang giao hàng")){
                             AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
                             builder.setTitle("Thông báo");
@@ -192,11 +244,13 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
     }
 
     public class viewholder extends RecyclerView.ViewHolder {
-        TextView id_DH,id_SP,tenKH,SDT,email,diachi,size,trangthai,tongtien1,matt;
-        ImageView xoa;
+        TextView id_DH,id_SP,tenKH,SDT,email,diachi,size,trangthai,tongtien1,ten88,diachi88,sdt88;
+        ImageView xoa,ttkh;
         public viewholder(@NonNull View itemView) {
             super(itemView);
             xoa = itemView.findViewById(R.id.delete_donhang);
+            ttkh = itemView.findViewById(R.id.ttkh);
+
             id_DH = itemView.findViewById(R.id.idDonhang22);
             id_SP = itemView.findViewById(R.id.id_sanpham22);
             email = itemView.findViewById(R.id.textinputemail22);
@@ -207,6 +261,10 @@ holder.xoa.setOnClickListener(new View.OnClickListener() {
 
             ///
             tenKH = itemView.findViewById(R.id.textinputname22);
+            ten88 = itemView.findViewById(R.id.ten_88);
+            diachi88 = itemView.findViewById(R.id.diachi_88);
+            sdt88 = itemView.findViewById(R.id.sdt_88);
+
         }
     }
 

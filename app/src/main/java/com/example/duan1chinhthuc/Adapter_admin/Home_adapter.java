@@ -1,12 +1,16 @@
 package com.example.duan1chinhthuc.Adapter_admin;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -41,7 +45,7 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.viewholder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Home_adapter.viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull Home_adapter.viewholder holder, @SuppressLint("RecyclerView") int position) {
         holder.idSP.setText(Integer.toString(list.get(position).getId_sanpham()));
         holder.tenSP.setText(list.get(position).getTensp());
         holder.tieude.setText(list.get(position).getTieude());
@@ -56,7 +60,35 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.viewholder> 
         holder.ten_loaisp.setText(list.get(position).getTen_loaisp());
 
 
+holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+    @Override
+    public boolean onLongClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+        builder.setTitle("Thông báo");
+        builder.setMessage("Xác nhận xóa Sản phẩm có mã là ( "+list.get(position).getId_spchitiet()+" )");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(dao.delete_sp(list.get(holder.getAdapterPosition()).getId_sanpham())){
+                    list.clear();
+                    list.addAll(dao.getDS_sanpham());
+                    notifyDataSetChanged();
+                    dialog.dismiss();
+                    Toast.makeText(context, "Đã hủy", Toast.LENGTH_SHORT).show();
+                }
 
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+        return  true;
+    }
+});
 
 
 

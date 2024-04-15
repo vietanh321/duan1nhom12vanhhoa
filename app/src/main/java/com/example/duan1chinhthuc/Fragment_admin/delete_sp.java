@@ -54,7 +54,6 @@ public class delete_sp extends Fragment {
                 int id = Integer.parseInt(id_xoa.getText().toString());
                 boolean kt = dao.delete_sp(id);
                 if(kt){
-
                     list.clear();
                     list.remove(dao.getDS_sanpham());
                     adapter.notifyDataSetChanged();

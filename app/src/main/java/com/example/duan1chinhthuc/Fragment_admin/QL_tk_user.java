@@ -55,7 +55,7 @@ public class QL_tk_user extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 ArrayList<nguoidung> newlist = new ArrayList<>();
                 for (nguoidung s : list){
-                    if (s.getHoten().toLowerCase().contains(newText.toLowerCase())){
+                    if (String.valueOf(s.getId_user()).toLowerCase().contains(newText.toLowerCase())){
                         newlist.add(s);
                     }
                 }

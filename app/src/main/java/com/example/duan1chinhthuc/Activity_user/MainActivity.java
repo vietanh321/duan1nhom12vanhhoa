@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (loaiTK.equals("admin")){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Thông báo");
-            builder.setMessage("Bạn đang là admin. Bạn có muốn chuyển qua trang quản lý của admin không?");
+            builder.setMessage("Bạn đang là admin.\n Bạn có muốn chuyển qua trang quản lý của admin không?");
             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

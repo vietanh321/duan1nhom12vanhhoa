@@ -91,12 +91,12 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
     public void onBindViewHolder(@NonNull adapter_user.viewholder holder, @SuppressLint("RecyclerView") int position) {
         holder.tenSP.setText(list.get(position).getTensp());
         holder.giatien.setText(Integer.toString(list.get(position).getGiatien()));
-        SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
         String loaiTK = sharedPreferences.getString("loaitaikhoan", "");
 
         try {
             if (loaiTK.equals("admin")){
-                Toast.makeText(context, "ADMIN ?", Toast.LENGTH_SHORT).show();
+
             }else {
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -167,6 +167,7 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
                                 LayoutInflater inflater1 = LayoutInflater.from(context);
                                 View view1 = inflater1.inflate(R.layout.activity_thong_tin_khactivity, null);
                                 builder1.setView(view1);
+                                AlertDialog alertDialog = builder1.create();
 
                                 EditText id_SP = view1.findViewById(R.id.id_sanpham);
                                 EditText email = view1.findViewById(R.id.textinputemail);//soos luong sp
@@ -179,7 +180,7 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
                                 EditText editText = (EditText) view1.findViewById(R.id.trangthai);
                                 editText.setVisibility(View.GONE);
 
-                                AlertDialog alertDialog = builder1.create();
+
 
                                 id_SP.setText(String.valueOf(list.get(position).getId_spchitiet()));
 
@@ -196,7 +197,7 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
                                 btnxacnhan.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        try {
+                                        try{
 
                                             if(email.getText().toString().equals("")){
                                                 Toast.makeText(context, "Nhập số lượng mua", Toast.LENGTH_SHORT).show();
@@ -216,7 +217,9 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
 
                                             SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
                                             int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
-                                            boolean kt = donHang_dao.them_donhang(id_sp12,trangthai12,size12,email12,tongtien,ngay,id_user1);
+                                            String sdt = sharedPreferences.getString("sodienthoai","");
+                                          String sc = sharedPreferences.getString("diachi","");
+                                            boolean kt = donHang_dao.them_donhang(id_sp12,trangthai12,size12,email12,tongtien,ngay,id_user1,sdt,sc);
 
                                             if(kt){
                                                 Toast.makeText(context, "Đặt Hàng thành công !", Toast.LENGTH_SHORT).show();
@@ -230,10 +233,11 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
                                                 notifyDataSetChanged();
                                                 alertDialog.dismiss();
                                             }
-                                        }catch (Exception e){
-                                            Log.i(TAG, "Fail", e);
+                                    }catch (Exception e){
+                                        Log.i(TAG, "Fail", e);
 
-                                        }
+                                    }
+
                                         alertDialog.dismiss();
                                     }
                                 });

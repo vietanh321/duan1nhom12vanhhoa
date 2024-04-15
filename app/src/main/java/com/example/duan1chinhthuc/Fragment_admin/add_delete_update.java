@@ -3,8 +3,11 @@ package com.example.duan1chinhthuc.Fragment_admin;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,14 +18,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.duan1chinhthuc.Activity_ADMIN.MainActivity_admin;
+import com.example.duan1chinhthuc.Activity_user.MainActivity;
 import com.example.duan1chinhthuc.Adapter_admin.Home_adapter;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.SanPhamChiTiet;
 import com.example.duan1chinhthuc.mode.San_Pham;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class add_delete_update extends Fragment {
     RecyclerView rcv;
@@ -47,10 +56,8 @@ public class add_delete_update extends Fragment {
         adapter = new Home_adapter(list, getContext());
         rcv.setAdapter(adapter);
 
-        EditText id_SP = view.findViewById(R.id.edt_id_SP_ADD);
         EditText ten_SP = view.findViewById(R.id.edt_ten_SP_ADD);
         EditText tieude_SP = view.findViewById(R.id.edt_tieude_SP_ADD);
-        EditText ngayban_SP = view.findViewById(R.id.edt_ngayban_SP_ADD);
 
         EditText trangthai_SP = view.findViewById(R.id.edt_Trangthai_SP_ADD);
 
@@ -63,51 +70,54 @@ public class add_delete_update extends Fragment {
 Button button = view.findViewById(R.id.add_SP_123);
         Button update = view.findViewById(R.id.update_SP_123);
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//                int id = Integer.parseInt(id_SP.getText().toString());
-//                String ten = ten_SP.getText().toString();
-//                String tieude = tieude_SP.getText().toString();
-//                String ngayban = ngayban_SP.getText().toString();
-//                String trangthai = trangthai_SP.getText().toString();
-//                int idchatlieu = Integer.parseInt(tenchatlieu_SP.getText().toString());
-//                int giatien1 = Integer.parseInt(giatien_SP.getText().toString());
-//                int hinanh1 = Integer.parseInt(hinhanh.getText().toString());
-//                int size = Integer.parseInt(size_SP.getText().toString());
-//                capnhapsanpham1(id,ten, tieude, ngayban, trangthai,idchatlieu,giatien1,hinanh1,size);
-//
-//            }
-//        });
+
 
         button.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        try {
-            int id = Integer.parseInt(id_SP.getText().toString());
-            String ten = ten_SP.getText().toString();
-            String tieude = tieude_SP.getText().toString();
-            String ngayban = ngayban_SP.getText().toString();
-            String trangthai = trangthai_SP.getText().toString();
-            int idchatlieu = Integer.parseInt(tenchatlieu_SP.getText().toString());
-            int giatien1 = Integer.parseInt(giatien_SP.getText().toString());
-            int hinanh1 = Integer.parseInt(hinhanh.getText().toString());
-            int size = Integer.parseInt(size_SP.getText().toString());
-            int id_loai1 = Integer.parseInt(id_loai.getText().toString());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Thông báo");
+        builder.setMessage("Xác nhận thêm sản phẩm !");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                try {
+                    String ten = ten_SP.getText().toString();
+                    String tieude = tieude_SP.getText().toString();
+                    Date date = Calendar.getInstance().getTime();
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    String ngayban = simpleDateFormat.format(date);
+                    String trangthai = trangthai_SP.getText().toString();
+                    int idchatlieu = Integer.parseInt(tenchatlieu_SP.getText().toString());
+                    int giatien1 = Integer.parseInt(giatien_SP.getText().toString());
+                    int hinanh1 = Integer.parseInt(hinhanh.getText().toString());
+                    int size = Integer.parseInt(size_SP.getText().toString());
+                    int id_loai1 = Integer.parseInt(id_loai.getText().toString());
 
-            Boolean kt = dao.themSP(id,ten,tieude,ngayban,trangthai,idchatlieu,hinanh1,giatien1,size,id_loai1);
+                    Boolean kt = dao.themSP(ten,tieude,ngayban,trangthai,idchatlieu,hinanh1,giatien1,size,id_loai1);
 
-            if(kt){
-                list.clear();
-                list.addAll(dao.getDS_sanpham());
-                adapter.notifyDataSetChanged();
+                    if(kt){
+                        Toast.makeText(getContext(), "Thêm Thành công !", Toast.LENGTH_SHORT).show();
+                        list.clear();
+                        list.addAll(dao.getDS_sanpham());
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        Toast.makeText(getContext(), "Thất bại", Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    Log.i(TAG, "Fail", e);
+                }
 
             }
-        }catch (Exception e){
-            Log.i(TAG, "Fail", e);
-        }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+
     }
 });
 

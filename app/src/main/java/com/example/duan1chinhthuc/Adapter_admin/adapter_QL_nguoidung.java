@@ -54,6 +54,7 @@ public class adapter_QL_nguoidung extends RecyclerView.Adapter<adapter_QL_nguoid
         holder.loaitk.setText(list.get(position).getLoaitaikhoan());
         holder.sdt.setText(Integer.toString(list.get(position).getSdt()));
         holder.diachi.setText(list.get(position).getDiachi());
+        holder.id_user.setText(Integer.toString(list.get(position).getId_user()));
 holder.deletenn.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -92,7 +93,7 @@ holder.deletenn.setOnClickListener(new View.OnClickListener() {
     }
 
     public class viewholder extends RecyclerView.ViewHolder {
-        TextView matt,matkhau,tennguoidung,loaitk,diachi,sdt;
+        TextView matt,matkhau,tennguoidung,loaitk,diachi,sdt,id_user;
         ImageView deletenn;
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -103,6 +104,7 @@ holder.deletenn.setOnClickListener(new View.OnClickListener() {
             loaitk = itemView.findViewById(R.id.loaitk_123);
             diachi = itemView.findViewById(R.id.diachi_123);
             sdt = itemView.findViewById(R.id.sdt_123);
+            id_user = itemView.findViewById(R.id.id_nguoidung);
         }
     }
 }
