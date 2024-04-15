@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 109);
+        super(context, DB_name, null, 89);
     }
 
 
@@ -31,7 +31,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String donhang = "CREATE TABLE DONHANG(id integer primary key, " +
                 "Id_spchitiet references spchitiet(Id_spchitiet)," +
                 "trangthai text,size integer,soluong_sp integer," +
-                "tongtien integer,ngay text,id_user integer,sdt text,diachi text," +
+                "tongtien integer,ngay text,id_user integer," +
                 "FOREIGN key (id_user) REFERENCES thuthu(id_usser))";
         db.execSQL(donhang);
         //---------------------------------------------------------------------//
@@ -41,6 +41,10 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(db_thuthu);
 
         //---------------------------------------------------------------------//
+
+        String db_giohang="create table giohang(id_giohang text primary key ," + " Id_spchitiet text references spchitiet(Id_spchitiet),"+ "matt text references thuthu(matt),"+"soluongsp integer,Tensp text references spchitiet(Tensp),gia integer references spchitiet(gia))";
+        db.execSQL(db_giohang);
+
         //---------------------------------------------------------------------//
         String db_spchitiet="create table spchitiet(Id_spchitiet integer primary key ,"
                 + "Id_chatlieu integer references chatlieu(Id_chatlieu)," +
@@ -55,18 +59,9 @@ public class DbHelper extends SQLiteOpenHelper {
         String db_cart = "create table love(id_love integer PRIMARY KEY AUTOINCREMENT," +
                 "id_sp integer references spchitiet(Id_spchitiet)," +
                 "ten_sp text references spchitiet(tensp)," +
-                "gia integer references spchitiet(gia)," +
-                "tieude text references spchitiet(tieude)," +
                 "id_user integer," +
                 "FOREIGN key (id_user) REFERENCES thuthu(id_usser))";
         db.execSQL(db_cart);
-
-        String db_giohang = "create table giohang(id_giohang integer PRIMARY KEY AUTOINCREMENT," +
-                "id_sp integer not null," +
-                "gia_sp integer," +
-                "soluong_sp integer," +
-                "FOREIGN key (id_sp) references spchitiet(Id_spchitiet))";
-        db.execSQL(db_giohang);
 
 
 
@@ -76,7 +71,9 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL(db_hinhanh);
         String db_danhgia="create table danhgia(Id_danhgia text primary key," + "Id_taikhoan text references thuthu(matt) ," + "note text)";
         db.execSQL(db_danhgia);
-        db.execSQL("INSERT INTO thuthu VALUES (1,'hoaddph46289','Đặng Duy Hòa','hoaddph46289','admin',0968231665,'han noi'),(3,'tv1','Thị Thịnh','1','thuthu',0343593802,'ha noi'),(4,'tv2','Duy Hòa','2','thuthu',0344028775,'ha noi')");
+        db.execSQL("INSERT INTO thuthu VALUES (1,'hoaddph46289','duy hoa','hoaddph46289','admin',09864688,'han noi'),(3,'tv1','thi thinh','1','thuthu',03434565655,'ha noi'),(4,'tv2','thi thinh','2','thuthu',098989465,'ha noi')");
+        db.execSQL("INSERT INTO danhgia VALUES('dgia1','tk2','Sản phẩm đẹp')");
+
         db.execSQL("insert into hinhanh values(1,1)");
         db.execSQL("insert into chatlieu values(1,'cotton')");
         db.execSQL("insert into spchitiet values(1,1,1,699,29,'Nike Air Force 1 canvat','Top bán chạy','con hang','14/12/2024',1)");
@@ -105,22 +102,35 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-       if (newVersion != oldVersion){
-           db.execSQL("drop table if exists thuthu");
-           db.execSQL("drop table if exists giohang");
-           db.execSQL("drop table if exists spchitiet");
-           db.execSQL("drop table if exists chatlieu");
-           db.execSQL("drop table if exists hinhanh");
-           db.execSQL("drop table if exists danhgia");
-           db.execSQL("drop table if exists CHITIETDONHANG");
-           db.execSQL("drop table if exists DONHANG");
-           db.execSQL("drop table if exists loaisp");
-           db.execSQL("drop table if exists love");
-           onCreate(db);
-       }
+        if (newVersion != oldVersion){
+            db.execSQL("drop table if exists thuthu");
+            db.execSQL("drop table if exists giohang");
+            db.execSQL("drop table if exists spchitiet");
+            db.execSQL("drop table if exists chatlieu");
+            db.execSQL("drop table if exists hinhanh");
+            db.execSQL("drop table if exists danhgia");
+            db.execSQL("drop table if exists CHITIETDONHANG");
+            db.execSQL("drop table if exists DONHANG");
+            db.execSQL("drop table if exists loaisp");
+            db.execSQL("drop table if exists love");
+            onCreate(db);
+        }
     }
-public Cursor rawQuery(String sqltop,Object o){
+    public boolean updateUserInfo(String newUsername, String newPhoneNumber, String newAddress) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("hoten", newUsername);
+        values.put("sodienthoai", newPhoneNumber);
+        values.put("diachi", newAddress);
+
+        int rowsAffected = db.update("thuthu", values, null, null);
+        db.close();
+
+        return rowsAffected > 0;
+    }
+    public Cursor rawQuery(String sqltop,Object o){
         return null;
-}
+    }
 
 }
+
