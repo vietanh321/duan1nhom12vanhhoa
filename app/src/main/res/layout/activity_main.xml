@@ -46,7 +46,7 @@
                     android:id="@+id/giohang_main"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/transpots"
+                    android:src="@drawable/oder_img"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
 

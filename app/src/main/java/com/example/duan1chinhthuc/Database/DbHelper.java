@@ -17,16 +17,13 @@ import androidx.annotation.Nullable;
 public class DbHelper extends SQLiteOpenHelper {
     private static final String DB_name="BG";
     public DbHelper(@Nullable Context context) {
-        super(context, DB_name, null, 109);
+        super(context, DB_name, null, 111);
     }
 
 
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        //---------------------------------------------------------------------//
-        String chitietdonhang = "CREATE TABLE CHITIETDONHANG(id integer, masp integer , giasp integer, soluong integer,matt text references thuthu(matt))";
-        db.execSQL(chitietdonhang);
         //---------------------------------------------------------------------//
         String donhang = "CREATE TABLE DONHANG(id integer primary key, " +
                 "Id_spchitiet references spchitiet(Id_spchitiet)," +
@@ -63,9 +60,12 @@ public class DbHelper extends SQLiteOpenHelper {
 
         String db_giohang = "create table giohang(id_giohang integer PRIMARY KEY AUTOINCREMENT," +
                 "id_sp integer not null," +
+                "ten_sp text," +
                 "gia_sp integer," +
                 "soluong_sp integer," +
-                "FOREIGN key (id_sp) references spchitiet(Id_spchitiet))";
+                "id_user integer ," +
+                "FOREIGN key (id_sp) references spchitiet(Id_spchitiet)," +
+                "FOREIGN key (id_user) REFERENCES thuthu(id_usser))";
         db.execSQL(db_giohang);
 
 
@@ -116,6 +116,7 @@ public class DbHelper extends SQLiteOpenHelper {
            db.execSQL("drop table if exists DONHANG");
            db.execSQL("drop table if exists loaisp");
            db.execSQL("drop table if exists love");
+           db.execSQL("drop table if exists db_giohang");
            onCreate(db);
        }
     }

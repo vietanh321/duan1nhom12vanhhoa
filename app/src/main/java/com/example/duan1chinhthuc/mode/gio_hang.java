@@ -3,40 +3,64 @@ package com.example.duan1chinhthuc.mode;
 import java.io.Serializable;
 
 public class gio_hang implements Serializable {
-    private int id;
+    private int id_giohang;
+    private int id_sp;
+    private int gia_sp;
+    private int soluong_sp;
     private String tensp;
-    private int giasp;
-    private int hinhanhsp;
-    private int soluongsp;
+    private int id_user;
 
-    public gio_hang(int id, String tensp, int giasp) {
-        this.id = id;
-        this.tensp = tensp;
-        this.giasp = giasp;
-    }
 
     public gio_hang() {
     }
 
-    public gio_hang(int id, String tensp, int giasp, int hinhanhsp, int soluongsp) {
-        this.id = id;
+    public gio_hang(int id_giohang, int id_sp, int gia_sp, int soluong_sp, String tensp, int id_user) {
+        this.id_giohang = id_giohang;
+        this.id_sp = id_sp;
+        this.gia_sp = gia_sp;
+        this.soluong_sp = soluong_sp;
         this.tensp = tensp;
-        this.giasp = giasp;
-        this.hinhanhsp = hinhanhsp;
-        this.soluongsp = soluongsp;
+        this.id_user = id_user;
     }
 
-    public gio_hang(String tensp, int giasp) {
-        this.tensp = tensp;
-        this.giasp = giasp;
+    public int getId_user() {
+        return id_user;
     }
 
-    public int getId() {
-        return id;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId_giohang() {
+        return id_giohang;
+    }
+
+    public void setId_giohang(int id_giohang) {
+        this.id_giohang = id_giohang;
+    }
+
+    public int getId_sp() {
+        return id_sp;
+    }
+
+    public void setId_sp(int id_sp) {
+        this.id_sp = id_sp;
+    }
+
+    public int getGia_sp() {
+        return gia_sp;
+    }
+
+    public void setGia_sp(int gia_sp) {
+        this.gia_sp = gia_sp;
+    }
+
+    public int getSoluong_sp() {
+        return soluong_sp;
+    }
+
+    public void setSoluong_sp(int soluong_sp) {
+        this.soluong_sp = soluong_sp;
     }
 
     public String getTensp() {
@@ -45,29 +69,5 @@ public class gio_hang implements Serializable {
 
     public void setTensp(String tensp) {
         this.tensp = tensp;
-    }
-
-    public int getGiasp() {
-        return giasp;
-    }
-
-    public void setGiasp(int giasp) {
-        this.giasp = giasp;
-    }
-
-    public int getHinhanhsp() {
-        return hinhanhsp;
-    }
-
-    public void setHinhanhsp(int hinhanhsp) {
-        this.hinhanhsp = hinhanhsp;
-    }
-
-    public int getSoluongsp() {
-        return soluongsp;
-    }
-
-    public void setSoluongsp(int soluongsp) {
-        this.soluongsp = soluongsp;
     }
 }

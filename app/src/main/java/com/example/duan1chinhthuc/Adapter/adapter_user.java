@@ -24,6 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1chinhthuc.Adapter_admin.Home_adapter;
 import com.example.duan1chinhthuc.Adapter_admin.adapter_QL_donhang;
+import com.example.duan1chinhthuc.DAO.DAO_giohang;
 import com.example.duan1chinhthuc.DAO.Dao_love;
 import com.example.duan1chinhthuc.DAO.DonHang_DAO;
 import com.example.duan1chinhthuc.DAO.Home_DAO;
@@ -31,6 +32,7 @@ import com.example.duan1chinhthuc.InterfaceRecycle;
 import com.example.duan1chinhthuc.R;
 import com.example.duan1chinhthuc.mode.Donhang;
 import com.example.duan1chinhthuc.mode.San_Pham;
+import com.example.duan1chinhthuc.mode.gio_hang;
 import com.example.duan1chinhthuc.mode.love_model;
 import com.example.duan1chinhthuc.mode.nguoidung;
 
@@ -38,13 +40,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> {
     InterfaceRecycle interfaceRecycle;
     private final Context context;
     ///
     Spinner spn_soluong;
-    int giasp;
+
     int id;
     String name, loai,image;
     // Ensure your ArrayList is initialized before using it.
@@ -58,8 +61,10 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
     Home_DAO dao;
     DonHang_DAO dao1;
     Dao_love dao_love;
+    ArrayList<gio_hang> listcart;
     ArrayList<love_model> list_love;
     adapter_love adapter_love;
+    adapter_giohang adapter_cart;
 
     ArrayList<Donhang> list12;
     private static int nextId = 1;
@@ -98,6 +103,7 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
             if (loaiTK.equals("admin")){
 
             }else {
+
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -130,6 +136,39 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
 
                         Button addtocart = view1.findViewById(R.id.btn_add_cart);
                         ImageView addtolove = view1.findViewById(R.id.add_to_love_ct);
+                        ImageView themgiohang = view1.findViewById(R.id.addtocarrtt);
+
+
+                        themgiohang.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+//                                try {
+//                                    DAO_giohang cart = new DAO_giohang(context);
+//
+//                                    int id_sp1 = Integer.parseInt(idSP.getText().toString());
+//                                    String tensp1 = ten.getText().toString();
+//                                    SharedPreferences sharedPreferences = context.getSharedPreferences("Thongtin_tt", Context.MODE_PRIVATE);
+//                                    int id_user1 = Integer.parseInt(sharedPreferences.getString("id_usser",""));
+//                                    int giatien1 = Integer.parseInt(giatien.getText().toString());
+//                                    int soluong = '1';
+//
+//                                    boolean kt = cart.them_sanpham_giohang(id_sp1,giatien1,tensp1,soluong,id_user1);
+//
+//                                    if(kt){
+//                                        Toast.makeText(context, "thành công !", Toast.LENGTH_SHORT).show();
+//                                        listcart.clear();
+//                                        listcart.addAll(cart.getlistCart());
+//                                        adapter_cart.notifyDataSetChanged();
+//                                    }
+//
+//                                }catch (Exception e){}
+//
+//
+
+
+                            }
+                        });
 
                         addtolove.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -251,6 +290,8 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
                     }
 
                 });
+
+
             }
         }catch (Exception e){}
 
@@ -266,7 +307,7 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
 
     public class viewholder extends RecyclerView.ViewHolder {
         TextView idSP,tenSP,tieude,ngayban,trangthai,id_CL,ten_CL,id_sp_CT,giatien,size,idhinhanh;
-
+        ImageView themgiohang;
         public viewholder(@NonNull View itemView) {
             super(itemView);
 
@@ -279,6 +320,7 @@ public class adapter_user extends RecyclerView.Adapter<adapter_user.viewholder> 
             trangthai = itemView.findViewById(R.id.item_trangthai_sp_home);
             ten_CL = itemView.findViewById(R.id.item_tenCL_sp_home);
             size = itemView.findViewById(R.id.item_Size_sp_home);
+
 
         }
     }
