@@ -19,6 +19,8 @@ import com.example.duan1chinhthuc.Database.DbHelper;
 import com.example.duan1chinhthuc.Frament_user.Fragment_canhan;
 import com.example.duan1chinhthuc.R;
 
+import com.example.duan1chinhthuc.R;
+
 public class UpdateInformationFragment extends AppCompatActivity {
     private TextView txtHoTen;
     private TextView textViewCurrentUsernameValue;

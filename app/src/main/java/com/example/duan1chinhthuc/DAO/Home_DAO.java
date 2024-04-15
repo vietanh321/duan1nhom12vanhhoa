@@ -166,34 +166,6 @@ public class Home_DAO {
 
 
 //----------------------------------------------------------------------------------------------------
-    public boolean themSP_giohang(int id_sanpham , String tensp, int giatien){
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("Id_spchitiet",id_sanpham);
-        values.put("Tensp", tensp);
-        values.put("gia", giatien);
-        long kt = db.insert("giohang" , null, values);
-        return (kt>0);
-    }
-    public ArrayList<gio_hang> getDS_sanpham_giohang(){
-        ArrayList<gio_hang> list = new ArrayList<>();
-        SQLiteDatabase sqLiteDatabase = dbHelper.getReadableDatabase();//
-        try{
-            Cursor cursor = sqLiteDatabase.rawQuery("SELECT ct.Id_spchitiet ,ct.Tensp,ct.gia \n" +
-                    "FROM  spchitiet ct,hinhanh ha, chatlieu cl ,giohang gh,thuthu tt\n"+
-                    "WHERE  ct.Id_chatlieu = cl.Id_chatlieu and ct.Id_hinhanh = ha.hinhanh and gh.matt = tt.matt and gh.Id_spchitiet = ct.Id_spchitiet",null);
-            if (cursor.getCount() > 0){
-                cursor.moveToFirst();
-                while (!cursor.isAfterLast()){
-                    list.add(new gio_hang(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)));
-                    cursor.moveToNext();
-                }
-            }
-        }catch (Exception e){
-            Log.i(TAG, "loi", e);
-        }
-        return list;
-    }
 
 //----------------------------------------------------------------------------------------------------
 

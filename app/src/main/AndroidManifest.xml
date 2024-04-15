@@ -16,6 +16,9 @@
             android:name=".DAO.UpdateInformationFragment"
             android:exported="false" />
         <activity
+            android:name=".Activity_user.gio_hang_activity"
+            android:exported="false" />
+        <activity
             android:name=".Activity_user.update_thongtingiaohang"
             android:exported="false" />
         <activity

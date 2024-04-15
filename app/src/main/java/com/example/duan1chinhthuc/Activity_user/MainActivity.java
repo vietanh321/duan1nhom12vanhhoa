@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     public static final int Frament_QL_PM = 1;
     private int mCurrentFrament = Frament_QL_PM;
+    private TextView txtHoTen;
 
     private Context context;
 
@@ -76,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             menu.findItem(R.id.m_thongke).setVisible(false);
 
         }
+
 
         if (!loaiTK.equals("thuthu")){
             Menu menu = navigationView.getMenu();

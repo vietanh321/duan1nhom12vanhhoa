@@ -73,7 +73,7 @@
 ////                String productPrice = getIntent().getStringExtra("PRODUCT_PRICE");
 ////
 ////                // Tạo một đối tượng sản phẩm mới
-////                gio_hang product = new gio_hang(productId, productName, productPrice);
+////                gio_hang_activity product = new gio_hang_activity(productId, productName, productPrice);
 ////
 ////                // Gọi phương thức để thêm sản phẩm vào giỏ hàng
 ////                addToCart(product);
