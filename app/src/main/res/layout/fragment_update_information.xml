@@ -1,10 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UpdateInformationFragment">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Tên tài khoản hiện tại -->
+    <TextView
+        android:id="@+id/textViewCurrentUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên tài khoản hiện tại:"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Hiển thị tên tài khoản hiện tại -->
+    <TextView
+        android:id="@+id/textViewCurrentUsernameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCurrentUsername"
+        android:layout_marginTop="10dp"
+        android:text="Tên tài khoản"
+        android:textStyle="bold"/>
+
+    <!-- Số điện thoại hiện tại -->
+    <TextView
+        android:id="@+id/textViewCurrentPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCurrentUsernameValue"
+        android:layout_marginTop="20dp"
+        android:text="Số điện thoại hiện tại:"/>
+
+    <!-- Hiển thị số điện thoại hiện tại -->
+    <TextView
+        android:id="@+id/textViewCurrentPhoneNumberValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCurrentPhoneNumber"
+        android:layout_marginTop="10dp"
+        android:text="Số điện thoại"
+        android:textStyle="bold"/>
+
+    <!-- Địa chỉ hiện tại -->
+    <TextView
+        android:id="@+id/textViewCurrentAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCurrentPhoneNumberValue"
+        android:layout_marginTop="20dp"
+        android:text="Địa chỉ hiện tại:"/>
+
+    <!-- Hiển thị địa chỉ hiện tại -->
+    <TextView
+        android:id="@+id/textViewCurrentAddressValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCurrentAddress"
+        android:layout_marginTop="10dp"
+        android:text="Địa chỉ"
+        android:textStyle="bold"/>
+
+    <!-- Tên mới -->
+    <EditText
+        android:id="@+id/editTextNewUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewCurrentAddressValue"
+        android:layout_marginTop="20dp"
+        android:hint="Nhập tên mới"/>
+
+    <!-- Số điện thoại mới -->
+    <EditText
+        android:id="@+id/editTextNewPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNewUsername"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập số điện thoại mới"/>
+
+    <!-- Địa chỉ mới -->
+    <EditText
+        android:id="@+id/editTextNewAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNewPhoneNumber"
+        android:layout_marginTop="10dp"
+        android:hint="Nhập địa chỉ mới"/>
+
+    <!-- Nút lưu -->
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextNewAddress"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="14dp"
+        android:text="Lưu" />
+</RelativeLayout>
