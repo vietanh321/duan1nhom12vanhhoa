@@ -19,7 +19,7 @@ public class Wellcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wellcome);
 
-        Button btngetstarted = findViewById(R.id.btngetstarted);
+
 
         new CountDownTimer(3000,1000){
 
