@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan1chinhthuc.DAO.UpdatePassword;
+import com.example.duan1chinhthuc.Frament_user.Fragment_canhan;
+import com.example.duan1chinhthuc.Frament_user.Fragment_home;
 import com.example.duan1chinhthuc.R;
 
 public class UpdatePasswordActivity extends AppCompatActivity {
@@ -23,13 +25,22 @@ public class UpdatePasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.update_password_activity);
-
+        ImageButton btnback = findViewById(R.id.buttonBack);
         editTextOldPassword = findViewById(R.id.editTextOldPassword);
         editTextNewPassword = findViewById(R.id.editTextNewPassword);
         Button buttonUpdate = findViewById(R.id.buttonUpdate);
+         // Ánh xạ nút "Back"
 
         final Context context = this;
         updatePassword = new UpdatePassword(context);
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdatePasswordActivity.this, Fragment_canhan.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,5 +68,7 @@ public class UpdatePasswordActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 }

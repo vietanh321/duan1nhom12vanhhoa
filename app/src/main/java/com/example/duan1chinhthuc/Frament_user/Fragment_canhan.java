@@ -116,4 +116,5 @@ public class Fragment_canhan extends Fragment {
         String hoten = sharedPreferences.getString("hoten", "");
         txtHoTen.setText(hoten);
     }
+
 }
